@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4F67EBFB-C365-445B-8BB2-19840211212A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BCM.WindowsFormsApplication</RootNamespace>
+    <AssemblyName>BCM.WindowsFormsApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.0.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.0.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BookList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BookList.Designer.cs">
+      <DependentUpon>BookList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TreeViewAuthors.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TreeViewAuthors.Designer.cs">
+      <DependentUpon>TreeViewAuthors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TreeViewBooks.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TreeViewBooks.Designer.cs">
+      <DependentUpon>TreeViewBooks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TreeViewCategories.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TreeViewCategories.Designer.cs">
+      <DependentUpon>TreeViewCategories.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="BookList.resx">
+      <DependentUpon>BookList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="TreeViewAuthors.resx">
+      <DependentUpon>TreeViewAuthors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TreeViewBooks.resx">
+      <DependentUpon>TreeViewBooks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TreeViewCategories.resx">
+      <DependentUpon>TreeViewCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\buttonSelectBooks.BackgroundImage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\buttonSelectCategories.BackgroundImage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\buttonSelectAuthors.BackgroundImage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BCM.Common\BCM.Common.csproj">
+      <Project>{d90d7a69-8c04-481b-9906-f67915331e89}</Project>
+      <Name>BCM.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BCM.DAL\BCM.DAL.csproj">
+      <Project>{74c6f62d-03d5-4dcb-bbf5-18d3207d1113}</Project>
+      <Name>BCM.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BCM.Diagnostics\BCM.Diagnostics.csproj">
+      <Project>{a28e950e-cb9a-4d1d-b688-952a90b67fa8}</Project>
+      <Name>BCM.Diagnostics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BCM.Model\BCM.Model.csproj">
+      <Project>{28dd1864-2767-491b-8eee-03371dd72407}</Project>
+      <Name>BCM.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BCM.Resources\BCM.Resources.csproj">
+      <Project>{11469b43-55b0-4e63-ae4b-eed85511ceae}</Project>
+      <Name>BCM.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
