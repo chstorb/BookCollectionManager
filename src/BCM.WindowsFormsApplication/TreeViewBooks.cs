@@ -20,12 +20,16 @@ namespace BCM.WindowsFormsApplication
         [Browsable(false)]
         public ApplicationDbContext DbContext { get; set; }
 
-        #endregion
+        #endregion Properties
+
+        #region Constructor
 
         public TreeViewBooks()
         {
             InitializeComponent();
         }
+
+        #endregion Constructor
 
         #region Event Handler
 

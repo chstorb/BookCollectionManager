@@ -131,7 +131,7 @@ namespace BCM.WindowsFormsApplication
         private void treeViewCategories_AfterSelect(object sender, TreeViewEventArgs e)
         {
             //this.bookList.Filter = String.Format("ID={0}", e.Node.Tag.ToString());
-            this.bookList.FilterByCategoryId(int.Parse(e.Node.Tag.ToString()));
+            this.bookList.CategoryId = int.Parse(e.Node.Tag.ToString());
         }
 
         private void helpAboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -167,6 +167,12 @@ namespace BCM.WindowsFormsApplication
 
             if (this.splitContainerNav.Height - this.splitContainerNav.SplitterDistance - 4 != 150)
                 this.splitContainerNav.SplitterDistance = this.splitContainerNav.Height - 157;
+        }
+
+        private void bookList_AfterSelect(object sender, BookSelectedEventArgs e)
+        {
+            MessageBox.Show(String.Format("Book #{0} selected!", e.BookId), "AfterSelect", 
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

@@ -21,12 +21,47 @@ namespace BCM.WindowsFormsApplication
 
     public partial class BookList : UserControl
     {
-        int _categoryId = 1;
+        #region Fields
+
+        private int categoryId = 1;
+
+        #endregion Fields
+
+        #region Constructor
 
         public BookList()
         {
             InitializeComponent();
         }
+
+        #endregion Constructor
+
+        #region Properties
+        
+        public ApplicationDbContext DbContext { get; set; }
+
+        public string Filter
+        {
+            get { return this.bindingSource1.Filter; }
+            set { this.bindingSource1.Filter = value; }
+        }
+        
+        public int CategoryId 
+        {
+            get 
+            { 
+                return this.categoryId; 
+            } 
+            set
+            {
+                if (value == this.categoryId)
+                    return;                
+                this.categoryId = value;
+                this.Requery();
+            }             
+        }
+
+        #endregion Properties
 
         #region Event Handler
 
@@ -37,6 +72,66 @@ namespace BCM.WindowsFormsApplication
                 return;
             }
             this.LoadData();
+        }
+
+        private void dataGridViewBooks_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (this.dataGridViewBooks.Columns[e.ColumnIndex].Name == "PublishingYear")
+            {
+                if (e.Value != null)
+                {
+                    string stringValue = e.Value.ToString();
+                    if ((stringValue.Equals("0")))
+                    {
+                        e.Value = String.Empty;
+                    }
+
+                }
+            }
+        }
+
+        private void dataGridViewBooks_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // return if column header row is clicked
+            int rowIndex = e.RowIndex;
+            if(rowIndex == -1)
+	            return;
+
+            int bookId = Convert.ToInt32(this.dataGridViewBooks.Rows[rowIndex].Cells["ID"].Value);
+
+            // Raise the event
+            if (onAfterSelect != null)
+            {
+                BookSelectedEventArgs bookSelectedEventArgs = new BookSelectedEventArgs(bookId);
+                onAfterSelect(this, bookSelectedEventArgs);
+            }
+        }
+        
+        #endregion Event Handler
+
+        #region Events
+
+        private EventHandler<BookSelectedEventArgs> onAfterSelect;
+
+        protected virtual void OnAfterSelect(BookSelectedEventArgs e)
+        {
+            if (onAfterSelect != null)
+            {
+                onAfterSelect(this, e);
+            }
+        }
+
+        [Description("Occurs after double clicking a row int the datagrid.")]
+        public event EventHandler<BookSelectedEventArgs> AfterSelect
+        {
+            add
+            {
+                onAfterSelect += value;
+            }
+            remove
+            {
+                onAfterSelect -= value;
+            }
         }
 
         #endregion
@@ -79,52 +174,27 @@ namespace BCM.WindowsFormsApplication
 
         private void Requery()
         {
-            var result = from c in this.DbContext.Categories.Include("Books")
-                         where c.ID == this._categoryId
-                         from b in c.Books
-                         select b;
-
-            ObservableCollection<Book> books = new ObservableCollection<Book>(result.ToList());
+            ObservableCollection<Book> books = null;
+            if (this.categoryId == 1)
+            {
+                var result = from b in this.DbContext.Books
+                             orderby b.Title ascending
+                             select b;
+                books = new ObservableCollection<Book>(result.ToList());
+            }
+            else
+            {
+                var result = from c in this.DbContext.Categories.Include("Books")
+                             where c.ID == this.categoryId
+                             from b in c.Books
+                             orderby b.Title ascending
+                             select b;
+                books = new ObservableCollection<Book>(result.ToList());                
+            }
             this.bindingSource1.DataSource = books.ToSortableBindingList();
         }
 
-        public void FilterByCategoryId(int categoryId)
-        {
-            if (this._categoryId == categoryId)
-                return;
+        #endregion Methods
 
-            this._categoryId = categoryId;
-            this.Requery();
-        }
-
-        #endregion
-
-        #region Public Properties
-
-        public ApplicationDbContext DbContext { get; set; }
-
-        public string Filter
-        {
-            get { return this.bindingSource1.Filter; }
-            set { this.bindingSource1.Filter = value; }
-        }
-
-        #endregion
-
-        private void dataGridViewBooks_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (this.dataGridViewBooks.Columns[e.ColumnIndex].Name == "PublishingYear")
-            {
-                if (e.Value != null)
-                {
-                    string stringValue = e.Value.ToString();
-                    if ((stringValue.Equals("0")))
-                    {
-                        e.Value = String.Empty;
-                    }
-
-                }
-            }
-        }
     }
 }

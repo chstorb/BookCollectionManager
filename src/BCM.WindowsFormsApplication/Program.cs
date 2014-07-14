@@ -17,8 +17,12 @@ namespace BCM.WindowsFormsApplication
         [STAThread]
         static void Main()
         {
-            string pathRoot = Path.GetPathRoot(Assembly.GetExecutingAssembly().Location);
-            string newPath = Path.Combine(pathRoot, @"Visual Studio 2013\codeplex\bcm\src\BCM.DAL\App_Data");
+            string pathRoot =
+                //@"E:\";
+                //Path.GetPathRoot(Assembly.GetExecutingAssembly().Location);
+                //Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+                Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            string newPath = Path.Combine(pathRoot, @"Documents\Visual Studio 2013\codeplex\bcm\src\BCM.DAL\App_Data");
             AppDomain.CurrentDomain.SetData("DataDirectory", newPath);
             
             Application.EnableVisualStyles();
