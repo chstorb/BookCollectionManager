@@ -29,24 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookList));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookList));
             this.labelDescription = new System.Windows.Forms.Label();
             this.dataGridViewBooks = new System.Windows.Forms.DataGridView();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CopyrigthYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,6 +51,19 @@
             this.PurchasePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DatePurchased = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ListPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
+            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBooks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
@@ -112,7 +112,115 @@
             this.dataGridViewBooks.Name = "dataGridViewBooks";
             this.dataGridViewBooks.Size = new System.Drawing.Size(1291, 360);
             this.dataGridViewBooks.TabIndex = 1;
+            this.dataGridViewBooks.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBooks_CellDoubleClick);
             this.dataGridViewBooks.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewBooks_CellFormatting);
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.Visible = false;
+            // 
+            // Title
+            // 
+            this.Title.HeaderText = "Title";
+            this.Title.Name = "Title";
+            this.Title.Width = 400;
+            // 
+            // CopyrigthYear
+            // 
+            this.CopyrigthYear.HeaderText = "CopyrigthYear";
+            this.CopyrigthYear.Name = "CopyrigthYear";
+            this.CopyrigthYear.Visible = false;
+            // 
+            // ISBNNumber
+            // 
+            this.ISBNNumber.HeaderText = "ISBNNumber";
+            this.ISBNNumber.Name = "ISBNNumber";
+            this.ISBNNumber.Visible = false;
+            // 
+            // PublishingCompany
+            // 
+            this.PublishingCompany.HeaderText = "Publishing Company";
+            this.PublishingCompany.Name = "PublishingCompany";
+            this.PublishingCompany.Width = 200;
+            // 
+            // PublisherName
+            // 
+            this.PublisherName.HeaderText = "Publisher Name";
+            this.PublisherName.Name = "PublisherName";
+            this.PublisherName.Width = 180;
+            // 
+            // PublishingYear
+            // 
+            dataGridViewCellStyle1.NullValue = null;
+            this.PublishingYear.DefaultCellStyle = dataGridViewCellStyle1;
+            this.PublishingYear.HeaderText = "Publishing Year";
+            this.PublishingYear.Name = "PublishingYear";
+            this.PublishingYear.Width = 130;
+            // 
+            // PlaceOfPublication
+            // 
+            this.PlaceOfPublication.HeaderText = "Place Of Publication";
+            this.PlaceOfPublication.Name = "PlaceOfPublication";
+            this.PlaceOfPublication.Width = 180;
+            // 
+            // VolumeNumber
+            // 
+            this.VolumeNumber.HeaderText = "VolumeNumber";
+            this.VolumeNumber.Name = "VolumeNumber";
+            this.VolumeNumber.Visible = false;
+            // 
+            // EditionNumber
+            // 
+            this.EditionNumber.HeaderText = "EditionNumber";
+            this.EditionNumber.Name = "EditionNumber";
+            this.EditionNumber.Visible = false;
+            // 
+            // CoverType
+            // 
+            this.CoverType.HeaderText = "CoverType";
+            this.CoverType.Name = "CoverType";
+            this.CoverType.Visible = false;
+            // 
+            // Pages
+            // 
+            this.Pages.HeaderText = "Pages";
+            this.Pages.Name = "Pages";
+            this.Pages.Visible = false;
+            // 
+            // Location
+            // 
+            this.Location.HeaderText = "Location";
+            this.Location.Name = "Location";
+            this.Location.Visible = false;
+            // 
+            // Notes
+            // 
+            this.Notes.HeaderText = "Notes";
+            this.Notes.Name = "Notes";
+            this.Notes.Visible = false;
+            // 
+            // PurchasePrice
+            // 
+            this.PurchasePrice.HeaderText = "PurchasePrice";
+            this.PurchasePrice.Name = "PurchasePrice";
+            this.PurchasePrice.Visible = false;
+            // 
+            // DatePurchased
+            // 
+            this.DatePurchased.HeaderText = "DatePurchased";
+            this.DatePurchased.Name = "DatePurchased";
+            this.DatePurchased.Visible = false;
+            // 
+            // ListPrice
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.ListPrice.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ListPrice.HeaderText = "List Price";
+            this.ListPrice.Name = "ListPrice";
             // 
             // bindingNavigator1
             // 
@@ -228,113 +336,6 @@
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.Visible = false;
-            // 
-            // Title
-            // 
-            this.Title.HeaderText = "Title";
-            this.Title.Name = "Title";
-            this.Title.Width = 400;
-            // 
-            // CopyrigthYear
-            // 
-            this.CopyrigthYear.HeaderText = "CopyrigthYear";
-            this.CopyrigthYear.Name = "CopyrigthYear";
-            this.CopyrigthYear.Visible = false;
-            // 
-            // ISBNNumber
-            // 
-            this.ISBNNumber.HeaderText = "ISBNNumber";
-            this.ISBNNumber.Name = "ISBNNumber";
-            this.ISBNNumber.Visible = false;
-            // 
-            // PublishingCompany
-            // 
-            this.PublishingCompany.HeaderText = "Publishing Company";
-            this.PublishingCompany.Name = "PublishingCompany";
-            this.PublishingCompany.Width = 200;
-            // 
-            // PublisherName
-            // 
-            this.PublisherName.HeaderText = "Publisher Name";
-            this.PublisherName.Name = "PublisherName";
-            this.PublisherName.Width = 180;
-            // 
-            // PublishingYear
-            // 
-            dataGridViewCellStyle1.NullValue = null;
-            this.PublishingYear.DefaultCellStyle = dataGridViewCellStyle1;
-            this.PublishingYear.HeaderText = "Publishing Year";
-            this.PublishingYear.Name = "PublishingYear";
-            this.PublishingYear.Width = 130;
-            // 
-            // PlaceOfPublication
-            // 
-            this.PlaceOfPublication.HeaderText = "Place Of Publication";
-            this.PlaceOfPublication.Name = "PlaceOfPublication";
-            this.PlaceOfPublication.Width = 180;
-            // 
-            // VolumeNumber
-            // 
-            this.VolumeNumber.HeaderText = "VolumeNumber";
-            this.VolumeNumber.Name = "VolumeNumber";
-            this.VolumeNumber.Visible = false;
-            // 
-            // EditionNumber
-            // 
-            this.EditionNumber.HeaderText = "EditionNumber";
-            this.EditionNumber.Name = "EditionNumber";
-            this.EditionNumber.Visible = false;
-            // 
-            // CoverType
-            // 
-            this.CoverType.HeaderText = "CoverType";
-            this.CoverType.Name = "CoverType";
-            this.CoverType.Visible = false;
-            // 
-            // Pages
-            // 
-            this.Pages.HeaderText = "Pages";
-            this.Pages.Name = "Pages";
-            this.Pages.Visible = false;
-            // 
-            // Location
-            // 
-            this.Location.HeaderText = "Location";
-            this.Location.Name = "Location";
-            this.Location.Visible = false;
-            // 
-            // Notes
-            // 
-            this.Notes.HeaderText = "Notes";
-            this.Notes.Name = "Notes";
-            this.Notes.Visible = false;
-            // 
-            // PurchasePrice
-            // 
-            this.PurchasePrice.HeaderText = "PurchasePrice";
-            this.PurchasePrice.Name = "PurchasePrice";
-            this.PurchasePrice.Visible = false;
-            // 
-            // DatePurchased
-            // 
-            this.DatePurchased.HeaderText = "DatePurchased";
-            this.DatePurchased.Name = "DatePurchased";
-            this.DatePurchased.Visible = false;
-            // 
-            // ListPrice
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.ListPrice.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ListPrice.HeaderText = "List Price";
-            this.ListPrice.Name = "ListPrice";
             // 
             // BookList
             // 

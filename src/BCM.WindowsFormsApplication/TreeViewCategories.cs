@@ -21,12 +21,16 @@ namespace BCM.WindowsFormsApplication
         [Browsable(false)]
         public ApplicationDbContext DbContext { get; set; }
 
-        #endregion
+        #endregion Properties
+
+        #region Constructor
 
         public TreeViewCategories()
         {
             InitializeComponent();
         }
+
+        #endregion Constructor
 
         #region Event Handler
 
@@ -50,13 +54,13 @@ namespace BCM.WindowsFormsApplication
                 parentKey = category.ParentCategoryID.ToString();
                 text = category.Name;
 
-                if (String.IsNullOrEmpty(parentKey) || (parentKey.Equals("-1")) )
-                {                    
+                if (String.IsNullOrEmpty(parentKey) || (parentKey.Equals("-1")))
+                {
                     treeNode = this.treeView1.Nodes.Add(key, text);
                     treeNode.Tag = key;
                     nodesDictionary.Add(key, treeNode);
                 }
-                else 
+                else
                 {
                     treeNode = nodesDictionary[parentKey].Nodes.Add(key, text);
                     treeNode.Tag = key;
@@ -74,7 +78,7 @@ namespace BCM.WindowsFormsApplication
             }
         }
 
-        #endregion
+        #endregion Event Handler
 
         #region Events
 
@@ -101,7 +105,7 @@ namespace BCM.WindowsFormsApplication
             }
         }
 
-        #endregion
+        #endregion Events
     }
 }
 

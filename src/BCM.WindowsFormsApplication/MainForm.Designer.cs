@@ -34,9 +34,13 @@
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainerNav = new System.Windows.Forms.SplitContainer();
+            this.treeViewAuthors = new BCM.WindowsFormsApplication.TreeViewAuthors();
+            this.treeViewCategories = new BCM.WindowsFormsApplication.TreeViewCategories();
+            this.treeViewBooks = new BCM.WindowsFormsApplication.TreeViewBooks();
             this.buttonSelectBooks = new System.Windows.Forms.Button();
             this.buttonSelectCategories = new System.Windows.Forms.Button();
             this.buttonSelectAuthors = new System.Windows.Forms.Button();
+            this.bookList = new BCM.WindowsFormsApplication.BookList();
             this.panelStartup = new System.Windows.Forms.Panel();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
@@ -71,10 +75,6 @@
             this.helpAboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMain = new System.Windows.Forms.Panel();
             this.labelInfo = new System.Windows.Forms.Label();
-            this.treeViewAuthors = new BCM.WindowsFormsApplication.TreeViewAuthors();
-            this.treeViewCategories = new BCM.WindowsFormsApplication.TreeViewCategories();
-            this.treeViewBooks = new BCM.WindowsFormsApplication.TreeViewBooks();
-            this.bookList = new BCM.WindowsFormsApplication.BookList();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -167,6 +167,34 @@
             this.splitContainerNav.TabIndex = 0;
             this.splitContainerNav.Resize += new System.EventHandler(this.splitContainerNav_Resize);
             // 
+            // treeViewAuthors
+            // 
+            this.treeViewAuthors.DbContext = null;
+            this.treeViewAuthors.Location = new System.Drawing.Point(49, 279);
+            this.treeViewAuthors.Margin = new System.Windows.Forms.Padding(5);
+            this.treeViewAuthors.Name = "treeViewAuthors";
+            this.treeViewAuthors.Size = new System.Drawing.Size(161, 111);
+            this.treeViewAuthors.TabIndex = 5;
+            // 
+            // treeViewCategories
+            // 
+            this.treeViewCategories.DbContext = null;
+            this.treeViewCategories.Location = new System.Drawing.Point(49, 148);
+            this.treeViewCategories.Margin = new System.Windows.Forms.Padding(5);
+            this.treeViewCategories.Name = "treeViewCategories";
+            this.treeViewCategories.Size = new System.Drawing.Size(161, 119);
+            this.treeViewCategories.TabIndex = 4;
+            this.treeViewCategories.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewCategories_AfterSelect);
+            // 
+            // treeViewBooks
+            // 
+            this.treeViewBooks.DbContext = null;
+            this.treeViewBooks.Location = new System.Drawing.Point(49, 17);
+            this.treeViewBooks.Margin = new System.Windows.Forms.Padding(5);
+            this.treeViewBooks.Name = "treeViewBooks";
+            this.treeViewBooks.Size = new System.Drawing.Size(161, 123);
+            this.treeViewBooks.TabIndex = 3;
+            // 
             // buttonSelectBooks
             // 
             this.buttonSelectBooks.BackgroundImage = global::BCM.WindowsFormsApplication.Properties.Resources.buttonSelectBooks_BackgroundImage;
@@ -196,7 +224,7 @@
             this.buttonSelectCategories.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSelectCategories.MaximumSize = new System.Drawing.Size(0, 50);
             this.buttonSelectCategories.Name = "buttonSelectCategories";
-            this.buttonSelectCategories.Size = new System.Drawing.Size(0, 50);
+            this.buttonSelectCategories.Size = new System.Drawing.Size(282, 50);
             this.buttonSelectCategories.TabIndex = 1;
             this.buttonSelectCategories.Text = "Categories";
             this.buttonSelectCategories.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -221,6 +249,19 @@
             this.buttonSelectAuthors.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonSelectAuthors.UseVisualStyleBackColor = true;
             this.buttonSelectAuthors.Click += new System.EventHandler(this.buttonSelectAuthors_Click);
+            // 
+            // bookList
+            // 
+            this.bookList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.bookList.CategoryId = 1;
+            this.bookList.DbContext = null;
+            this.bookList.Filter = null;
+            this.bookList.Location = new System.Drawing.Point(25, 149);
+            this.bookList.Margin = new System.Windows.Forms.Padding(5);
+            this.bookList.Name = "bookList";
+            this.bookList.Size = new System.Drawing.Size(265, 122);
+            this.bookList.TabIndex = 1;
+            this.bookList.AfterSelect += new System.EventHandler<BCM.WindowsFormsApplication.BookSelectedEventArgs>(this.bookList_AfterSelect);
             // 
             // panelStartup
             // 
@@ -534,45 +575,6 @@
             this.labelInfo.TabIndex = 0;
             this.labelInfo.Text = "Book Collection Manager";
             this.labelInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // treeViewAuthors
-            // 
-            this.treeViewAuthors.DbContext = null;
-            this.treeViewAuthors.Location = new System.Drawing.Point(49, 279);
-            this.treeViewAuthors.Margin = new System.Windows.Forms.Padding(5);
-            this.treeViewAuthors.Name = "treeViewAuthors";
-            this.treeViewAuthors.Size = new System.Drawing.Size(161, 111);
-            this.treeViewAuthors.TabIndex = 5;
-            // 
-            // treeViewCategories
-            // 
-            this.treeViewCategories.DbContext = null;
-            this.treeViewCategories.Location = new System.Drawing.Point(49, 148);
-            this.treeViewCategories.Margin = new System.Windows.Forms.Padding(5);
-            this.treeViewCategories.Name = "treeViewCategories";
-            this.treeViewCategories.Size = new System.Drawing.Size(161, 119);
-            this.treeViewCategories.TabIndex = 4;
-            this.treeViewCategories.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewCategories_AfterSelect);
-            // 
-            // treeViewBooks
-            // 
-            this.treeViewBooks.DbContext = null;
-            this.treeViewBooks.Location = new System.Drawing.Point(49, 17);
-            this.treeViewBooks.Margin = new System.Windows.Forms.Padding(5);
-            this.treeViewBooks.Name = "treeViewBooks";
-            this.treeViewBooks.Size = new System.Drawing.Size(161, 123);
-            this.treeViewBooks.TabIndex = 3;
-            // 
-            // bookList
-            // 
-            this.bookList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.bookList.DbContext = null;
-            this.bookList.Filter = null;
-            this.bookList.Location = new System.Drawing.Point(25, 149);
-            this.bookList.Margin = new System.Windows.Forms.Padding(5);
-            this.bookList.Name = "bookList";
-            this.bookList.Size = new System.Drawing.Size(265, 122);
-            this.bookList.TabIndex = 1;
             // 
             // MainForm
             // 
