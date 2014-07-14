@@ -44,10 +44,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
-    <Compile Include="FilteredBindingList.cs" />
-    <Compile Include="MyObservableCollectionExtensions.cs" />
+    <Compile Include="FilterableBindingList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ObservableCollectionExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SortableBindingList.cs" />
+    <Compile Include="PropertyComparer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PropertyDescriptorExtensions.cs" />
+    <Compile Include="SortableBindingList.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
