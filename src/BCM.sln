@@ -13,11 +13,39 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCM.Model", "BCM.Model\BCM.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCM.Resources", "BCM.Resources\BCM.Resources.csproj", "{11469B43-55B0-4E63-AE4B-EED85511CEAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCM.Migration", "BCM.Migration\BCM.Migration.csproj", "{1EC07454-DBD7-4575-AADC-51A34D78E279}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCM.WindowsFormsApplication", "BCM.WindowsFormsApplication\BCM.WindowsFormsApplication.csproj", "{4F67EBFB-C365-445B-8BB2-19840211212A}"
 EndProject
 Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs14
+		SccProjectUniqueName0 = BCM.Common\\BCM.Common.csproj
+		SccProjectName0 = BCM.Common
+		SccAuxPath0 = https://tfs.codeplex.com/tfs/tfs14
+		SccLocalPath0 = BCM.Common
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName1 = BCM.Diagnostics\\BCM.Diagnostics.csproj
+		SccProjectName1 = BCM.Diagnostics
+		SccAuxPath1 = https://tfs.codeplex.com/tfs/tfs14
+		SccLocalPath1 = BCM.Diagnostics
+		SccProvider1 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName2 = BCM.Resources\\BCM.Resources.csproj
+		SccProjectName2 = BCM.Resources
+		SccAuxPath2 = https://tfs.codeplex.com/tfs/tfs14
+		SccLocalPath2 = BCM.Resources
+		SccProvider2 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName3 = BCM.Model\\BCM.Model.csproj
+		SccProjectName3 = BCM.Model
+		SccAuxPath3 = https://tfs.codeplex.com/tfs/tfs14
+		SccLocalPath3 = BCM.Model
+		SccProvider3 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName4 = BCM.DAL\\BCM.DAL.csproj
+		SccProjectName4 = BCM.DAL
+		SccAuxPath4 = https://tfs.codeplex.com/tfs/tfs14
+		SccLocalPath4 = BCM.DAL
+		SccProvider4 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -43,10 +71,6 @@ Global
 		{11469B43-55B0-4E63-AE4B-EED85511CEAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11469B43-55B0-4E63-AE4B-EED85511CEAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11469B43-55B0-4E63-AE4B-EED85511CEAE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1EC07454-DBD7-4575-AADC-51A34D78E279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1EC07454-DBD7-4575-AADC-51A34D78E279}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1EC07454-DBD7-4575-AADC-51A34D78E279}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1EC07454-DBD7-4575-AADC-51A34D78E279}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4F67EBFB-C365-445B-8BB2-19840211212A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4F67EBFB-C365-445B-8BB2-19840211212A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F67EBFB-C365-445B-8BB2-19840211212A}.Release|Any CPU.ActiveCfg = Release|Any CPU
