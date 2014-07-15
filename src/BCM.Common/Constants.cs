@@ -15,5 +15,10 @@ namespace BCM.Common
         /// The table prefix for all tables
         /// </summary>
         public const string TablePrefix = "Bcm";
+        
+        /// <summary>
+        /// DataDirectroy
+        /// </summary>
+        public const string DataDirectory = "DataDirectory";
     }
 }
