@@ -32,7 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookList));
-            this.labelDescription = new System.Windows.Forms.Label();
             this.dataGridViewBooks = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,28 +63,20 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.bookDetails1 = new BCM.WindowsFormsApplication.BookDetails();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBooks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // labelDescription
-            // 
-            this.labelDescription.AutoSize = true;
-            this.labelDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDescription.Location = new System.Drawing.Point(19, 12);
-            this.labelDescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(102, 17);
-            this.labelDescription.TabIndex = 0;
-            this.labelDescription.Text = "List of Books";
             // 
             // dataGridViewBooks
             // 
-            this.dataGridViewBooks.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewBooks.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridViewBooks.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridViewBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -107,10 +98,11 @@
             this.PurchasePrice,
             this.DatePurchased,
             this.ListPrice});
-            this.dataGridViewBooks.Location = new System.Drawing.Point(22, 59);
+            this.dataGridViewBooks.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewBooks.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewBooks.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewBooks.Name = "dataGridViewBooks";
-            this.dataGridViewBooks.Size = new System.Drawing.Size(1291, 360);
+            this.dataGridViewBooks.Size = new System.Drawing.Size(1327, 302);
             this.dataGridViewBooks.TabIndex = 1;
             this.dataGridViewBooks.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBooks_CellDoubleClick);
             this.dataGridViewBooks.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewBooks_CellFormatting);
@@ -241,14 +233,14 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem});
-            this.bindingNavigator1.Location = new System.Drawing.Point(0, 447);
+            this.bindingNavigator1.Location = new System.Drawing.Point(0, 302);
             this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
             this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(1329, 27);
+            this.bindingNavigator1.Size = new System.Drawing.Size(1327, 27);
             this.bindingNavigator1.TabIndex = 2;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -337,30 +329,58 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
+            // splitContainer1
+            // 
+            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.dataGridViewBooks);
+            this.splitContainer1.Panel1.Controls.Add(this.bindingNavigator1);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.bookDetails1);
+            this.splitContainer1.Size = new System.Drawing.Size(1329, 654);
+            this.splitContainer1.SplitterDistance = 331;
+            this.splitContainer1.TabIndex = 3;
+            // 
+            // bookDetails1
+            // 
+            this.bookDetails1.Location = new System.Drawing.Point(46, 28);
+            this.bookDetails1.Name = "bookDetails1";
+            this.bookDetails1.Size = new System.Drawing.Size(878, 465);
+            this.bookDetails1.TabIndex = 0;
+            // 
             // BookList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.bindingNavigator1);
-            this.Controls.Add(this.dataGridViewBooks);
-            this.Controls.Add(this.labelDescription);
+            this.Controls.Add(this.splitContainer1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BookList";
-            this.Size = new System.Drawing.Size(1329, 474);
+            this.Size = new System.Drawing.Size(1329, 654);
             this.Load += new System.EventHandler(this.BookList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBooks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label labelDescription;
         private System.Windows.Forms.DataGridView dataGridViewBooks;
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.BindingNavigator bindingNavigator1;
@@ -392,5 +412,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PurchasePrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn DatePurchased;
         private System.Windows.Forms.DataGridViewTextBoxColumn ListPrice;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private BookDetails bookDetails1;
     }
 }
