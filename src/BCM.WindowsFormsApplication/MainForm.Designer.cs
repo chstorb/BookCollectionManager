@@ -97,7 +97,7 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel2});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 630);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 774);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
             this.statusStrip1.Size = new System.Drawing.Size(1596, 24);
@@ -132,7 +132,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.bookList);
             this.splitContainer1.Panel2.Controls.Add(this.panelStartup);
-            this.splitContainer1.Size = new System.Drawing.Size(1596, 561);
+            this.splitContainer1.Size = new System.Drawing.Size(1596, 705);
             this.splitContainer1.SplitterDistance = 284;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 1;
@@ -161,8 +161,8 @@
             this.splitContainerNav.Panel2.Controls.Add(this.buttonSelectAuthors);
             this.splitContainerNav.Panel2.Resize += new System.EventHandler(this.splitContainerNav_Panel2_Resize);
             this.splitContainerNav.Panel2MinSize = 150;
-            this.splitContainerNav.Size = new System.Drawing.Size(284, 561);
-            this.splitContainerNav.SplitterDistance = 408;
+            this.splitContainerNav.Size = new System.Drawing.Size(284, 705);
+            this.splitContainerNav.SplitterDistance = 512;
             this.splitContainerNav.SplitterIncrement = 50;
             this.splitContainerNav.TabIndex = 0;
             this.splitContainerNav.Resize += new System.EventHandler(this.splitContainerNav_Resize);
@@ -220,7 +220,7 @@
             this.buttonSelectCategories.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.buttonSelectCategories.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonSelectCategories.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSelectCategories.Location = new System.Drawing.Point(0, 48);
+            this.buttonSelectCategories.Location = new System.Drawing.Point(0, 87);
             this.buttonSelectCategories.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSelectCategories.MaximumSize = new System.Drawing.Size(0, 50);
             this.buttonSelectCategories.Name = "buttonSelectCategories";
@@ -239,7 +239,7 @@
             this.buttonSelectAuthors.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.buttonSelectAuthors.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonSelectAuthors.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSelectAuthors.Location = new System.Drawing.Point(0, 98);
+            this.buttonSelectAuthors.Location = new System.Drawing.Point(0, 137);
             this.buttonSelectAuthors.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSelectAuthors.Name = "buttonSelectAuthors";
             this.buttonSelectAuthors.Size = new System.Drawing.Size(282, 50);
@@ -580,7 +580,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1596, 654);
+            this.ClientSize = new System.Drawing.Size(1596, 798);
             this.Controls.Add(this.splitContainer2);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.statusStrip1);

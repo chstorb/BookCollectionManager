@@ -15,9 +15,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCM.Resources", "BCM.Resour
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCM.WindowsFormsApplication", "BCM.WindowsFormsApplication\BCM.WindowsFormsApplication.csproj", "{4F67EBFB-C365-445B-8BB2-19840211212A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCM.Migration", "BCM.Migration\BCM.Migration.csproj", "{1EC07454-DBD7-4575-AADC-51A34D78E279}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 5
+		SccNumberOfProjects = 6
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs14
 		SccProjectUniqueName0 = BCM.Common\\BCM.Common.csproj
@@ -45,6 +47,11 @@ Global
 		SccAuxPath4 = https://tfs.codeplex.com/tfs/tfs14
 		SccLocalPath4 = BCM.DAL
 		SccProvider4 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName5 = BCM.Migration\\BCM.Migration.csproj
+		SccProjectName5 = BCM.Migration
+		SccAuxPath5 = https://tfs.codeplex.com/tfs/tfs14
+		SccLocalPath5 = BCM.Migration
+		SccProvider5 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +82,10 @@ Global
 		{4F67EBFB-C365-445B-8BB2-19840211212A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F67EBFB-C365-445B-8BB2-19840211212A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F67EBFB-C365-445B-8BB2-19840211212A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EC07454-DBD7-4575-AADC-51A34D78E279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EC07454-DBD7-4575-AADC-51A34D78E279}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EC07454-DBD7-4575-AADC-51A34D78E279}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EC07454-DBD7-4575-AADC-51A34D78E279}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
