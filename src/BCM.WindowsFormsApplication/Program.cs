@@ -8,6 +8,7 @@ namespace BCM.WindowsFormsApplication
 {
     using System.IO;
     using System.Reflection;
+    using System.Threading;
 
     static class Program
     {
@@ -18,16 +19,27 @@ namespace BCM.WindowsFormsApplication
         static void Main()
         {
             string pathRoot =
-                //@"E:\";
+                @"E:\";
                 //Path.GetPathRoot(Assembly.GetExecutingAssembly().Location);
                 //Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
-                Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            string newPath = Path.Combine(pathRoot, @"Documents\Visual Studio 2013\codeplex\bcm\src\BCM.DAL\App_Data");
-            AppDomain.CurrentDomain.SetData("DataDirectory", newPath);
-            
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+                //Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            string newPath = Path.Combine(pathRoot, @"Visual Studio 2013\codeplex\bcm\src\BCM.DAL\App_Data");
+            AppDomain.CurrentDomain.SetData(Common.Constants.DataDirectory, newPath);
+
+            Mutex mutex = new Mutex(false, "BCM");
+            if (mutex.WaitOne(0, false))
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new MainForm());
+            }
+            else
+            {
+                MessageBox.Show("An Instance of Book Collection Manager is already running!", 
+                    "Book Collection Manager", 
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+            }
         }
     }
 }
