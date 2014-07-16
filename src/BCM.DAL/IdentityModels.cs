@@ -39,9 +39,19 @@ namespace BCM.DAL
                 .WithMany(a => a.Books)
                 .Map(m =>
                 {
-                    m.ToTable("BookAuthors");
+                    m.ToTable(Constants.TablePrefix + "BookAuthors");
                     m.MapLeftKey("BookId");
                     m.MapRightKey("AuthorId");
+                });
+
+            modelBuilder.Entity<Book>()
+                .HasMany(c => c.Categories)
+                .WithMany(c => c.Books)
+                .Map(m =>
+                {
+                    m.ToTable(Constants.TablePrefix + "BookCategories");
+                    m.MapLeftKey("BookId");
+                    m.MapRightKey("CategoryId");
                 });
         }
 
