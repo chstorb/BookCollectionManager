@@ -63,6 +63,16 @@ namespace BCM.WindowsFormsApplication.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap book_Open_16xSM {
+            get {
+                object obj = ResourceManager.GetObject("book_Open_16xSM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap buttonSelectAuthors_BackgroundImage {
             get {
                 object obj = ResourceManager.GetObject("buttonSelectAuthors.BackgroundImage", resourceCulture);
@@ -86,6 +96,26 @@ namespace BCM.WindowsFormsApplication.Properties {
         internal static System.Drawing.Bitmap buttonSelectCategories_BackgroundImage {
             get {
                 object obj = ResourceManager.GetObject("buttonSelectCategories.BackgroundImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap class_32xLG {
+            get {
+                object obj = ResourceManager.GetObject("class_32xLG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Team_32xLG {
+            get {
+                object obj = ResourceManager.GetObject("Team_32xLG", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
