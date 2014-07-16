@@ -14,6 +14,7 @@ namespace BCM.WindowsFormsApplication
     using BCM.Model;
     
     //[DefaultEvent("AfterSelect")]
+    //[System.ComponentModel.ComplexBindingProperties("DataSource", "DataMember")]
     public partial class TreeViewCategories : UserControl
     {
         #region Public Properties
@@ -33,7 +34,7 @@ namespace BCM.WindowsFormsApplication
         #endregion Constructor
 
         #region Event Handler
-
+                
         private void TreeViewCategories_Load(object sender, EventArgs e)
         {
             if ((this.Site != null) && (this.Site.DesignMode))
@@ -48,7 +49,13 @@ namespace BCM.WindowsFormsApplication
             Dictionary<string, TreeNode> nodesDictionary = new Dictionary<string, TreeNode>();
             TreeNode treeNode = null;
 
-            foreach (Category category in this.DbContext.Categories)
+            var categories = from c in this.DbContext.Categories
+                             orderby c.ParentCategoryID, c.Name 
+                             select c;
+            
+            IList<Category> listCategories = categories.ToList();
+
+            foreach (Category category in listCategories )
             {
                 key = category.ID.ToString();
                 parentKey = category.ParentCategoryID.ToString();

@@ -57,12 +57,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookDetails.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="BookDetails.Designer.cs">
-      <DependentUpon>BookDetails.cs</DependentUpon>
-    </Compile>
     <Compile Include="BookList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -96,9 +90,6 @@
     <Compile Include="TreeViewCategories.Designer.cs">
       <DependentUpon>TreeViewCategories.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="BookDetails.resx">
-      <DependentUpon>BookDetails.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="BookList.resx">
       <DependentUpon>BookList.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,6 +159,13 @@
       <Project>{11469b43-55b0-4e63-ae4b-eed85511ceae}</Project>
       <Name>BCM.Resources</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\class_32xLG.png" />
+    <None Include="Images\Team_32xLG.png" />
+    <None Include="Images\book_Open_16xSM.png" />
+    <Content Include="Images\Folder_6221.png" />
+    <Content Include="Images\Folder_6222.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
