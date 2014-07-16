@@ -20,6 +20,8 @@ namespace BCM.WindowsFormsApplication
         {            
             InitializeComponent();
 
+            this.splitContainerNav.PerformLayout();
+            
             this.treeViewAuthors.DbContext = this.dbContext;
             this.treeViewBooks.DbContext = this.dbContext;
             this.treeViewCategories.DbContext = this.dbContext;
@@ -35,6 +37,7 @@ namespace BCM.WindowsFormsApplication
         {
             if ((this.Site != null) && (this.Site.DesignMode))
                 return;
+
             //
             // panelStartup 
             //
@@ -98,7 +101,7 @@ namespace BCM.WindowsFormsApplication
 
             this.ResumeLayout();
         }
-
+        
         private void bookList_Show()
         {
             if (this.bookList.Visible)
@@ -142,37 +145,27 @@ namespace BCM.WindowsFormsApplication
                 MessageBoxIcon.Information);
         }
 
-        private void splitContainerNav_Resize(object sender, EventArgs e)
-        {
-            if (this.Site != null && this.Site.DesignMode)
-                return;
-
-            if (this.splitContainerNav.Height - this.splitContainerNav.SplitterDistance - 4 != 150)
-                this.splitContainerNav.SplitterDistance = this.splitContainerNav.Height - 157;
-        }
-
-        private void splitContainerNav_Panel1_Resize(object sender, EventArgs e)
-        {
-            if (this.Site != null && this.Site.DesignMode)
-                return;
-
-            if (this.splitContainerNav.Height - this.splitContainerNav.SplitterDistance - 4 != 150)
-                this.splitContainerNav.SplitterDistance = this.splitContainerNav.Height - 157;
-        }
-
-        private void splitContainerNav_Panel2_Resize(object sender, EventArgs e)
-        {
-            if (this.Site != null && this.Site.DesignMode)
-                return;
-
-            if (this.splitContainerNav.Height - this.splitContainerNav.SplitterDistance - 4 != 150)
-                this.splitContainerNav.SplitterDistance = this.splitContainerNav.Height - 157;
-        }
-
         private void bookList_AfterSelect(object sender, BookSelectedEventArgs e)
         {
-            MessageBox.Show(String.Format("Book #{0} selected!", e.BookId), "AfterSelect", 
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //MessageBox.Show(String.Format("Book #{0} selected!", e.BookId), "AfterSelect", 
+            //    MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void splitContainerNav_Layout(object sender, LayoutEventArgs e)
+        {
+            if (this.Site != null && this.Site.DesignMode)
+                return;
+
+            int totalButtonHeight = this.buttonSelectAuthors.Height + buttonSelectBooks.Height + buttonSelectCategories.Height;
+
+            if (this.splitContainerNav.Height - this.splitContainerNav.SplitterDistance - this.splitContainerNav.SplitterWidth != totalButtonHeight)
+                this.splitContainerNav.SplitterDistance = this.splitContainerNav.Height - (this.splitContainerNav.SplitterWidth + totalButtonHeight);
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            base.OnClosing(e);
+            this.dbContext.Dispose();
         }
     }
 }
