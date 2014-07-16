@@ -20,7 +20,7 @@ namespace BCM.DAL.Migrations
                 //Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
             //string newPath = Path.Combine(pathRoot, @"Visual Studio 2013\codeplex\bcm\src\BCM.DAL\App_Data");
             //AppDomain.CurrentDomain.SetData(Common.Constants.DataDirectory, newPath);
-                        
+            
             AutomaticMigrationsEnabled = false;
         }
 
