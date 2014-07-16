@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace BCM.Model
 {
+    using BCM.Common;
     using System.ComponentModel.DataAnnotations;
 
     /// <summary>
@@ -14,6 +15,12 @@ namespace BCM.Model
     [MetadataTypeAttribute(typeof(BookMetadata))]
     public partial class Book
     {
+        private readonly ObservableListSource<Author> _authors =
+            new ObservableListSource<Author>();
+
+        private readonly ObservableListSource<Category> _categories =
+            new ObservableListSource<Category>();
+
         /// <summary>
         /// Book Id (primary key)
         /// </summary>
@@ -27,7 +34,7 @@ namespace BCM.Model
         /// <summary>
         /// The year of a copyright of the book.
         /// </summary>
-        public int CopyrightYear { get; set; }
+        public Nullable<int> CopyrightYear { get; set; }
 
         /// <summary>
         /// International Standard Book Number, the international code for identifying a particular version or printing of a book .
@@ -47,7 +54,7 @@ namespace BCM.Model
         /// <summary>
         /// Year the book was published.
         /// </summary>
-        public int PublishingYear { get; set; }
+        public Nullable<int> PublishingYear { get; set; }
 
         /// <summary>
         /// Place of publication, usually a city, such as New York or London 
@@ -57,12 +64,12 @@ namespace BCM.Model
         /// <summary>
         /// The volume number.
         /// </summary>
-        public int VolumeNumber { get; set; }
+        public Nullable<int> VolumeNumber { get; set; }
 
         /// <summary>
         /// The edition number. 
         /// </summary>
-        public int EditionNumber { get; set; }
+        public Nullable<int> EditionNumber { get; set; }
 
         /// <summary>
         /// Cover type
@@ -72,7 +79,7 @@ namespace BCM.Model
         /// <summary>
         /// Number of pages.
         /// </summary>
-        public int Pages { get; set; }
+        public Nullable<int> Pages { get; set; }
 
         /// <summary>
         /// Location (Shelf number ...)
@@ -102,12 +109,13 @@ namespace BCM.Model
         /// <summary>
         /// Categories navigation property
         /// </summary>
-        public virtual List<Category> Categories { get; set; }
+        //public virtual List<Category> Categories { get; set; }
+        public virtual ObservableListSource<Category> Categories { get { return _categories; } }
 
         /// <summary>
         /// Authors navigation property
         /// </summary>
-        public virtual List<Author> Authors { get; set; }
+        //public virtual List<Author> Authors { get; set; }
+        public virtual ObservableListSource<Author> Authors { get { return _authors; } }
     }
-
 }
