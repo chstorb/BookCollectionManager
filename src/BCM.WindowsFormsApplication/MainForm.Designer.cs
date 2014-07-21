@@ -530,7 +530,6 @@
             // 
             // treeViewAuthors
             // 
-            this.treeViewAuthors.DbContext = null;
             this.treeViewAuthors.Location = new System.Drawing.Point(37, 227);
             this.treeViewAuthors.Margin = new System.Windows.Forms.Padding(4);
             this.treeViewAuthors.Name = "treeViewAuthors";

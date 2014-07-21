@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCM.Resources", "BCM.Resour
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCM.WindowsFormsApplication", "BCM.WindowsFormsApplication\BCM.WindowsFormsApplication.csproj", "{4F67EBFB-C365-445B-8BB2-19840211212A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Windows.Forms.Extensions", "Windows.Forms.Extensions\Windows.Forms.Extensions.csproj", "{08237534-F9C9-4CA7-A0BA-EA613BFBC1B5}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
 		SccNumberOfProjects = 5
@@ -75,6 +77,10 @@ Global
 		{4F67EBFB-C365-445B-8BB2-19840211212A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F67EBFB-C365-445B-8BB2-19840211212A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F67EBFB-C365-445B-8BB2-19840211212A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08237534-F9C9-4CA7-A0BA-EA613BFBC1B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08237534-F9C9-4CA7-A0BA-EA613BFBC1B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08237534-F9C9-4CA7-A0BA-EA613BFBC1B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08237534-F9C9-4CA7-A0BA-EA613BFBC1B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

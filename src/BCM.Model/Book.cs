@@ -107,6 +107,26 @@ namespace BCM.Model
         public decimal ListPrice { get; set; }
 
         /// <summary>
+        /// Image Url 1
+        /// </summary>
+        public string ImageUrl { get; set; }
+
+        /// <summary>
+        /// Image Url 2
+        /// </summary>
+        public string ImageUrl2 { get; set; }
+
+        /// <summary>
+        /// Image Url 3
+        /// </summary>
+        public string ImageUrl3 { get; set; }
+
+        /// <summary>
+        /// Image Url 4
+        /// </summary>
+        public string ImageUrl4 { get; set; }
+
+        /// <summary>
         /// Categories navigation property
         /// </summary>
         //public virtual List<Category> Categories { get; set; }

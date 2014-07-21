@@ -45,6 +45,10 @@ namespace BCM.DAL.Migrations
                         PurchasePrice = c.Decimal(nullable: false, precision: 18, scale: 2),
                         DatePurchased = c.DateTime(),
                         ListPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        ImageUrl = c.String(),
+                        ImageUrl2 = c.String(),
+                        ImageUrl3 = c.String(),
+                        ImageUrl4 = c.String(),
                     })
                 .PrimaryKey(t => t.ID);
             

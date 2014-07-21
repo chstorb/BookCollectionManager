@@ -18,6 +18,8 @@ namespace BCM.WindowsFormsApplication
     using System.Data.Entity;
     using System.Data.Entity.Core.Objects;
     using System.Data.Entity.Core;
+    using System.IO;
+    using System.Diagnostics;
 
     [System.ComponentModel.ComplexBindingProperties("DataSource", "DataMember")]
     public partial class BookList : UserControl
@@ -97,87 +99,7 @@ namespace BCM.WindowsFormsApplication
                 return;
             }
 
-            try
-            {
-                // Use Load to query for entities before binding to the local collection.
-                // (For further information see: http://msdn.microsoft.com/en-us/data/jj592911.aspx)
-                this.DbContext.Categories.Include("Books").Load();
-
-                SortableBindingList<Book> bindingList = this.DbContext.Books.Local.ToSortableBindingList();
-                this.bindingSource1.DataSource = bindingList.OrderBy(b => b.Title);
-
-                this.bindingNavigator1.BindingSource = this.bindingSource1;
-
-                //
-                // DataGridView Books
-                //
-                DataGridViewColumn[] arBooks = new DataGridViewColumn[this.dataGridViewBooks.Columns.Count];
-                this.dataGridViewBooks.Columns.CopyTo(arBooks, 0);
-                this.dataGridViewBooks.Columns.Clear();
-                this.dataGridViewBooks.DataSource = this.bindingSource1;
-                for (int i = 0; i < arBooks.Length; i++)
-                {
-                    DataGridViewColumn col = arBooks[i];
-                    this.dataGridViewBooks.Columns[i].Visible = col.Visible;
-                    this.dataGridViewBooks.Columns[i].Width = col.Width;
-                    this.dataGridViewBooks.Columns[i].HeaderText = col.HeaderText;
-                    this.dataGridViewBooks.Columns[i].DefaultCellStyle = col.DefaultCellStyle;
-                }
-                //
-                // Text Boxes
-                //
-                this.textBoxBookId.DataBindings.Add("Text", this.bindingSource1, "ID");
-                this.textBoxTitle.DataBindings.Add("Text", this.bindingSource1, "Title");
-                this.textBoxCopyrightYear.DataBindings.Add("Text", this.bindingSource1, "CopyrightYear");
-                this.textBoxISBNNumber.DataBindings.Add("Text", this.bindingSource1, "ISBNNumber");
-                this.textBoxPublishingCompany.DataBindings.Add("Text", this.bindingSource1, "PublishingCompany");
-                this.textBoxPublisherName.DataBindings.Add("Text", this.bindingSource1, "PublisherName");
-                this.textBoxPublishingYear.DataBindings.Add("Text", this.bindingSource1, "PublishingYear");
-                this.textBoxPlaceOfPublication.DataBindings.Add("Text", this.bindingSource1, "PlaceOfPublication");
-                this.textBoxVolumeNumber.DataBindings.Add("Text", this.bindingSource1, "VolumeNumber");
-                this.textBoxEditionNumber.DataBindings.Add("Text", this.bindingSource1, "EditionNumber");
-                this.textBoxCoverType.DataBindings.Add("Text", this.bindingSource1, "CoverType");
-                this.textBoxPages.DataBindings.Add("Text", this.bindingSource1, "Pages");
-                this.textBoxLocation.DataBindings.Add("Text", this.bindingSource1, "Location");
-                this.textBoxPurchasePrice.DataBindings.Add("Text", this.bindingSource1, "PurchasePrice");
-                this.textBoxDatePurchased.DataBindings.Add("Text", this.bindingSource1, "DatePurchased");
-                this.textBoxListPrice.DataBindings.Add("Text", this.bindingSource1, "ListPrice");
-                this.textBoxNotes.DataBindings.Add("Text", this.bindingSource1, "Notes");
-                //
-                // DataGridView Authors
-                // 
-                DataGridViewColumn[] arAuthors = new DataGridViewColumn[this.dataGridViewAuthors.Columns.Count];
-                this.dataGridViewAuthors.Columns.CopyTo(arAuthors, 0);
-                this.dataGridViewAuthors.Columns.Clear();
-                this.dataGridViewAuthors.DataBindings.Add("DataSource", this.bindingSource1, "Authors");
-                for (int i = 0; i < arAuthors.Length; i++)
-                {
-                    DataGridViewColumn col = arAuthors[i];
-                    this.dataGridViewAuthors.Columns[i].Visible = col.Visible;
-                    this.dataGridViewAuthors.Columns[i].Width = col.Width;
-                    this.dataGridViewAuthors.Columns[i].HeaderText = col.HeaderText;
-                    this.dataGridViewAuthors.Columns[i].DefaultCellStyle = col.DefaultCellStyle;
-                }
-                // 
-                // DataGridView Categories
-                //
-                DataGridViewColumn[] arCategories = new DataGridViewColumn[this.dataGridViewCategories.Columns.Count];
-                this.dataGridViewCategories.Columns.CopyTo(arCategories, 0);
-                this.dataGridViewCategories.Columns.Clear();
-                this.dataGridViewCategories.DataBindings.Add("DataSource", this.bindingSource1, "Categories");
-                for (int i = 0; i < arCategories.Length; i++)
-                {
-                    DataGridViewColumn col = arCategories[i];
-                    this.dataGridViewCategories.Columns[i].Visible = col.Visible;
-                    this.dataGridViewCategories.Columns[i].Width = col.Width;
-                    this.dataGridViewCategories.Columns[i].HeaderText = col.HeaderText;
-                    this.dataGridViewCategories.Columns[i].DefaultCellStyle = col.DefaultCellStyle;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+            SetupDataBinding();
         }
 
         private void dataGridViewBooks_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -216,6 +138,30 @@ namespace BCM.WindowsFormsApplication
         private void buttonSave_Click(object sender, EventArgs e)
         {
             this.SaveChanges();
+        }
+
+        private void dataPictureBox1_DoubleClick(object sender, EventArgs e)
+        {
+            string fullPath = Path.Combine(Environment.CurrentDirectory, this.dataPictureBox1.ImagePath);
+            ViewPicture(fullPath);
+        }
+
+        private void dataPictureBox2_DoubleClick(object sender, EventArgs e)
+        {
+            string fullPath = Path.Combine(Environment.CurrentDirectory, this.dataPictureBox2.ImagePath);
+            ViewPicture(fullPath);
+        }
+
+        private void dataPictureBox3_DoubleClick(object sender, EventArgs e)
+        {
+            string fullPath = Path.Combine(Environment.CurrentDirectory, this.dataPictureBox3.ImagePath);
+            ViewPicture(fullPath);
+        }
+
+        private void dataPictureBox4_DoubleClick(object sender, EventArgs e)
+        {
+            string fullPath = Path.Combine(Environment.CurrentDirectory, this.dataPictureBox4.ImagePath);
+            ViewPicture(fullPath);
         }
 
         #endregion Event Handler
@@ -301,6 +247,188 @@ namespace BCM.WindowsFormsApplication
             this.dataGridViewBooks.Refresh();             
             this.dataGridViewAuthors.Refresh();
             this.dataGridViewCategories.Refresh();
+        }
+
+        private void SetupDataBinding()
+        {
+            try
+            {
+                // Use Load to query for entities before binding to the local collection.
+                // (For further information see: http://msdn.microsoft.com/en-us/data/jj592911.aspx)
+                this.DbContext.Categories.Include("Books").Load();
+
+                SortableBindingList<Book> bindingList = this.DbContext.Books.Local.ToSortableBindingList();
+                this.bindingSource1.DataSource = bindingList.OrderBy(b => b.Title);
+
+                this.bindingNavigator1.BindingSource = this.bindingSource1;
+
+                //
+                // DataGridView Books
+                //
+                DataGridViewColumn[] arBooks = new DataGridViewColumn[this.dataGridViewBooks.Columns.Count];
+                this.dataGridViewBooks.Columns.CopyTo(arBooks, 0);
+                this.dataGridViewBooks.Columns.Clear();
+                this.dataGridViewBooks.DataSource = this.bindingSource1;
+                for (int i = 0; i < arBooks.Length; i++)
+                {
+                    DataGridViewColumn col = arBooks[i];
+                    this.dataGridViewBooks.Columns[i].Visible = col.Visible;
+                    this.dataGridViewBooks.Columns[i].Width = col.Width;
+                    this.dataGridViewBooks.Columns[i].HeaderText = col.HeaderText;
+                    this.dataGridViewBooks.Columns[i].DefaultCellStyle = col.DefaultCellStyle;
+                }
+                //
+                // Text Boxes
+                //
+                this.textBoxBookId.DataBindings.Add("Text", this.bindingSource1, "ID");
+                this.textBoxTitle.DataBindings.Add("Text", this.bindingSource1, "Title");
+                this.textBoxCopyrightYear.DataBindings.Add("Text", this.bindingSource1, "CopyrightYear");
+                this.textBoxISBNNumber.DataBindings.Add("Text", this.bindingSource1, "ISBNNumber");
+                this.textBoxPublishingCompany.DataBindings.Add("Text", this.bindingSource1, "PublishingCompany");
+                this.textBoxPublisherName.DataBindings.Add("Text", this.bindingSource1, "PublisherName");
+                this.textBoxPublishingYear.DataBindings.Add("Text", this.bindingSource1, "PublishingYear");
+                this.textBoxPlaceOfPublication.DataBindings.Add("Text", this.bindingSource1, "PlaceOfPublication");
+                this.textBoxVolumeNumber.DataBindings.Add("Text", this.bindingSource1, "VolumeNumber");
+                this.textBoxEditionNumber.DataBindings.Add("Text", this.bindingSource1, "EditionNumber");
+                this.textBoxCoverType.DataBindings.Add("Text", this.bindingSource1, "CoverType");
+                this.textBoxPages.DataBindings.Add("Text", this.bindingSource1, "Pages");
+                this.textBoxLocation.DataBindings.Add("Text", this.bindingSource1, "Location");
+
+                Binding b1 = this.textBoxPurchasePrice.DataBindings.Add("Text", this.bindingSource1, "PurchasePrice");                
+                b1.Format += new ConvertEventHandler(CurrencyFormat);
+
+                Binding b2 = this.textBoxDatePurchased.DataBindings.Add("Text", this.bindingSource1, "DatePurchased");
+                b2.Format += new ConvertEventHandler(DateFormat);
+                
+                Binding b3 = this.textBoxListPrice.DataBindings.Add("Text", this.bindingSource1, "ListPrice");
+                b3.Format += new ConvertEventHandler(CurrencyFormat);
+                //
+                // Picturebox
+                //
+                this.dataPictureBox1.DataBindings.Add("ImagePath", this.bindingSource1, "ImageUrl");
+                this.dataPictureBox2.DataBindings.Add("ImagePath", this.bindingSource1, "ImageUrl2");
+                this.dataPictureBox3.DataBindings.Add("ImagePath", this.bindingSource1, "ImageUrl3");
+                this.dataPictureBox4.DataBindings.Add("ImagePath", this.bindingSource1, "ImageUrl4");
+                //
+                // DataGridView Authors
+                // 
+                DataGridViewColumn[] arAuthors = new DataGridViewColumn[this.dataGridViewAuthors.Columns.Count];
+                this.dataGridViewAuthors.Columns.CopyTo(arAuthors, 0);
+                this.dataGridViewAuthors.Columns.Clear();
+                this.dataGridViewAuthors.DataBindings.Add("DataSource", this.bindingSource1, "Authors");
+                for (int i = 0; i < arAuthors.Length; i++)
+                {
+                    DataGridViewColumn col = arAuthors[i];
+                    this.dataGridViewAuthors.Columns[i].Visible = col.Visible;
+                    this.dataGridViewAuthors.Columns[i].Width = col.Width;
+                    this.dataGridViewAuthors.Columns[i].HeaderText = col.HeaderText;
+                    this.dataGridViewAuthors.Columns[i].DefaultCellStyle = col.DefaultCellStyle;
+                }
+                // 
+                // DataGridView Categories
+                //
+                DataGridViewColumn[] arCategories = new DataGridViewColumn[this.dataGridViewCategories.Columns.Count];
+                this.dataGridViewCategories.Columns.CopyTo(arCategories, 0);
+                this.dataGridViewCategories.Columns.Clear();
+                this.dataGridViewCategories.DataBindings.Add("DataSource", this.bindingSource1, "Categories");              
+                for (int i = 0; i < arCategories.Length; i++)
+                {
+                    DataGridViewColumn col = arCategories[i];
+                    this.dataGridViewCategories.Columns[i].Visible = col.Visible;
+                    this.dataGridViewCategories.Columns[i].Width = col.Width;
+                    this.dataGridViewCategories.Columns[i].HeaderText = col.HeaderText;
+                    this.dataGridViewCategories.Columns[i].DefaultCellStyle = col.DefaultCellStyle;
+                } 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void DateFormat(object sender, System.Windows.Forms.ConvertEventArgs e)
+        {
+            try
+            {
+                if (e.Value == null)
+                {
+                    e.Value = String.Empty;
+                }
+                else
+                {
+                    e.Value = Convert.ToDateTime(e.Value).ToShortDateString();
+                }
+            }
+            catch (Exception)
+            {
+                e.Value = String.Empty;
+            }
+        }
+
+        private void CurrencyFormat(object sender, System.Windows.Forms.ConvertEventArgs e)
+        {
+            try
+            {
+                if (e.Value == null)
+                {
+                    e.Value = String.Empty;
+                }
+                else
+                {
+                    e.Value = Convert.ToDecimal(e.Value).ToString("C");
+                }
+            }
+            catch (Exception)
+            {
+                e.Value = String.Empty;
+            }
+        }
+
+        private void PercentageFormat(object sender, System.Windows.Forms.ConvertEventArgs e)
+        {
+            try
+            {
+                if (e.Value == null)
+                {
+                    e.Value = String.Empty;
+                }
+                else
+                {
+                    double percentageValue = Convert.ToDouble(e.Value);
+                    percentageValue = percentageValue / 100;
+                    e.Value = percentageValue.ToString("P0");
+                }
+            }
+            catch (Exception)
+            {
+                e.Value = String.Empty;
+            }
+        }
+
+        private void ViewPicture(string FileName)
+        {
+            if (!File.Exists(FileName))
+            {
+                return;
+            }
+            string args = FileName;
+            string exePath = Properties.Settings.Default.ImageEditor;
+            
+            Process proc = new Process();
+
+            if (File.Exists(exePath))
+            {
+                proc.StartInfo.FileName = exePath;
+                args = @"""" + args + @"""";
+            }
+            else
+            {
+                string programFilesPath = System.Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
+                args = @"""" + System.IO.Path.Combine(programFilesPath, @"Windows Photo Viewer\PhotoViewer.dll")
+                    + @""", ImageView_Fullscreen " + args;
+            }
+            proc.StartInfo.Arguments = args;
+            proc.Start();
         }
 
         #endregion Methods
