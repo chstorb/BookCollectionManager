@@ -159,6 +159,10 @@
       <Project>{11469b43-55b0-4e63-ae4b-eed85511ceae}</Project>
       <Name>BCM.Resources</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Windows.Forms.Extensions\Windows.Forms.Extensions.csproj">
+      <Project>{08237534-f9c9-4ca7-a0ba-ea613bfbc1b5}</Project>
+      <Name>Windows.Forms.Extensions</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\class_32xLG.png" />

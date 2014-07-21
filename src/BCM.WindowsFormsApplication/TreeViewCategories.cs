@@ -13,8 +13,6 @@ namespace BCM.WindowsFormsApplication
     using BCM.DAL;
     using BCM.Model;
     
-    //[DefaultEvent("AfterSelect")]
-    //[System.ComponentModel.ComplexBindingProperties("DataSource", "DataMember")]
     public partial class TreeViewCategories : UserControl
     {
         #region Public Properties
@@ -34,20 +32,11 @@ namespace BCM.WindowsFormsApplication
         #endregion Constructor
 
         #region Event Handler
-                
+        
         private void TreeViewCategories_Load(object sender, EventArgs e)
         {
             if ((this.Site != null) && (this.Site.DesignMode))
                 return;
-
-            this.treeView1.Nodes.Clear();
-
-            string key = String.Empty;
-            string parentKey = String.Empty;
-            string text = String.Empty;
-
-            Dictionary<string, TreeNode> nodesDictionary = new Dictionary<string, TreeNode>();
-            TreeNode treeNode = null;
 
             var categories = from c in this.DbContext.Categories
                              orderby c.ParentCategoryID, c.Name 
@@ -55,25 +44,12 @@ namespace BCM.WindowsFormsApplication
             
             IList<Category> listCategories = categories.ToList();
 
-            foreach (Category category in listCategories )
-            {
-                key = category.ID.ToString();
-                parentKey = category.ParentCategoryID.ToString();
-                text = category.Name;
+            this.treeView1.NoParentIndicator = "-1";
+            this.treeView1.KeyMember = "ID";
+            this.treeView1.ParentKeyMember = "ParentCategoryID";
+            this.treeView1.TextMember = "Name";
+            this.treeView1.DataSource = listCategories;
 
-                if (String.IsNullOrEmpty(parentKey) || (parentKey.Equals("-1")))
-                {
-                    treeNode = this.treeView1.Nodes.Add(key, text);
-                    treeNode.Tag = key;
-                    nodesDictionary.Add(key, treeNode);
-                }
-                else
-                {
-                    treeNode = nodesDictionary[parentKey].Nodes.Add(key, text);
-                    treeNode.Tag = key;
-                    nodesDictionary.Add(key, treeNode);
-                }
-            }
             this.treeView1.ExpandAll();
         }
         

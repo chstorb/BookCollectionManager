@@ -45,9 +45,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.treeView1);
             this.Name = "TreeViewAuthors";
-            this.Load += new System.EventHandler(this.TreeViewAuthors_Load);
+            this.Load += new System.EventHandler(this.TreeViewBooks_Load);
             this.ResumeLayout(false);
-
         }
 
         #endregion

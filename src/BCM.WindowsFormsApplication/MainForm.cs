@@ -11,6 +11,7 @@ using System.Windows.Forms;
 namespace BCM.WindowsFormsApplication
 {
     using BCM.DAL;
+    using Windows.Forms.Extensions;
 
     public partial class MainForm : Form
     {
@@ -37,7 +38,6 @@ namespace BCM.WindowsFormsApplication
         {
             if ((this.Site != null) && (this.Site.DesignMode))
                 return;
-
             //
             // panelStartup 
             //

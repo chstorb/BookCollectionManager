@@ -13,7 +13,7 @@ namespace BCM.DAL.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201407162037160_Initial"; }
+            get { return "201407211400062_Initial"; }
         }
         
         string IMigrationMetadata.Source

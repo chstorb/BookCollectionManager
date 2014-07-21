@@ -12,7 +12,7 @@ namespace BCM.WindowsFormsApplication
 {
     using BCM.DAL;
     using BCM.Model;
-    
+
     public partial class TreeViewAuthors : UserControl
     {
         #region Public Properties
@@ -20,8 +20,8 @@ namespace BCM.WindowsFormsApplication
         [Browsable(false)]
         public ApplicationDbContext DbContext { get; set; }
 
-        #endregion
-
+        #endregion Properties
+        
         public TreeViewAuthors()
         {
             InitializeComponent();
@@ -29,7 +29,7 @@ namespace BCM.WindowsFormsApplication
 
         #region Event Handler
 
-        private void TreeViewAuthors_Load(object sender, EventArgs e)
+        private void TreeViewBooks_Load(object sender, EventArgs e)
         {
             if ((this.Site != null) && (this.Site.DesignMode))
                 return;

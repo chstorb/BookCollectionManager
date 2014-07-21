@@ -17,7 +17,7 @@ namespace BCM.Common
         private readonly PropertyDescriptor propertyDescriptor;
         private readonly ListSortDirection sortDirection;
         private readonly IComparer comparer;
-        private readonly bool userStringComparer = false;
+        private readonly bool useStringComparer = false;
 
         #endregion Fields
 
@@ -38,7 +38,7 @@ namespace BCM.Common
             else if (property.SupportsStringComparer())
             {
                 this.comparer = StringComparer.CurrentCultureIgnoreCase;
-                this.userStringComparer = true;
+                this.useStringComparer = true;
             }
             this.propertyDescriptor = property;
             this.sortDirection = direction;
@@ -53,7 +53,7 @@ namespace BCM.Common
             object xValue = propertyDescriptor.GetValue(x);
             object yValue = propertyDescriptor.GetValue(y);
 
-            if (userStringComparer)
+            if (useStringComparer)
             {
                 xValue = xValue != null ? xValue.ToString() : null;
                 yValue = yValue != null ? yValue.ToString() : null;
