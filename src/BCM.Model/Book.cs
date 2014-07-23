@@ -94,7 +94,7 @@ namespace BCM.Model
         /// <summary>
         /// The purchase price
         /// </summary>
-        public decimal PurchasePrice { get; set; }
+        public Nullable<decimal> PurchasePrice { get; set; }
 
         /// <summary>
         /// Date Purchased
@@ -102,9 +102,9 @@ namespace BCM.Model
         public Nullable<DateTime> DatePurchased { get; set; }
 
         /// <summary>
-        /// List price
+        /// List price / Unit price
         /// </summary>
-        public decimal ListPrice { get; set; }
+        public Nullable<decimal> ListPrice { get; set; }
 
         /// <summary>
         /// Image Url 1
