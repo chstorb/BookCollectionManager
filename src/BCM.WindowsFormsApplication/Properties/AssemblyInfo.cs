@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die mit einer Assembly verknüpft sind.
 [assembly: AssemblyTitle("Book Collection Manager")]
-[assembly: AssemblyDescription("Book Collection Manager")]
+[assembly: AssemblyDescription("Book Collection Manager - Windows Forms Application")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("STC STORB Consulting")]
 [assembly: AssemblyProduct("Book Collection Manager")]
