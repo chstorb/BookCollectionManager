@@ -1,0 +1,87 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2013 for Windows Desktop
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCM.Migration", "BCM.Migration.csproj", "{1EC07454-DBD7-4575-AADC-51A34D78E279}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCM.Common", "..\..\src\BCM.Common\BCM.Common.csproj", "{D90D7A69-8C04-481B-9906-F67915331E89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCM.DAL", "..\..\src\BCM.DAL\BCM.DAL.csproj", "{74C6F62D-03D5-4DCB-BBF5-18D3207D1113}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCM.Model", "..\..\src\BCM.Model\BCM.Model.csproj", "{28DD1864-2767-491B-8EEE-03371DD72407}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCM.Resources", "..\..\src\BCM.Resources\BCM.Resources.csproj", "{11469B43-55B0-4E63-AE4B-EED85511CEAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCM.Diagnostics", "..\..\src\BCM.Diagnostics\BCM.Diagnostics.csproj", "{A28E950E-CB9A-4D1D-B688-952A90B67FA8}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs14
+		SccProjectUniqueName0 = BCM.Migration.csproj
+		SccProjectName0 = .
+		SccAuxPath0 = https://tfs.codeplex.com/tfs/tfs14
+		SccLocalPath0 = .
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName1 = ..\\..\\src\\BCM.Common\\BCM.Common.csproj
+		SccProjectName1 = ../../src/BCM.Common
+		SccAuxPath1 = https://tfs.codeplex.com/tfs/tfs14
+		SccLocalPath1 = ..\\..\\src\\BCM.Common
+		SccProvider1 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName2 = ..\\..\\src\\BCM.DAL\\BCM.DAL.csproj
+		SccProjectName2 = ../../src/BCM.DAL
+		SccAuxPath2 = https://tfs.codeplex.com/tfs/tfs14
+		SccLocalPath2 = ..\\..\\src\\BCM.DAL
+		SccProvider2 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName3 = ..\\..\\src\\BCM.Model\\BCM.Model.csproj
+		SccProjectName3 = ../../src/BCM.Model
+		SccAuxPath3 = https://tfs.codeplex.com/tfs/tfs14
+		SccLocalPath3 = ..\\..\\src\\BCM.Model
+		SccProvider3 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName4 = ..\\..\\src\\BCM.Resources\\BCM.Resources.csproj
+		SccProjectName4 = ../../src/BCM.Resources
+		SccAuxPath4 = https://tfs.codeplex.com/tfs/tfs14
+		SccLocalPath4 = ..\\..\\src\\BCM.Resources
+		SccProvider4 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName5 = ..\\..\\src\\BCM.Diagnostics\\BCM.Diagnostics.csproj
+		SccProjectName5 = ../../src/BCM.Diagnostics
+		SccAuxPath5 = https://tfs.codeplex.com/tfs/tfs14
+		SccLocalPath5 = ..\\..\\src\\BCM.Diagnostics
+		SccProvider5 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1EC07454-DBD7-4575-AADC-51A34D78E279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EC07454-DBD7-4575-AADC-51A34D78E279}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EC07454-DBD7-4575-AADC-51A34D78E279}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EC07454-DBD7-4575-AADC-51A34D78E279}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D90D7A69-8C04-481B-9906-F67915331E89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D90D7A69-8C04-481B-9906-F67915331E89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D90D7A69-8C04-481B-9906-F67915331E89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D90D7A69-8C04-481B-9906-F67915331E89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74C6F62D-03D5-4DCB-BBF5-18D3207D1113}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74C6F62D-03D5-4DCB-BBF5-18D3207D1113}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74C6F62D-03D5-4DCB-BBF5-18D3207D1113}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74C6F62D-03D5-4DCB-BBF5-18D3207D1113}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28DD1864-2767-491B-8EEE-03371DD72407}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28DD1864-2767-491B-8EEE-03371DD72407}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28DD1864-2767-491B-8EEE-03371DD72407}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28DD1864-2767-491B-8EEE-03371DD72407}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11469B43-55B0-4E63-AE4B-EED85511CEAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11469B43-55B0-4E63-AE4B-EED85511CEAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11469B43-55B0-4E63-AE4B-EED85511CEAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11469B43-55B0-4E63-AE4B-EED85511CEAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A28E950E-CB9A-4D1D-B688-952A90B67FA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A28E950E-CB9A-4D1D-B688-952A90B67FA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A28E950E-CB9A-4D1D-B688-952A90B67FA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A28E950E-CB9A-4D1D-B688-952A90B67FA8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
