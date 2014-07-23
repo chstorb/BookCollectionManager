@@ -1,0 +1,82 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2013 for Web
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCM.WebFormsApplication", "BCM.WebFormsApplication\BCM.WebFormsApplication.csproj", "{F586DEBC-6E87-4180-8E84-ACCC78FB5A7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCM.Model", "BCM.Model\BCM.Model.csproj", "{28DD1864-2767-491B-8EEE-03371DD72407}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCM.Resources", "BCM.Resources\BCM.Resources.csproj", "{11469B43-55B0-4E63-AE4B-EED85511CEAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCM.DAL", "BCM.DAL\BCM.DAL.csproj", "{74C6F62D-03D5-4DCB-BBF5-18D3207D1113}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCM.Common", "BCM.Common\BCM.Common.csproj", "{D90D7A69-8C04-481B-9906-F67915331E89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCM.Diagnostics", "BCM.Diagnostics\BCM.Diagnostics.csproj", "{A28E950E-CB9A-4D1D-B688-952A90B67FA8}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs14
+		SccProjectUniqueName0 = BCM.Model\\BCM.Model.csproj
+		SccProjectName0 = BCM.Model
+		SccAuxPath0 = https://tfs.codeplex.com/tfs/tfs14
+		SccLocalPath0 = BCM.Model
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName1 = BCM.Resources\\BCM.Resources.csproj
+		SccProjectName1 = BCM.Resources
+		SccAuxPath1 = https://tfs.codeplex.com/tfs/tfs14
+		SccLocalPath1 = BCM.Resources
+		SccProvider1 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName2 = BCM.DAL\\BCM.DAL.csproj
+		SccProjectName2 = BCM.DAL
+		SccAuxPath2 = https://tfs.codeplex.com/tfs/tfs14
+		SccLocalPath2 = BCM.DAL
+		SccProvider2 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName3 = BCM.Common\\BCM.Common.csproj
+		SccProjectName3 = BCM.Common
+		SccAuxPath3 = https://tfs.codeplex.com/tfs/tfs14
+		SccLocalPath3 = BCM.Common
+		SccProvider3 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName4 = BCM.Diagnostics\\BCM.Diagnostics.csproj
+		SccProjectName4 = BCM.Diagnostics
+		SccAuxPath4 = https://tfs.codeplex.com/tfs/tfs14
+		SccLocalPath4 = BCM.Diagnostics
+		SccProvider4 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F586DEBC-6E87-4180-8E84-ACCC78FB5A7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F586DEBC-6E87-4180-8E84-ACCC78FB5A7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F586DEBC-6E87-4180-8E84-ACCC78FB5A7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F586DEBC-6E87-4180-8E84-ACCC78FB5A7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28DD1864-2767-491B-8EEE-03371DD72407}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28DD1864-2767-491B-8EEE-03371DD72407}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28DD1864-2767-491B-8EEE-03371DD72407}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28DD1864-2767-491B-8EEE-03371DD72407}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11469B43-55B0-4E63-AE4B-EED85511CEAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11469B43-55B0-4E63-AE4B-EED85511CEAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11469B43-55B0-4E63-AE4B-EED85511CEAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11469B43-55B0-4E63-AE4B-EED85511CEAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74C6F62D-03D5-4DCB-BBF5-18D3207D1113}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74C6F62D-03D5-4DCB-BBF5-18D3207D1113}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74C6F62D-03D5-4DCB-BBF5-18D3207D1113}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74C6F62D-03D5-4DCB-BBF5-18D3207D1113}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D90D7A69-8C04-481B-9906-F67915331E89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D90D7A69-8C04-481B-9906-F67915331E89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D90D7A69-8C04-481B-9906-F67915331E89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D90D7A69-8C04-481B-9906-F67915331E89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A28E950E-CB9A-4D1D-B688-952A90B67FA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A28E950E-CB9A-4D1D-B688-952A90B67FA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A28E950E-CB9A-4D1D-B688-952A90B67FA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A28E950E-CB9A-4D1D-B688-952A90B67FA8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

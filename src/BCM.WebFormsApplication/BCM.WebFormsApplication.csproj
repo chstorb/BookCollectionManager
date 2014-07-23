@@ -1,0 +1,953 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F586DEBC-6E87-4180-8E84-ACCC78FB5A7E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BCM.WebFormsApplication</RootNamespace>
+    <AssemblyName>BCM.WebFormsApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.0.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.0.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.bootstrap">
+      <HintPath>..\packages\AspNet.ScriptManager.bootstrap.3.0.0\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.1.10.2\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.MSAjax">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.WebForms">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <Private>True</Private>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.1\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls">
+      <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.1.0.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.2\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.0.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="Account\Login.aspx" />
+    <Content Include="Account\Manage.aspx" />
+    <Content Include="Account\OpenAuthProviders.ascx" />
+    <Content Include="Account\Register.aspx" />
+    <Content Include="Account\RegisterExternalLogin.aspx" />
+    <Content Include="BookDetails.aspx" />
+    <Content Include="BookList.aspx" />
+    <Content Include="Catalog\Images\DSC01703.JPG" />
+    <Content Include="Catalog\Images\DSC01704.JPG" />
+    <Content Include="Catalog\Images\DSC01705.JPG" />
+    <Content Include="Catalog\Images\DSC01706.JPG" />
+    <Content Include="Catalog\Images\DSC01707.JPG" />
+    <Content Include="Catalog\Images\DSC01708.JPG" />
+    <Content Include="Catalog\Images\DSC01709.JPG" />
+    <Content Include="Catalog\Images\DSC01710.JPG" />
+    <Content Include="Catalog\Images\DSC01711.JPG" />
+    <Content Include="Catalog\Images\DSC01712.JPG" />
+    <Content Include="Catalog\Images\DSC01713.JPG" />
+    <Content Include="Catalog\Images\DSC01714.JPG" />
+    <Content Include="Catalog\Images\DSC01715.JPG" />
+    <Content Include="Catalog\Images\DSC01716.JPG" />
+    <Content Include="Catalog\Images\DSC01717.JPG" />
+    <Content Include="Catalog\Images\DSC01718.JPG" />
+    <Content Include="Catalog\Images\DSC01719.JPG" />
+    <Content Include="Catalog\Images\DSC01720.JPG" />
+    <Content Include="Catalog\Images\DSC01721.JPG" />
+    <Content Include="Catalog\Images\DSC01722.JPG" />
+    <Content Include="Catalog\Images\DSC01723.JPG" />
+    <Content Include="Catalog\Images\DSC01724.JPG" />
+    <Content Include="Catalog\Images\DSC01725.JPG" />
+    <Content Include="Catalog\Images\DSC01726.JPG" />
+    <Content Include="Catalog\Images\DSC01727.JPG" />
+    <Content Include="Catalog\Images\DSC01728.JPG" />
+    <Content Include="Catalog\Images\DSC01729.JPG" />
+    <Content Include="Catalog\Images\DSC01730.JPG" />
+    <Content Include="Catalog\Images\DSC01731.JPG" />
+    <Content Include="Catalog\Images\DSC01732.JPG" />
+    <Content Include="Catalog\Images\DSC01733.JPG" />
+    <Content Include="Catalog\Images\DSC01734.JPG" />
+    <Content Include="Catalog\Images\DSC01735.JPG" />
+    <Content Include="Catalog\Images\DSC01736.JPG" />
+    <Content Include="Catalog\Images\DSC01737.JPG" />
+    <Content Include="Catalog\Images\DSC01738.JPG" />
+    <Content Include="Catalog\Images\DSC01739.JPG" />
+    <Content Include="Catalog\Images\DSC01740.JPG" />
+    <Content Include="Catalog\Images\DSC01741.JPG" />
+    <Content Include="Catalog\Images\DSC01742.JPG" />
+    <Content Include="Catalog\Images\DSC01743.JPG" />
+    <Content Include="Catalog\Images\DSC01744.JPG" />
+    <Content Include="Catalog\Images\DSC01745.JPG" />
+    <Content Include="Catalog\Images\DSC01746.JPG" />
+    <Content Include="Catalog\Images\DSC01747.JPG" />
+    <Content Include="Catalog\Images\DSC01748.JPG" />
+    <Content Include="Catalog\Images\DSC01749.JPG" />
+    <Content Include="Catalog\Images\DSC01750.JPG" />
+    <Content Include="Catalog\Images\DSC01751.JPG" />
+    <Content Include="Catalog\Images\DSC01752.JPG" />
+    <Content Include="Catalog\Images\DSC01753.JPG" />
+    <Content Include="Catalog\Images\DSC01754.JPG" />
+    <Content Include="Catalog\Images\DSC01755.JPG" />
+    <Content Include="Catalog\Images\DSC01756.JPG" />
+    <Content Include="Catalog\Images\DSC01758.JPG" />
+    <Content Include="Catalog\Images\DSC01759.JPG" />
+    <Content Include="Catalog\Images\DSC01760.JPG" />
+    <Content Include="Catalog\Images\DSC01761.JPG" />
+    <Content Include="Catalog\Images\DSC01762.JPG" />
+    <Content Include="Catalog\Images\DSC01763.JPG" />
+    <Content Include="Catalog\Images\DSC01764.JPG" />
+    <Content Include="Catalog\Images\DSC01765.JPG" />
+    <Content Include="Catalog\Images\DSC01766.JPG" />
+    <Content Include="Catalog\Images\DSC01767.JPG" />
+    <Content Include="Catalog\Images\DSC01768.JPG" />
+    <Content Include="Catalog\Images\DSC01769.JPG" />
+    <Content Include="Catalog\Images\DSC01770.JPG" />
+    <Content Include="Catalog\Images\DSC01771.JPG" />
+    <Content Include="Catalog\Images\DSC01772.JPG" />
+    <Content Include="Catalog\Images\DSC01773.JPG" />
+    <Content Include="Catalog\Images\DSC01774.JPG" />
+    <Content Include="Catalog\Images\DSC01775.JPG" />
+    <Content Include="Catalog\Images\DSC01776.JPG" />
+    <Content Include="Catalog\Images\DSC01777.JPG" />
+    <Content Include="Catalog\Images\DSC01778.JPG" />
+    <Content Include="Catalog\Images\DSC01779.JPG" />
+    <Content Include="Catalog\Images\DSC01780.JPG" />
+    <Content Include="Catalog\Images\DSC01781.JPG" />
+    <Content Include="Catalog\Images\DSC01782.JPG" />
+    <Content Include="Catalog\Images\DSC01783.JPG" />
+    <Content Include="Catalog\Images\DSC01784.JPG" />
+    <Content Include="Catalog\Images\DSC01785.JPG" />
+    <Content Include="Catalog\Images\DSC01786.JPG" />
+    <Content Include="Catalog\Images\DSC01787.JPG" />
+    <Content Include="Catalog\Images\DSC01788.JPG" />
+    <Content Include="Catalog\Images\DSC01789.JPG" />
+    <Content Include="Catalog\Images\DSC01790.JPG" />
+    <Content Include="Catalog\Images\DSC01791.JPG" />
+    <Content Include="Catalog\Images\DSC01792.JPG" />
+    <Content Include="Catalog\Images\DSC01793.JPG" />
+    <Content Include="Catalog\Images\DSC01794.JPG" />
+    <Content Include="Catalog\Images\DSC01795.JPG" />
+    <Content Include="Catalog\Images\DSC01796.JPG" />
+    <Content Include="Catalog\Images\DSC01797.JPG" />
+    <Content Include="Catalog\Images\DSC01798.JPG" />
+    <Content Include="Catalog\Images\DSC01799.JPG" />
+    <Content Include="Catalog\Images\DSC01800.JPG" />
+    <Content Include="Catalog\Images\DSC01801.JPG" />
+    <Content Include="Catalog\Images\DSC01802.JPG" />
+    <Content Include="Catalog\Images\DSC01803.JPG" />
+    <Content Include="Catalog\Images\DSC01804.JPG" />
+    <Content Include="Catalog\Images\DSC01805.JPG" />
+    <Content Include="Catalog\Images\DSC01806.JPG" />
+    <Content Include="Catalog\Images\DSC01807.JPG" />
+    <Content Include="Catalog\Images\DSC01808.JPG" />
+    <Content Include="Catalog\Images\DSC01809.JPG" />
+    <Content Include="Catalog\Images\DSC01810.JPG" />
+    <Content Include="Catalog\Images\DSC01811.JPG" />
+    <Content Include="Catalog\Images\DSC01812.JPG" />
+    <Content Include="Catalog\Images\DSC01813.JPG" />
+    <Content Include="Catalog\Images\DSC01814.JPG" />
+    <Content Include="Catalog\Images\DSC01815.JPG" />
+    <Content Include="Catalog\Images\DSC01816.JPG" />
+    <Content Include="Catalog\Images\DSC01817.JPG" />
+    <Content Include="Catalog\Images\DSC01818.JPG" />
+    <Content Include="Catalog\Images\no-image.gif" />
+    <Content Include="Catalog\Images\Thumbs\DSC01703.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01704.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01705.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01706.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01707.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01708.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01709.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01710.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01711.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01712.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01713.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01714.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01715.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01716.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01717.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01718.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01719.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01720.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01721.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01722.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01723.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01724.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01725.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01726.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01727.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01728.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01729.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01730.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01731.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01732.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01733.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01734.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01735.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01736.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01737.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01738.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01739.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01740.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01741.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01742.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01743.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01744.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01745.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01746.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01747.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01748.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01749.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01750.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01751.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01752.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01753.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01754.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01755.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01756.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01758.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01759.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01760.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01761.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01762.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01763.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01764.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01765.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01766.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01767.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01768.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01769.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01770.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01771.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01772.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01773.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01774.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01775.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01776.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01777.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01778.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01779.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01780.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01781.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01782.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01783.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01784.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01785.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01786.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01787.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01788.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01789.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01790.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01791.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01792.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01793.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01794.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01795.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01796.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01797.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01798.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01799.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01800.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01801.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01802.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01803.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01804.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01805.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01806.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01807.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01808.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01809.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01810.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01811.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01812.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01813.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01814.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01815.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01816.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01817.JPG" />
+    <Content Include="Catalog\Images\Thumbs\DSC01818.JPG" />
+    <Content Include="Catalog\Images\Thumbs\no-image.gif" />
+    <Content Include="Catalog\Images\Thumbs\WP_002496.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002496.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002497.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002497.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002498.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002499.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002500.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002510.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002511.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002512.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002513.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002514.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002517.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002518.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002531.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002533.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002535.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002537.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002539.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002564.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002568.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002569.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002570.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002571.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002572.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002573.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002575.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002576.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002577.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002578.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002579.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002580.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002581.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002582.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002583.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002584.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002585.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002586.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002587.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002588.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002589.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002590.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002591.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002592.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002593.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002594.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002595.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002596.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002597.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002598.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002600.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002601.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002602.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002603.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002604.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002605.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002606.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002608.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002609.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002610.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002611.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002612.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002613.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002614.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002615.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002616.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002617.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002618.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002619.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002620.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002622.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002623.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002624.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002625.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002627.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002628.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002629.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002630.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002631.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002632.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002633.png" />
+    <Content Include="Catalog\Images\Thumbs\WP_002635.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002638.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002643.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002650.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002651.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002652.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002653.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002654.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002655.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002656.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002661.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002662.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002663.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002664.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002665.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002669.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002675.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002676.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002686.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002687.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002688.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002689.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002690.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002691.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002693.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002694.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002695.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002696.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002697.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002698.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002699.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002700.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002705.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002706.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002712.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002713.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002714.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002715.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002716.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002717.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002718.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002719.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002720.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002721.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002722.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002723.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002724.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002725.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002726.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002727.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002728.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002729.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002730.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002731.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002732.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002733.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002734.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002735.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002736.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002737.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002738.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002739.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002740.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002741.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002742.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002743.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002744.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002745.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002746.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002747.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002748.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002749.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002750.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002751.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002752.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002753.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002754.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002755.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002756.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002757.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002758.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002759.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002760.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002761.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002762.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002763.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002853.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002854.jpg" />
+    <Content Include="Catalog\Images\Thumbs\WP_002857.jpg" />
+    <Content Include="Catalog\Images\WP_002496.jpg" />
+    <Content Include="Catalog\Images\WP_002496.png" />
+    <Content Include="Catalog\Images\WP_002497.jpg" />
+    <Content Include="Catalog\Images\WP_002497.png" />
+    <Content Include="Catalog\Images\WP_002498.png" />
+    <Content Include="Catalog\Images\WP_002499.png" />
+    <Content Include="Catalog\Images\WP_002500.png" />
+    <Content Include="Catalog\Images\WP_002510.png" />
+    <Content Include="Catalog\Images\WP_002511.png" />
+    <Content Include="Catalog\Images\WP_002512.png" />
+    <Content Include="Catalog\Images\WP_002513.png" />
+    <Content Include="Catalog\Images\WP_002514.png" />
+    <Content Include="Catalog\Images\WP_002517.png" />
+    <Content Include="Catalog\Images\WP_002518.png" />
+    <Content Include="Catalog\Images\WP_002531.png" />
+    <Content Include="Catalog\Images\WP_002533.png" />
+    <Content Include="Catalog\Images\WP_002535.png" />
+    <Content Include="Catalog\Images\WP_002537.png" />
+    <Content Include="Catalog\Images\WP_002539.png" />
+    <Content Include="Catalog\Images\WP_002564.png" />
+    <Content Include="Catalog\Images\WP_002568.png" />
+    <Content Include="Catalog\Images\WP_002569.png" />
+    <Content Include="Catalog\Images\WP_002570.png" />
+    <Content Include="Catalog\Images\WP_002571.png" />
+    <Content Include="Catalog\Images\WP_002572.png" />
+    <Content Include="Catalog\Images\WP_002573.png" />
+    <Content Include="Catalog\Images\WP_002575.png" />
+    <Content Include="Catalog\Images\WP_002576.png" />
+    <Content Include="Catalog\Images\WP_002577.png" />
+    <Content Include="Catalog\Images\WP_002578.png" />
+    <Content Include="Catalog\Images\WP_002579.png" />
+    <Content Include="Catalog\Images\WP_002580.png" />
+    <Content Include="Catalog\Images\WP_002581.png" />
+    <Content Include="Catalog\Images\WP_002582.png" />
+    <Content Include="Catalog\Images\WP_002583.png" />
+    <Content Include="Catalog\Images\WP_002584.png" />
+    <Content Include="Catalog\Images\WP_002585.png" />
+    <Content Include="Catalog\Images\WP_002586.png" />
+    <Content Include="Catalog\Images\WP_002587.png" />
+    <Content Include="Catalog\Images\WP_002588.png" />
+    <Content Include="Catalog\Images\WP_002589.png" />
+    <Content Include="Catalog\Images\WP_002590.png" />
+    <Content Include="Catalog\Images\WP_002591.png" />
+    <Content Include="Catalog\Images\WP_002592.png" />
+    <Content Include="Catalog\Images\WP_002593.png" />
+    <Content Include="Catalog\Images\WP_002594.png" />
+    <Content Include="Catalog\Images\WP_002595.png" />
+    <Content Include="Catalog\Images\WP_002596.png" />
+    <Content Include="Catalog\Images\WP_002597.png" />
+    <Content Include="Catalog\Images\WP_002598.png" />
+    <Content Include="Catalog\Images\WP_002600.png" />
+    <Content Include="Catalog\Images\WP_002601.png" />
+    <Content Include="Catalog\Images\WP_002602.png" />
+    <Content Include="Catalog\Images\WP_002603.png" />
+    <Content Include="Catalog\Images\WP_002604.png" />
+    <Content Include="Catalog\Images\WP_002605.png" />
+    <Content Include="Catalog\Images\WP_002606.png" />
+    <Content Include="Catalog\Images\WP_002608.png" />
+    <Content Include="Catalog\Images\WP_002609.png" />
+    <Content Include="Catalog\Images\WP_002610.png" />
+    <Content Include="Catalog\Images\WP_002611.png" />
+    <Content Include="Catalog\Images\WP_002612.png" />
+    <Content Include="Catalog\Images\WP_002613.png" />
+    <Content Include="Catalog\Images\WP_002614.png" />
+    <Content Include="Catalog\Images\WP_002615.png" />
+    <Content Include="Catalog\Images\WP_002616.png" />
+    <Content Include="Catalog\Images\WP_002617.png" />
+    <Content Include="Catalog\Images\WP_002618.png" />
+    <Content Include="Catalog\Images\WP_002619.png" />
+    <Content Include="Catalog\Images\WP_002620.png" />
+    <Content Include="Catalog\Images\WP_002622.png" />
+    <Content Include="Catalog\Images\WP_002623.png" />
+    <Content Include="Catalog\Images\WP_002624.png" />
+    <Content Include="Catalog\Images\WP_002625.png" />
+    <Content Include="Catalog\Images\WP_002627.png" />
+    <Content Include="Catalog\Images\WP_002628.png" />
+    <Content Include="Catalog\Images\WP_002629.png" />
+    <Content Include="Catalog\Images\WP_002630.png" />
+    <Content Include="Catalog\Images\WP_002631.png" />
+    <Content Include="Catalog\Images\WP_002632.png" />
+    <Content Include="Catalog\Images\WP_002633.png" />
+    <Content Include="Catalog\Images\WP_002635.jpg" />
+    <Content Include="Catalog\Images\WP_002638.jpg" />
+    <Content Include="Catalog\Images\WP_002643.jpg" />
+    <Content Include="Catalog\Images\WP_002650.jpg" />
+    <Content Include="Catalog\Images\WP_002651.jpg" />
+    <Content Include="Catalog\Images\WP_002652.jpg" />
+    <Content Include="Catalog\Images\WP_002653.jpg" />
+    <Content Include="Catalog\Images\WP_002654.jpg" />
+    <Content Include="Catalog\Images\WP_002655.jpg" />
+    <Content Include="Catalog\Images\WP_002656.jpg" />
+    <Content Include="Catalog\Images\WP_002661.jpg" />
+    <Content Include="Catalog\Images\WP_002662.jpg" />
+    <Content Include="Catalog\Images\WP_002663.jpg" />
+    <Content Include="Catalog\Images\WP_002664.jpg" />
+    <Content Include="Catalog\Images\WP_002665.jpg" />
+    <Content Include="Catalog\Images\WP_002669.jpg" />
+    <Content Include="Catalog\Images\WP_002675.jpg" />
+    <Content Include="Catalog\Images\WP_002676.jpg" />
+    <Content Include="Catalog\Images\WP_002686.jpg" />
+    <Content Include="Catalog\Images\WP_002687.jpg" />
+    <Content Include="Catalog\Images\WP_002688.jpg" />
+    <Content Include="Catalog\Images\WP_002689.jpg" />
+    <Content Include="Catalog\Images\WP_002690.jpg" />
+    <Content Include="Catalog\Images\WP_002691.jpg" />
+    <Content Include="Catalog\Images\WP_002693.jpg" />
+    <Content Include="Catalog\Images\WP_002694.jpg" />
+    <Content Include="Catalog\Images\WP_002695.jpg" />
+    <Content Include="Catalog\Images\WP_002696.jpg" />
+    <Content Include="Catalog\Images\WP_002697.jpg" />
+    <Content Include="Catalog\Images\WP_002698.jpg" />
+    <Content Include="Catalog\Images\WP_002699.jpg" />
+    <Content Include="Catalog\Images\WP_002700.jpg" />
+    <Content Include="Catalog\Images\WP_002705.jpg" />
+    <Content Include="Catalog\Images\WP_002706.jpg" />
+    <Content Include="Catalog\Images\WP_002712.jpg" />
+    <Content Include="Catalog\Images\WP_002713.jpg" />
+    <Content Include="Catalog\Images\WP_002714.jpg" />
+    <Content Include="Catalog\Images\WP_002715.jpg" />
+    <Content Include="Catalog\Images\WP_002716.jpg" />
+    <Content Include="Catalog\Images\WP_002717.jpg" />
+    <Content Include="Catalog\Images\WP_002718.jpg" />
+    <Content Include="Catalog\Images\WP_002719.jpg" />
+    <Content Include="Catalog\Images\WP_002720.jpg" />
+    <Content Include="Catalog\Images\WP_002721.jpg" />
+    <Content Include="Catalog\Images\WP_002722.jpg" />
+    <Content Include="Catalog\Images\WP_002723.jpg" />
+    <Content Include="Catalog\Images\WP_002724.jpg" />
+    <Content Include="Catalog\Images\WP_002725.jpg" />
+    <Content Include="Catalog\Images\WP_002726.jpg" />
+    <Content Include="Catalog\Images\WP_002727.jpg" />
+    <Content Include="Catalog\Images\WP_002728.jpg" />
+    <Content Include="Catalog\Images\WP_002729.jpg" />
+    <Content Include="Catalog\Images\WP_002730.jpg" />
+    <Content Include="Catalog\Images\WP_002731.jpg" />
+    <Content Include="Catalog\Images\WP_002732.jpg" />
+    <Content Include="Catalog\Images\WP_002733.jpg" />
+    <Content Include="Catalog\Images\WP_002734.jpg" />
+    <Content Include="Catalog\Images\WP_002735.jpg" />
+    <Content Include="Catalog\Images\WP_002736.jpg" />
+    <Content Include="Catalog\Images\WP_002737.jpg" />
+    <Content Include="Catalog\Images\WP_002738.jpg" />
+    <Content Include="Catalog\Images\WP_002739.jpg" />
+    <Content Include="Catalog\Images\WP_002740.jpg" />
+    <Content Include="Catalog\Images\WP_002741.jpg" />
+    <Content Include="Catalog\Images\WP_002742.jpg" />
+    <Content Include="Catalog\Images\WP_002743.jpg" />
+    <Content Include="Catalog\Images\WP_002744.jpg" />
+    <Content Include="Catalog\Images\WP_002745.jpg" />
+    <Content Include="Catalog\Images\WP_002746.jpg" />
+    <Content Include="Catalog\Images\WP_002747.jpg" />
+    <Content Include="Catalog\Images\WP_002748.jpg" />
+    <Content Include="Catalog\Images\WP_002749.jpg" />
+    <Content Include="Catalog\Images\WP_002750.jpg" />
+    <Content Include="Catalog\Images\WP_002751.jpg" />
+    <Content Include="Catalog\Images\WP_002752.jpg" />
+    <Content Include="Catalog\Images\WP_002753.jpg" />
+    <Content Include="Catalog\Images\WP_002754.jpg" />
+    <Content Include="Catalog\Images\WP_002755.jpg" />
+    <Content Include="Catalog\Images\WP_002756.jpg" />
+    <Content Include="Catalog\Images\WP_002757.jpg" />
+    <Content Include="Catalog\Images\WP_002758.jpg" />
+    <Content Include="Catalog\Images\WP_002759.jpg" />
+    <Content Include="Catalog\Images\WP_002760.jpg" />
+    <Content Include="Catalog\Images\WP_002761.jpg" />
+    <Content Include="Catalog\Images\WP_002762.jpg" />
+    <Content Include="Catalog\Images\WP_002763.jpg" />
+    <Content Include="Catalog\Images\WP_002853.jpg" />
+    <Content Include="Catalog\Images\WP_002854.jpg" />
+    <Content Include="Catalog\Images\WP_002857.jpg" />
+    <Content Include="Contact.aspx" />
+    <Content Include="Content\bootstrap-original.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min-original.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Images\logo.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="packages.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Account\Web.config" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\WebForms\DetailsView.js" />
+    <Content Include="Scripts\WebForms\Focus.js" />
+    <Content Include="Scripts\WebForms\GridView.js" />
+    <Content Include="Scripts\WebForms\Menu.js" />
+    <Content Include="Scripts\WebForms\MenuStandards.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="Scripts\WebForms\SmartNav.js" />
+    <Content Include="Scripts\WebForms\TreeView.js" />
+    <Content Include="Scripts\WebForms\WebForms.js" />
+    <Content Include="Scripts\WebForms\WebParts.js" />
+    <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Default.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Site.Master" />
+    <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Web.config" />
+    <Content Include="Bundle.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Site.Mobile.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Manage.aspx.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Manage.aspx.designer.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\OpenAuthProviders.ascx.cs">
+      <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\OpenAuthProviders.ascx.designer.cs">
+      <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\RegisterExternalLogin.aspx.cs">
+      <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\RegisterExternalLogin.aspx.designer.cs">
+      <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="BookDetails.aspx.cs">
+      <DependentUpon>BookDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookDetails.aspx.designer.cs">
+      <DependentUpon>BookDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BookList.aspx.cs">
+      <DependentUpon>BookList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookList.aspx.designer.cs">
+      <DependentUpon>BookList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.designer.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
+    <Compile Include="ViewSwitcher.ascx.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.designer.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BCM.Common\BCM.Common.csproj">
+      <Project>{d90d7a69-8c04-481b-9906-f67915331e89}</Project>
+      <Name>BCM.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BCM.DAL\BCM.DAL.csproj">
+      <Project>{74c6f62d-03d5-4dcb-bbf5-18d3207d1113}</Project>
+      <Name>BCM.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BCM.Diagnostics\BCM.Diagnostics.csproj">
+      <Project>{a28e950e-cb9a-4d1d-b688-952a90b67fa8}</Project>
+      <Name>BCM.Diagnostics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BCM.Model\BCM.Model.csproj">
+      <Project>{28dd1864-2767-491b-8eee-03371dd72407}</Project>
+      <Name>BCM.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BCM.Resources\BCM.Resources.csproj">
+      <Project>{11469b43-55b0-4e63-ae4b-eed85511ceae}</Project>
+      <Name>BCM.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62074</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:62074/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
