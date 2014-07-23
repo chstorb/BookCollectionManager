@@ -293,6 +293,7 @@ namespace BCM.WindowsFormsApplication
                 this.textBoxCoverType.DataBindings.Add("Text", this.bindingSource1, "CoverType");
                 this.textBoxPages.DataBindings.Add("Text", this.bindingSource1, "Pages");
                 this.textBoxLocation.DataBindings.Add("Text", this.bindingSource1, "Location");
+                this.textBoxNotes.DataBindings.Add("Text", this.bindingSource1, "Notes");
 
                 Binding b1 = this.textBoxPurchasePrice.DataBindings.Add("Text", this.bindingSource1, "PurchasePrice");                
                 b1.Format += new ConvertEventHandler(CurrencyFormat);
