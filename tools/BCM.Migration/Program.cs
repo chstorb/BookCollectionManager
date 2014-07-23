@@ -34,9 +34,13 @@ namespace BCM.Migration
                 //migration.BuildDataSet(filePath);
                 //migration.ReadXml(filePath);
             }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(String.Format("{0}\n", ex.Message));
+            }
             catch (FileNotFoundException ex)
             {
-                Console.WriteLine(String.Format("{0}\n\n{1}\n", ex.Message, ex.FileName));
+                Console.WriteLine(String.Format("{0}\n\n\t{1}\n", ex.Message, ex.FileName));
             }
 
 #if DEBUG
@@ -58,6 +62,12 @@ namespace BCM.Migration
         {
             string pathRoot = Path.GetPathRoot(Assembly.GetExecutingAssembly().Location);
             string newPath = Path.Combine(pathRoot, dataDirectory);
+
+            if (!Directory.Exists(newPath))
+            {
+                throw new ArgumentException("Invalid path!", "dataDirectory");
+            }
+
             AppDomain.CurrentDomain.SetData(Common.Constants.DataDirectory, newPath);
         }
 
