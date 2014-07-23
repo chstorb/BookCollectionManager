@@ -59,9 +59,9 @@
     <Compile Include="IdentityModels.cs" />
     <Compile Include="CustomDbConfiguration.cs" />
     <Compile Include="CustomHistoryContext.cs" />
-    <Compile Include="Migrations\201407211400062_Initial.cs" />
-    <Compile Include="Migrations\201407211400062_Initial.Designer.cs">
-      <DependentUpon>201407211400062_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201407231829419_Initial.cs" />
+    <Compile Include="Migrations\201407231829419_Initial.Designer.cs">
+      <DependentUpon>201407231829419_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -92,8 +92,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201407211400062_Initial.resx">
-      <DependentUpon>201407211400062_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201407231829419_Initial.resx">
+      <DependentUpon>201407231829419_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -39,7 +39,7 @@ namespace BCM.DAL
                 .WithMany(a => a.Books)
                 .Map(m =>
                 {
-                    m.ToTable(Constants.TablePrefix + "BookAuthors");
+                    m.ToTable(Constants.TablePrefix + "BookAuthor");
                     m.MapLeftKey("BookId");
                     m.MapRightKey("AuthorId");
                 });
@@ -49,7 +49,7 @@ namespace BCM.DAL
                 .WithMany(c => c.Books)
                 .Map(m =>
                 {
-                    m.ToTable(Constants.TablePrefix + "BookCategories");
+                    m.ToTable(Constants.TablePrefix + "BookCategory");
                     m.MapLeftKey("BookId");
                     m.MapRightKey("CategoryId");
                 });
