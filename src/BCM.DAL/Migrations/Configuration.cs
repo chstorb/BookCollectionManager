@@ -87,8 +87,8 @@ namespace BCM.DAL.Migrations
                 {
                     BirthDate=null, 
                     BirthName="", 
-                    Birthplace="", 
-                    DateofDeath=null, 
+                    BirthPlace="", 
+                    DateOfDeath=null, 
                     FirstName="Georges-Louis Leclerc de", 
                     LastName="Buffon",
                     Nationality="", 
