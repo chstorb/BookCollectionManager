@@ -34,16 +34,16 @@ namespace BCM.Model
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public Nullable<DateTime> BirthDate { get; set; }
 
-        [Display(Name = "Birthplace", ResourceType = typeof(Resources.Resources))]
-        public string Birthplace { get; set; }
+        [Display(Name = "BirthPlace", ResourceType = typeof(Resources.Resources))]
+        public string BirthPlace { get; set; }
 
         [Display(Name = "Nationality", ResourceType = typeof(Resources.Resources))]
         public string Nationality { get; set; }
 
-        [Display(Name = "DateofDeath", ResourceType = typeof(Resources.Resources))]
+        [Display(Name = "DateOfDeath", ResourceType = typeof(Resources.Resources))]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
-        public Nullable<DateTime> DateofDeath { get; set; }
+        public Nullable<DateTime> DateOfDeath { get; set; }
 
         [Display(Name = "Nationality", ResourceType = typeof(Resources.Resources))]
         public string Photograph { get; set; }

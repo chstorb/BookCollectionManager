@@ -42,7 +42,7 @@ namespace BCM.Model
         /// <summary>
         /// Place Of Birth
         /// </summary>
-        public string Birthplace { get; set; }
+        public string BirthPlace { get; set; }
 
         /// <summary>
         /// Nationality
@@ -52,7 +52,7 @@ namespace BCM.Model
         /// <summary>
         /// Date of death
         /// </summary>
-        public Nullable<DateTime> DateofDeath { get; set; }
+        public Nullable<DateTime> DateOfDeath { get; set; }
 
         /// <summary>
         /// Photograph
