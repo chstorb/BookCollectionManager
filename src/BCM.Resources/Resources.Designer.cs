@@ -90,9 +90,9 @@ namespace BCM.Resources {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Birthplace ähnelt.
         /// </summary>
-        public static string Birthplace {
+        public static string BirthPlace {
             get {
-                return ResourceManager.GetString("Birthplace", resourceCulture);
+                return ResourceManager.GetString("BirthPlace", resourceCulture);
             }
         }
         
@@ -117,9 +117,9 @@ namespace BCM.Resources {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Date of Death ähnelt.
         /// </summary>
-        public static string DateofDeath {
+        public static string DateOfDeath {
             get {
-                return ResourceManager.GetString("DateofDeath", resourceCulture);
+                return ResourceManager.GetString("DateOfDeath", resourceCulture);
             }
         }
         

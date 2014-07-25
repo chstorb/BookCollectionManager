@@ -126,7 +126,7 @@
   <data name="BirthName" xml:space="preserve">
     <value>Birth Name</value>
   </data>
-  <data name="Birthplace" xml:space="preserve">
+  <data name="BirthPlace" xml:space="preserve">
     <value>Birthplace</value>
   </data>
   <data name="CopyrightYear" xml:space="preserve">
@@ -135,7 +135,7 @@
   <data name="CoverType" xml:space="preserve">
     <value>Cover Type</value>
   </data>
-  <data name="DateofDeath" xml:space="preserve">
+  <data name="DateOfDeath" xml:space="preserve">
     <value>Date of Death</value>
   </data>
   <data name="DatePurchased" xml:space="preserve">
