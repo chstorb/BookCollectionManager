@@ -61,6 +61,8 @@
     <Compile Include="Author.Metadata.cs" />
     <Compile Include="Book.cs" />
     <Compile Include="Book.Metadata.cs" />
+    <Compile Include="CartItem.cs" />
+    <Compile Include="CartItem.Metadata.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Category.Metadata.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
