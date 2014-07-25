@@ -34,19 +34,34 @@
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainerNav = new System.Windows.Forms.SplitContainer();
+            this.treeViewAuthors = new BCM.WindowsFormsApplication.TreeViewAuthors();
+            this.treeViewCategories = new BCM.WindowsFormsApplication.TreeViewCategories();
+            this.treeViewBooks = new BCM.WindowsFormsApplication.TreeViewBooks();
+            this.buttonSelectAuthors = new System.Windows.Forms.Button();
+            this.buttonSelectBooks = new System.Windows.Forms.Button();
+            this.buttonSelectCategories = new System.Windows.Forms.Button();
+            this.bookList = new BCM.WindowsFormsApplication.BookList();
             this.panelStartup = new System.Windows.Forms.Panel();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileNewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileOpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.fileSaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileSaveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.filePrintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filePrintPreviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editUndoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editRedoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.editCutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editCopyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editPasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.editSelectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,21 +75,6 @@
             this.helpAboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMain = new System.Windows.Forms.Panel();
             this.labelInfo = new System.Windows.Forms.Label();
-            this.fileNewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fileOpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fileSaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.filePrintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.filePrintPreviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editCutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editCopyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editPasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.buttonSelectAuthors = new System.Windows.Forms.Button();
-            this.buttonSelectBooks = new System.Windows.Forms.Button();
-            this.buttonSelectCategories = new System.Windows.Forms.Button();
-            this.treeViewAuthors = new BCM.WindowsFormsApplication.TreeViewAuthors();
-            this.treeViewCategories = new BCM.WindowsFormsApplication.TreeViewCategories();
-            this.treeViewBooks = new BCM.WindowsFormsApplication.TreeViewBooks();
-            this.bookList = new BCM.WindowsFormsApplication.BookList();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -97,22 +97,21 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel2});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 706);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 708);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1008, 24);
+            this.statusStrip1.Size = new System.Drawing.Size(1008, 22);
             this.statusStrip1.TabIndex = 0;
             // 
             // toolStripStatusLabel1
             // 
-            this.toolStripStatusLabel1.AutoSize = false;
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(1000, 19);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
             this.toolStripStatusLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(0, 0);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(0, 17);
             // 
             // splitContainer1
             // 
@@ -162,6 +161,106 @@
             this.splitContainerNav.SplitterWidth = 3;
             this.splitContainerNav.TabIndex = 0;
             this.splitContainerNav.Layout += new System.Windows.Forms.LayoutEventHandler(this.splitContainerNav_Layout);
+            // 
+            // treeViewAuthors
+            // 
+            this.treeViewAuthors.DbContext = null;
+            this.treeViewAuthors.Location = new System.Drawing.Point(37, 227);
+            this.treeViewAuthors.Margin = new System.Windows.Forms.Padding(4);
+            this.treeViewAuthors.Name = "treeViewAuthors";
+            this.treeViewAuthors.Size = new System.Drawing.Size(121, 90);
+            this.treeViewAuthors.TabIndex = 5;
+            // 
+            // treeViewCategories
+            // 
+            this.treeViewCategories.DbContext = null;
+            this.treeViewCategories.Location = new System.Drawing.Point(37, 120);
+            this.treeViewCategories.Margin = new System.Windows.Forms.Padding(4);
+            this.treeViewCategories.Name = "treeViewCategories";
+            this.treeViewCategories.Size = new System.Drawing.Size(121, 97);
+            this.treeViewCategories.TabIndex = 4;
+            this.treeViewCategories.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewCategories_AfterSelect);
+            // 
+            // treeViewBooks
+            // 
+            this.treeViewBooks.DbContext = null;
+            this.treeViewBooks.Location = new System.Drawing.Point(37, 14);
+            this.treeViewBooks.Margin = new System.Windows.Forms.Padding(4);
+            this.treeViewBooks.Name = "treeViewBooks";
+            this.treeViewBooks.Size = new System.Drawing.Size(121, 100);
+            this.treeViewBooks.TabIndex = 3;
+            // 
+            // buttonSelectAuthors
+            // 
+            this.buttonSelectAuthors.BackgroundImage = global::BCM.WindowsFormsApplication.Properties.Resources.buttonSelectAuthors_BackgroundImage;
+            this.buttonSelectAuthors.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonSelectAuthors.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.buttonSelectAuthors.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonSelectAuthors.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSelectAuthors.Image = global::BCM.WindowsFormsApplication.Properties.Resources.Team_32xLG;
+            this.buttonSelectAuthors.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSelectAuthors.Location = new System.Drawing.Point(0, 59);
+            this.buttonSelectAuthors.Name = "buttonSelectAuthors";
+            this.buttonSelectAuthors.Size = new System.Drawing.Size(177, 41);
+            this.buttonSelectAuthors.TabIndex = 2;
+            this.buttonSelectAuthors.Text = "Authors";
+            this.buttonSelectAuthors.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSelectAuthors.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonSelectAuthors.UseVisualStyleBackColor = true;
+            this.buttonSelectAuthors.Click += new System.EventHandler(this.buttonSelectAuthors_Click);
+            // 
+            // buttonSelectBooks
+            // 
+            this.buttonSelectBooks.BackgroundImage = global::BCM.WindowsFormsApplication.Properties.Resources.buttonSelectBooks_BackgroundImage;
+            this.buttonSelectBooks.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonSelectBooks.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonSelectBooks.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonSelectBooks.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSelectBooks.Image = global::BCM.WindowsFormsApplication.Properties.Resources.book_Open_16xSM;
+            this.buttonSelectBooks.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSelectBooks.Location = new System.Drawing.Point(0, 0);
+            this.buttonSelectBooks.Name = "buttonSelectBooks";
+            this.buttonSelectBooks.Size = new System.Drawing.Size(177, 41);
+            this.buttonSelectBooks.TabIndex = 0;
+            this.buttonSelectBooks.Text = "Books";
+            this.buttonSelectBooks.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSelectBooks.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonSelectBooks.UseVisualStyleBackColor = false;
+            this.buttonSelectBooks.Click += new System.EventHandler(this.buttonSelectBooks_Click);
+            // 
+            // buttonSelectCategories
+            // 
+            this.buttonSelectCategories.BackgroundImage = global::BCM.WindowsFormsApplication.Properties.Resources.buttonSelectCategories_BackgroundImage;
+            this.buttonSelectCategories.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonSelectCategories.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.buttonSelectCategories.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonSelectCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSelectCategories.Image = global::BCM.WindowsFormsApplication.Properties.Resources.class_32xLG;
+            this.buttonSelectCategories.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSelectCategories.Location = new System.Drawing.Point(0, 100);
+            this.buttonSelectCategories.Name = "buttonSelectCategories";
+            this.buttonSelectCategories.Size = new System.Drawing.Size(177, 41);
+            this.buttonSelectCategories.TabIndex = 1;
+            this.buttonSelectCategories.Text = "Categories";
+            this.buttonSelectCategories.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSelectCategories.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonSelectCategories.UseVisualStyleBackColor = true;
+            this.buttonSelectCategories.Click += new System.EventHandler(this.buttonSelectCategories_Click);
+            // 
+            // bookList
+            // 
+            this.bookList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.bookList.CategoryId = 1;
+            this.bookList.DataMember = "";
+            this.bookList.DataSource = null;
+            this.bookList.DbContext = null;
+            this.bookList.Filter = null;
+            this.bookList.Location = new System.Drawing.Point(19, 121);
+            this.bookList.Margin = new System.Windows.Forms.Padding(4);
+            this.bookList.Name = "bookList";
+            this.bookList.Size = new System.Drawing.Size(200, 100);
+            this.bookList.TabIndex = 1;
+            this.bookList.AfterSelect += new System.EventHandler<BCM.WindowsFormsApplication.BookSelectedEventArgs>(this.bookList_AfterSelect);
             // 
             // panelStartup
             // 
@@ -223,10 +322,40 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
             // 
+            // fileNewToolStripMenuItem
+            // 
+            this.fileNewToolStripMenuItem.Enabled = false;
+            this.fileNewToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("fileNewToolStripMenuItem.Image")));
+            this.fileNewToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.fileNewToolStripMenuItem.Name = "fileNewToolStripMenuItem";
+            this.fileNewToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.fileNewToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.fileNewToolStripMenuItem.Text = "&New";
+            // 
+            // fileOpenToolStripMenuItem
+            // 
+            this.fileOpenToolStripMenuItem.Enabled = false;
+            this.fileOpenToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("fileOpenToolStripMenuItem.Image")));
+            this.fileOpenToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.fileOpenToolStripMenuItem.Name = "fileOpenToolStripMenuItem";
+            this.fileOpenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.fileOpenToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.fileOpenToolStripMenuItem.Text = "&Open";
+            // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
             this.toolStripSeparator.Size = new System.Drawing.Size(145, 6);
+            // 
+            // fileSaveToolStripMenuItem
+            // 
+            this.fileSaveToolStripMenuItem.Enabled = false;
+            this.fileSaveToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("fileSaveToolStripMenuItem.Image")));
+            this.fileSaveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.fileSaveToolStripMenuItem.Name = "fileSaveToolStripMenuItem";
+            this.fileSaveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.fileSaveToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.fileSaveToolStripMenuItem.Text = "&Save";
             // 
             // fileSaveAsToolStripMenuItem
             // 
@@ -239,6 +368,25 @@
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(145, 6);
+            // 
+            // filePrintToolStripMenuItem
+            // 
+            this.filePrintToolStripMenuItem.Enabled = false;
+            this.filePrintToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("filePrintToolStripMenuItem.Image")));
+            this.filePrintToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.filePrintToolStripMenuItem.Name = "filePrintToolStripMenuItem";
+            this.filePrintToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+            this.filePrintToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.filePrintToolStripMenuItem.Text = "&Print";
+            // 
+            // filePrintPreviewToolStripMenuItem
+            // 
+            this.filePrintPreviewToolStripMenuItem.Enabled = false;
+            this.filePrintPreviewToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("filePrintPreviewToolStripMenuItem.Image")));
+            this.filePrintPreviewToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.filePrintPreviewToolStripMenuItem.Name = "filePrintPreviewToolStripMenuItem";
+            this.filePrintPreviewToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.filePrintPreviewToolStripMenuItem.Text = "Print Pre&view";
             // 
             // toolStripSeparator2
             // 
@@ -288,6 +436,36 @@
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(143, 6);
+            // 
+            // editCutToolStripMenuItem
+            // 
+            this.editCutToolStripMenuItem.Enabled = false;
+            this.editCutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("editCutToolStripMenuItem.Image")));
+            this.editCutToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.editCutToolStripMenuItem.Name = "editCutToolStripMenuItem";
+            this.editCutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
+            this.editCutToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.editCutToolStripMenuItem.Text = "&Cut";
+            // 
+            // editCopyToolStripMenuItem
+            // 
+            this.editCopyToolStripMenuItem.Enabled = false;
+            this.editCopyToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("editCopyToolStripMenuItem.Image")));
+            this.editCopyToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.editCopyToolStripMenuItem.Name = "editCopyToolStripMenuItem";
+            this.editCopyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
+            this.editCopyToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.editCopyToolStripMenuItem.Text = "C&opy";
+            // 
+            // editPasteToolStripMenuItem
+            // 
+            this.editPasteToolStripMenuItem.Enabled = false;
+            this.editPasteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("editPasteToolStripMenuItem.Image")));
+            this.editPasteToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.editPasteToolStripMenuItem.Name = "editPasteToolStripMenuItem";
+            this.editPasteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
+            this.editPasteToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.editPasteToolStripMenuItem.Text = "&Paste";
             // 
             // toolStripSeparator4
             // 
@@ -391,184 +569,6 @@
             this.labelInfo.TabIndex = 0;
             this.labelInfo.Text = "Book Collection Manager";
             this.labelInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // fileNewToolStripMenuItem
-            // 
-            this.fileNewToolStripMenuItem.Enabled = false;
-            this.fileNewToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("fileNewToolStripMenuItem.Image")));
-            this.fileNewToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.fileNewToolStripMenuItem.Name = "fileNewToolStripMenuItem";
-            this.fileNewToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.fileNewToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.fileNewToolStripMenuItem.Text = "&New";
-            // 
-            // fileOpenToolStripMenuItem
-            // 
-            this.fileOpenToolStripMenuItem.Enabled = false;
-            this.fileOpenToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("fileOpenToolStripMenuItem.Image")));
-            this.fileOpenToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.fileOpenToolStripMenuItem.Name = "fileOpenToolStripMenuItem";
-            this.fileOpenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.fileOpenToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.fileOpenToolStripMenuItem.Text = "&Open";
-            // 
-            // fileSaveToolStripMenuItem
-            // 
-            this.fileSaveToolStripMenuItem.Enabled = false;
-            this.fileSaveToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("fileSaveToolStripMenuItem.Image")));
-            this.fileSaveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.fileSaveToolStripMenuItem.Name = "fileSaveToolStripMenuItem";
-            this.fileSaveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.fileSaveToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.fileSaveToolStripMenuItem.Text = "&Save";
-            // 
-            // filePrintToolStripMenuItem
-            // 
-            this.filePrintToolStripMenuItem.Enabled = false;
-            this.filePrintToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("filePrintToolStripMenuItem.Image")));
-            this.filePrintToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.filePrintToolStripMenuItem.Name = "filePrintToolStripMenuItem";
-            this.filePrintToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.filePrintToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.filePrintToolStripMenuItem.Text = "&Print";
-            // 
-            // filePrintPreviewToolStripMenuItem
-            // 
-            this.filePrintPreviewToolStripMenuItem.Enabled = false;
-            this.filePrintPreviewToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("filePrintPreviewToolStripMenuItem.Image")));
-            this.filePrintPreviewToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.filePrintPreviewToolStripMenuItem.Name = "filePrintPreviewToolStripMenuItem";
-            this.filePrintPreviewToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.filePrintPreviewToolStripMenuItem.Text = "Print Pre&view";
-            // 
-            // editCutToolStripMenuItem
-            // 
-            this.editCutToolStripMenuItem.Enabled = false;
-            this.editCutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("editCutToolStripMenuItem.Image")));
-            this.editCutToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.editCutToolStripMenuItem.Name = "editCutToolStripMenuItem";
-            this.editCutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.editCutToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.editCutToolStripMenuItem.Text = "&Cut";
-            // 
-            // editCopyToolStripMenuItem
-            // 
-            this.editCopyToolStripMenuItem.Enabled = false;
-            this.editCopyToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("editCopyToolStripMenuItem.Image")));
-            this.editCopyToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.editCopyToolStripMenuItem.Name = "editCopyToolStripMenuItem";
-            this.editCopyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.editCopyToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.editCopyToolStripMenuItem.Text = "C&opy";
-            // 
-            // editPasteToolStripMenuItem
-            // 
-            this.editPasteToolStripMenuItem.Enabled = false;
-            this.editPasteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("editPasteToolStripMenuItem.Image")));
-            this.editPasteToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.editPasteToolStripMenuItem.Name = "editPasteToolStripMenuItem";
-            this.editPasteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.editPasteToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.editPasteToolStripMenuItem.Text = "&Paste";
-            // 
-            // buttonSelectAuthors
-            // 
-            this.buttonSelectAuthors.BackgroundImage = global::BCM.WindowsFormsApplication.Properties.Resources.buttonSelectAuthors_BackgroundImage;
-            this.buttonSelectAuthors.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonSelectAuthors.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.buttonSelectAuthors.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonSelectAuthors.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSelectAuthors.Image = global::BCM.WindowsFormsApplication.Properties.Resources.Team_32xLG;
-            this.buttonSelectAuthors.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSelectAuthors.Location = new System.Drawing.Point(0, 59);
-            this.buttonSelectAuthors.Name = "buttonSelectAuthors";
-            this.buttonSelectAuthors.Size = new System.Drawing.Size(177, 41);
-            this.buttonSelectAuthors.TabIndex = 2;
-            this.buttonSelectAuthors.Text = "Authors";
-            this.buttonSelectAuthors.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSelectAuthors.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonSelectAuthors.UseVisualStyleBackColor = true;
-            this.buttonSelectAuthors.Click += new System.EventHandler(this.buttonSelectAuthors_Click);
-            // 
-            // buttonSelectBooks
-            // 
-            this.buttonSelectBooks.BackgroundImage = global::BCM.WindowsFormsApplication.Properties.Resources.buttonSelectBooks_BackgroundImage;
-            this.buttonSelectBooks.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonSelectBooks.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonSelectBooks.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonSelectBooks.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSelectBooks.Image = global::BCM.WindowsFormsApplication.Properties.Resources.book_Open_16xSM;
-            this.buttonSelectBooks.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSelectBooks.Location = new System.Drawing.Point(0, 0);
-            this.buttonSelectBooks.Name = "buttonSelectBooks";
-            this.buttonSelectBooks.Size = new System.Drawing.Size(177, 41);
-            this.buttonSelectBooks.TabIndex = 0;
-            this.buttonSelectBooks.Text = "Books";
-            this.buttonSelectBooks.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSelectBooks.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonSelectBooks.UseVisualStyleBackColor = false;
-            this.buttonSelectBooks.Click += new System.EventHandler(this.buttonSelectBooks_Click);
-            // 
-            // buttonSelectCategories
-            // 
-            this.buttonSelectCategories.BackgroundImage = global::BCM.WindowsFormsApplication.Properties.Resources.buttonSelectCategories_BackgroundImage;
-            this.buttonSelectCategories.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonSelectCategories.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.buttonSelectCategories.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonSelectCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSelectCategories.Image = global::BCM.WindowsFormsApplication.Properties.Resources.class_32xLG;
-            this.buttonSelectCategories.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSelectCategories.Location = new System.Drawing.Point(0, 100);
-            this.buttonSelectCategories.Name = "buttonSelectCategories";
-            this.buttonSelectCategories.Size = new System.Drawing.Size(177, 41);
-            this.buttonSelectCategories.TabIndex = 1;
-            this.buttonSelectCategories.Text = "Categories";
-            this.buttonSelectCategories.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSelectCategories.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonSelectCategories.UseVisualStyleBackColor = true;
-            this.buttonSelectCategories.Click += new System.EventHandler(this.buttonSelectCategories_Click);
-            // 
-            // treeViewAuthors
-            // 
-            this.treeViewAuthors.Location = new System.Drawing.Point(37, 227);
-            this.treeViewAuthors.Margin = new System.Windows.Forms.Padding(4);
-            this.treeViewAuthors.Name = "treeViewAuthors";
-            this.treeViewAuthors.Size = new System.Drawing.Size(121, 90);
-            this.treeViewAuthors.TabIndex = 5;
-            // 
-            // treeViewCategories
-            // 
-            this.treeViewCategories.DbContext = null;
-            this.treeViewCategories.Location = new System.Drawing.Point(37, 120);
-            this.treeViewCategories.Margin = new System.Windows.Forms.Padding(4);
-            this.treeViewCategories.Name = "treeViewCategories";
-            this.treeViewCategories.Size = new System.Drawing.Size(121, 97);
-            this.treeViewCategories.TabIndex = 4;
-            this.treeViewCategories.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewCategories_AfterSelect);
-            // 
-            // treeViewBooks
-            // 
-            this.treeViewBooks.DbContext = null;
-            this.treeViewBooks.Location = new System.Drawing.Point(37, 14);
-            this.treeViewBooks.Margin = new System.Windows.Forms.Padding(4);
-            this.treeViewBooks.Name = "treeViewBooks";
-            this.treeViewBooks.Size = new System.Drawing.Size(121, 100);
-            this.treeViewBooks.TabIndex = 3;
-            // 
-            // bookList
-            // 
-            this.bookList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.bookList.CategoryId = 1;
-            this.bookList.DataMember = "";
-            this.bookList.DataSource = null;
-            this.bookList.DbContext = null;
-            this.bookList.Filter = null;
-            this.bookList.Location = new System.Drawing.Point(19, 121);
-            this.bookList.Margin = new System.Windows.Forms.Padding(4);
-            this.bookList.Name = "bookList";
-            this.bookList.Size = new System.Drawing.Size(200, 100);
-            this.bookList.TabIndex = 1;
-            this.bookList.AfterSelect += new System.EventHandler<BCM.WindowsFormsApplication.BookSelectedEventArgs>(this.bookList_AfterSelect);
             // 
             // MainForm
             // 

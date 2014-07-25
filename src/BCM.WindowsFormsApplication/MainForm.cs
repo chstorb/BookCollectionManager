@@ -46,7 +46,7 @@ namespace BCM.WindowsFormsApplication
             //
             // toolStripStatusLabel2
             //
-            this.toolStripStatusLabel2.Text = DateTime.Now.ToString("dd.MM.yyyy HH:mm");
+            this.toolStripStatusLabel2.Text = DateTime.Now.ToString("G");
             // 
             // treeViewAuthors
             // 
