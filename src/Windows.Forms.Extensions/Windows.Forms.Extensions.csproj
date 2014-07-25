@@ -45,6 +45,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Constants.cs" />
+    <Compile Include="CurrencyTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DataPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
