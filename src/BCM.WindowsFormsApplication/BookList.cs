@@ -20,6 +20,7 @@ namespace BCM.WindowsFormsApplication
     using System.Data.Entity.Core;
     using System.IO;
     using System.Diagnostics;
+    using System.Globalization;
 
     [System.ComponentModel.ComplexBindingProperties("DataSource", "DataMember")]
     public partial class BookList : UserControl
@@ -113,7 +114,6 @@ namespace BCM.WindowsFormsApplication
                     {
                         e.Value = String.Empty;
                     }
-
                 }
             }
         }
@@ -295,14 +295,13 @@ namespace BCM.WindowsFormsApplication
                 this.textBoxLocation.DataBindings.Add("Text", this.bindingSource1, "Location");
                 this.textBoxNotes.DataBindings.Add("Text", this.bindingSource1, "Notes");
 
-                Binding b1 = this.textBoxPurchasePrice.DataBindings.Add("Text", this.bindingSource1, "PurchasePrice");                
-                b1.Format += new ConvertEventHandler(CurrencyFormat);
+                Binding b1 = this.textBoxPurchasePrice.DataBindings.Add("Text", this.bindingSource1, "PurchasePrice");
 
                 Binding b2 = this.textBoxDatePurchased.DataBindings.Add("Text", this.bindingSource1, "DatePurchased");
                 b2.Format += new ConvertEventHandler(DateFormat);
                 
                 Binding b3 = this.textBoxListPrice.DataBindings.Add("Text", this.bindingSource1, "ListPrice");
-                b3.Format += new ConvertEventHandler(CurrencyFormat);
+
                 //
                 // Picturebox
                 //
@@ -349,6 +348,9 @@ namespace BCM.WindowsFormsApplication
 
         private void DateFormat(object sender, System.Windows.Forms.ConvertEventArgs e)
         {
+            if (e.DesiredType != typeof(string))
+                return;
+
             try
             {
                 if (e.Value == null)
@@ -365,28 +367,12 @@ namespace BCM.WindowsFormsApplication
                 e.Value = String.Empty;
             }
         }
-
-        private void CurrencyFormat(object sender, System.Windows.Forms.ConvertEventArgs e)
+        
+        private void PercentageFormat(object sender, ConvertEventArgs e)
         {
-            try
-            {
-                if (e.Value == null)
-                {
-                    e.Value = String.Empty;
-                }
-                else
-                {
-                    e.Value = Convert.ToDecimal(e.Value).ToString("C");
-                }
-            }
-            catch (Exception)
-            {
-                e.Value = String.Empty;
-            }
-        }
+            if (e.DesiredType != typeof(string))
+                return;
 
-        private void PercentageFormat(object sender, System.Windows.Forms.ConvertEventArgs e)
-        {
             try
             {
                 if (e.Value == null)
