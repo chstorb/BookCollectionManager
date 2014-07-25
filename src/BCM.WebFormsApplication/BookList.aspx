@@ -47,8 +47,14 @@
                                     </a>
                                     <br />
                                     <span>
-                                        <b>Price: </b><%#:String.Format("{0:c}", Item.ListPrice)%>
+                                        <b>Price: </b><%#:String.Format("{0:C}", Item.ListPrice)%>
                                     </span>
+                                    <br />
+                                    <a href="AddToCart.aspx?bookID=<%#:Item.ID%>">               
+                                        <span class="BookListItem">
+                                            <b>Add To Cart<b>
+                                        </span>           
+                                    </a>
                                     <br />
                                 </td>
                             </tr>
