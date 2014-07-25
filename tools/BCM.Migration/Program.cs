@@ -239,11 +239,11 @@ namespace BCM.Migration
                             author.BirthName = String.Empty;
                             if (!String.IsNullOrEmpty(readerBookAuthor["BirthPlace"].ToString()))
                             {
-                                author.Birthplace = readerBookAuthor["BirthPlace"].ToString();
+                                author.BirthPlace = readerBookAuthor["BirthPlace"].ToString();
                             }
                             if (!String.IsNullOrEmpty(readerBookAuthor["DateOfDeath"].ToString()))
                             {
-                                author.DateofDeath = DateTime.Parse(readerBookAuthor["DateOfDeath"].ToString());
+                                author.DateOfDeath = DateTime.Parse(readerBookAuthor["DateOfDeath"].ToString());
                             }
                             if (!String.IsNullOrEmpty(readerBookAuthor["FirstName"].ToString()))
                             {
@@ -270,7 +270,7 @@ namespace BCM.Migration
                 }
 
 
-                ApplicationDbContext context = new ApplicationDbContext();
+                BCM.DAL.ApplicationDbContext context = new BCM.DAL.ApplicationDbContext();
 
                 List<Category> categories = new List<Category>
                 {
