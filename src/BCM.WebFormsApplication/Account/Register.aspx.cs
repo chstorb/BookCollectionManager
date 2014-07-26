@@ -19,6 +19,13 @@ namespace BCM.WebFormsApplication.Account
             if (result.Succeeded)
             {
                 IdentityHelper.SignIn(manager, user, isPersistent: false);
+
+                using (BCM.WebFormsApplication.Logic.ShoppingCartActions usersShoppingCart = new BCM.WebFormsApplication.Logic.ShoppingCartActions())
+                {
+                    String cartId = usersShoppingCart.GetCartId();
+                    usersShoppingCart.MigrateCart(cartId, user.Id);
+                }
+
                 IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
             }
             else 
