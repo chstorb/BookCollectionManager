@@ -33,6 +33,11 @@ namespace BCM.WebFormsApplication.Account
                 if (user != null)
                 {
                     IdentityHelper.SignIn(manager, user, RememberMe.Checked);
+                    
+                    BCM.WebFormsApplication.Logic.ShoppingCartActions usersShoppingCart = new BCM.WebFormsApplication.Logic.ShoppingCartActions();
+                    String cartId = usersShoppingCart.GetCartId();
+                    usersShoppingCart.MigrateCart(cartId, UserName.Text);
+
                     IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                 }
                 else

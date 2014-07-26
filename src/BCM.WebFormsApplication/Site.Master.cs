@@ -12,6 +12,7 @@ namespace BCM.WebFormsApplication
     using System.Linq;
     using BCM.Model;
     using BCM.DAL;
+    using BCM.WebFormsApplication.Logic;
 
     public partial class SiteMaster : MasterPage
     {
@@ -73,6 +74,15 @@ namespace BCM.WebFormsApplication
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected void Page_PreRender(object sender, EventArgs e)
+        {
+            using (ShoppingCartActions usersShoppingCart = new ShoppingCartActions())
+            {
+                string cartStr = string.Format("Cart ({0})", usersShoppingCart.GetCount());
+                cartCount.InnerText = cartStr;
+            }
         }
 
         public IQueryable<Category> GetCategories()

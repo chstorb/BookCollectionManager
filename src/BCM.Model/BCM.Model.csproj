@@ -65,6 +65,10 @@
     <Compile Include="CartItem.Metadata.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Category.Metadata.cs" />
+    <Compile Include="Order.cs" />
+    <Compile Include="Order.Metadata.cs" />
+    <Compile Include="OrderDetail.cs" />
+    <Compile Include="OrderDetail.Metadata.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

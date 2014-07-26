@@ -33,7 +33,7 @@ namespace BCM.WebFormsApplication
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication();
+            app.UseGoogleAuthentication();
         }
     }
 }
