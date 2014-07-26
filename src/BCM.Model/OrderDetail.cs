@@ -42,6 +42,6 @@ namespace BCM.Model
         /// <summary>
         /// List/unit price 
         /// </summary>
-        public Nullable<double> ListPrice { get; set; }
+        public Nullable<decimal> ListPrice { get; set; }
     }
 }

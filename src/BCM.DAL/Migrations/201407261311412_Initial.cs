@@ -64,6 +64,43 @@ namespace BCM.DAL.Migrations
                 .PrimaryKey(t => t.ID);
             
             CreateTable(
+                "dbo.BcmOrderDetail",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        OrderId = c.Int(nullable: false),
+                        UserName = c.String(),
+                        BookId = c.Int(nullable: false),
+                        Quantity = c.Int(nullable: false),
+                        ListPrice = c.Decimal(precision: 18, scale: 2),
+                    })
+                .PrimaryKey(t => t.ID)
+                .ForeignKey("dbo.BcmOrder", t => t.OrderId, cascadeDelete: true)
+                .Index(t => t.OrderId);
+            
+            CreateTable(
+                "dbo.BcmOrder",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        OrderDate = c.DateTime(nullable: false),
+                        UserName = c.String(),
+                        FirstName = c.String(nullable: false, maxLength: 160),
+                        LastName = c.String(nullable: false, maxLength: 160),
+                        Address = c.String(nullable: false, maxLength: 70),
+                        City = c.String(nullable: false, maxLength: 40),
+                        State = c.String(nullable: false, maxLength: 40),
+                        PostalCode = c.String(nullable: false, maxLength: 10),
+                        Country = c.String(nullable: false, maxLength: 40),
+                        Phone = c.String(maxLength: 24),
+                        Email = c.String(nullable: false),
+                        Total = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        PaymentTransactionId = c.String(),
+                        HasBeenShipped = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.ID);
+            
+            CreateTable(
                 "dbo.BcmRoles",
                 c => new
                     {
@@ -183,6 +220,7 @@ namespace BCM.DAL.Migrations
             DropForeignKey("dbo.BcmUserClaims", "IdentityUser_Id", "dbo.BcmUsers");
             DropForeignKey("dbo.BcmCartItem", "BookId", "dbo.BcmBook");
             DropForeignKey("dbo.BcmUserRoles", "RoleId", "dbo.BcmRoles");
+            DropForeignKey("dbo.BcmOrderDetail", "OrderId", "dbo.BcmOrder");
             DropForeignKey("dbo.BcmBookCategory", "CategoryId", "dbo.BcmCategory");
             DropForeignKey("dbo.BcmBookCategory", "BookId", "dbo.BcmBook");
             DropForeignKey("dbo.BcmBookAuthor", "AuthorId", "dbo.BcmAuthor");
@@ -197,6 +235,7 @@ namespace BCM.DAL.Migrations
             DropIndex("dbo.BcmUserRoles", new[] { "IdentityUser_Id" });
             DropIndex("dbo.BcmUserRoles", new[] { "RoleId" });
             DropIndex("dbo.BcmRoles", "RoleNameIndex");
+            DropIndex("dbo.BcmOrderDetail", new[] { "OrderId" });
             DropTable("dbo.BcmBookCategory");
             DropTable("dbo.BcmBookAuthor");
             DropTable("dbo.BcmUserLogins");
@@ -205,6 +244,8 @@ namespace BCM.DAL.Migrations
             DropTable("dbo.BcmCartItem");
             DropTable("dbo.BcmUserRoles");
             DropTable("dbo.BcmRoles");
+            DropTable("dbo.BcmOrder");
+            DropTable("dbo.BcmOrderDetail");
             DropTable("dbo.BcmCategory");
             DropTable("dbo.BcmBook");
             DropTable("dbo.BcmAuthor");

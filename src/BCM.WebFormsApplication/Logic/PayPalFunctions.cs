@@ -63,8 +63,8 @@ namespace BCM.WebFormsApplication.Logic
                 host = host_SB;
             }
 
-            string returnURL = "http://localhost:1234/Checkout/CheckoutReview.aspx";
-            string cancelURL = "http://localhost:1234/Checkout/CheckoutCancel.aspx";
+            string returnURL = "http://localhost:62074/Checkout/CheckoutReview.aspx";
+            string cancelURL = "http://localhost:62074/Checkout/CheckoutCancel.aspx";
 
             NVPCodec encoder = new NVPCodec();
             encoder["METHOD"] = "SetExpressCheckout";
