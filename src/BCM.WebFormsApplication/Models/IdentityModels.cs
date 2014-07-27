@@ -3,41 +3,48 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using System.Web;
 using System;
-using BCM.WebFormsApplication.Models;
 
 namespace BCM.WebFormsApplication.Models
 {
-    // Sie können Benutzerdaten für den Benutzer durch Hinzufügen weiterer Eigenschaften zur User-Klasse hinzufügen. Weitere Informationen finden Sie unter "http://go.microsoft.com/fwlink/?LinkID=317594".
-    public class ApplicationUser : IdentityUser
-    {
-    }
+    using BCM.DAL;
+    using BCM.Model;
+    using BCM.WebFormsApplication.Models;
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
-    {
-        public ApplicationDbContext()
-            : base("DefaultConnection")
-        {
-        }
-    }
+    // Sie können Benutzerdaten für den Benutzer durch Hinzufügen weiterer Eigenschaften zur User-Klasse hinzufügen. Weitere Informationen finden Sie unter "http://go.microsoft.com/fwlink/?LinkID=317594".
+    //public class ApplicationUser : IdentityUser
+    //{
+    //}
+
+    //public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    //{
+    //    public ApplicationDbContext()
+    //        : base("DefaultConnection")
+    //    {
+    //    }
+    //}
 
     #region Hilfsprogramme
-    public class UserManager : UserManager<ApplicationUser>
-    {
-        public UserManager()
-            : base(new UserStore<ApplicationUser>(new ApplicationDbContext()))
-        {
-        }
-    }
+    //public class UserManager : UserManager<ApplicationUser>
+    //{
+    //    public UserManager()
+    //        : base(new UserStore<ApplicationUser>(new ApplicationDbContext()))
+    //    {
+    //    }
+    //}
 }
 
 namespace BCM.WebFormsApplication
 {
+    using BCM.DAL;
+    using BCM.Model;
+    using BCM.WebFormsApplication.Models;
+
     public static class IdentityHelper
     {
         // Wird für XSRF beim Verknüpfen externer Anmeldungen verwendet.
         public const string XsrfKey = "XsrfId";
 
-        public static void SignIn(UserManager manager, ApplicationUser user, bool isPersistent)
+        public static void SignIn(ApplicationUserManager manager, ApplicationUser user, bool isPersistent)
         {
             IAuthenticationManager authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
             authenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);

@@ -2,10 +2,13 @@
 using Microsoft.Owin.Security;
 using System;
 using System.Web;
-using BCM.WebFormsApplication.Models;
 
 namespace BCM.WebFormsApplication.Account
 {
+    using BCM.WebFormsApplication.Models;
+    using BCM.DAL;
+    using BCM.Model;
+
     public partial class RegisterExternalLogin : System.Web.UI.Page
     {
         protected string ProviderName
@@ -30,7 +33,7 @@ namespace BCM.WebFormsApplication.Account
             }
             if (!IsPostBack)
             {
-                var manager = new UserManager();
+                var manager = new ApplicationUserManager();
                 var loginInfo = Context.GetOwinContext().Authentication.GetExternalLoginInfo();
                 if (loginInfo == null)
                 {
@@ -80,7 +83,7 @@ namespace BCM.WebFormsApplication.Account
             {
                 return;
             }
-            var manager = new UserManager();
+            var manager = new ApplicationUserManager();
             var user = new ApplicationUser() { UserName = userName.Text };
             IdentityResult result = manager.Create(user);
             if (result.Succeeded)

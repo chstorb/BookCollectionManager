@@ -73,7 +73,14 @@ namespace BCM.WebFormsApplication
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (HttpContext.Current.User.IsInRole("Administrator"))
+            {
+                adminLink.Visible = true;
+            }
+            if (HttpContext.Current.User.IsInRole("canEdit"))
+            {
+                adminLink.Visible = true;
+            }
         }
 
         protected void Page_PreRender(object sender, EventArgs e)
@@ -91,7 +98,7 @@ namespace BCM.WebFormsApplication
             IQueryable<Category> query = _db.Categories;
             return query;
         }
-        
+
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
             Context.GetOwinContext().Authentication.SignOut();
