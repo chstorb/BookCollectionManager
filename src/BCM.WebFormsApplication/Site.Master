@@ -94,6 +94,11 @@
                         <a href="/BookList.aspx?id=<%#: Item.ID %>">
                             <%#: Item.Name %>
                         </a>
+                        <%--
+                        <a href="<%#: GetRouteUrl("BooksByCategoryRoute", new { categoryName = Item.Name }) %>">
+                            <%#: Item.Name %>
+                        </a>
+                        --%>
                     </b>
                 </ItemTemplate>
                 <ItemSeparatorTemplate>|  </ItemSeparatorTemplate>

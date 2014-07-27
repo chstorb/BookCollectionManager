@@ -31,6 +31,23 @@ namespace BCM.WebFormsApplication
             BCM.DAL.ApplicationDbContext context = new BCM.DAL.ApplicationDbContext();
             BCM.DAL.Migrations.RoleActions.createAdmin(context);
             BCM.DAL.Migrations.RoleActions.createUserAndRole(context);
+
+            // Add Routes.
+            //RegisterCustomRoutes(RouteTable.Routes);
+        }
+
+        void RegisterCustomRoutes(RouteCollection routes)
+        {
+            routes.MapPageRoute(
+                "BooksByCategoryRoute",
+                "Category/{categoryName}",
+                "~/BookList.aspx"
+            );
+            routes.MapPageRoute(
+                "BookByTitleRoute",
+                "Book/{bookTitle}",
+                "~/BookDetails.aspx"
+            );
         }
     }
 }

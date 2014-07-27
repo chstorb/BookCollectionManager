@@ -32,10 +32,16 @@
                     <td runat="server">
                         <table>
                             <tr>
-                                <td>
+                                <td>                                    
                                     <a href="BookDetails.aspx?bookID=<%#:Item.ID%>">
                                         <img src="/Catalog/Images/Thumbs/<%#:Item.ImageUrl%>"
-                                            width="100" height="75" style="border: solid" /></a>
+                                            width="100" height="75" style="border: solid" /></a> 
+                                    <%--
+                                    <a href="<%#: GetRouteUrl("BookByTitleRoute", new { bookTitle = Item.Title }) %>">
+                                        <image src='/Catalog/Images/Thumbs/<%#:Item.ImageUrl%>'
+                                            width="100" height="75" border="1" />
+                                    </a>
+                                    --%>
                                 </td>
                             </tr>
                             <tr>
@@ -45,15 +51,20 @@
                                             <%#:Item.Title%>
                                         </span>
                                     </a>
+                                    <%--
+                                    <a href="<%#: GetRouteUrl("BookByTitleRoute", new { bookTitle = Item.Title}) %>">
+                                        <%#:Item.Title%>
+                                    </a>
+                                    --%>
                                     <br />
                                     <span>
                                         <b>Price: </b><%#:String.Format("{0:C}", Item.ListPrice)%>
                                     </span>
                                     <br />
-                                    <a href="AddToCart.aspx?bookID=<%#:Item.ID%>">               
+                                    <a href="AddToCart.aspx?bookID=<%#:Item.ID%>">
                                         <span class="BookListItem">
                                             <b>Add To Cart<b>
-                                        </span>           
+                                        </span>
                                     </a>
                                     <br />
                                 </td>

@@ -10,7 +10,8 @@ namespace BCM.WebFormsApplication
     using BCM.DAL;
     using BCM.Model;
     using System.Web.ModelBinding;
-    
+    using System.Web.Routing;
+
     public partial class BookList : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
@@ -30,5 +31,24 @@ namespace BCM.WebFormsApplication
             return books;
         }
 
+        //public IQueryable<Book> GetBooks(
+        //                    [QueryString("id")] int? categoryId,
+        //                    [RouteData] string categoryName)
+        //{
+        //    var _db = new BCM.DAL.ApplicationDbContext();
+        //    IQueryable<Category> query = _db.Categories.Include("Books");
+        //    if (categoryId.HasValue && categoryId > 1)
+        //    {
+        //        query = query.Where(c => c.ID == categoryId);
+        //    }
+
+        //    if (!String.IsNullOrEmpty(categoryName))
+        //    {
+        //        query = query.Where(c => String.Compare(c.Name, categoryName) == 0);
+        //    }
+
+        //    IQueryable<Book> books = (IQueryable<Book>)query.SelectMany(c => c.Books);
+        //    return books;
+        //}
     }
 }
