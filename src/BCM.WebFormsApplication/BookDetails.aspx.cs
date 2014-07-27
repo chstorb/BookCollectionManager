@@ -33,5 +33,25 @@ namespace BCM.WebFormsApplication
             return query;
         }
 
+        //public IQueryable<Book> GetBook(
+        //                    [QueryString("bookID")] int? bookId,
+        //                    [RouteData] string bookTitle)
+        //{
+        //    var _db = new BCM.DAL.ApplicationDbContext();
+        //    IQueryable<Book> query = _db.Books;
+        //    if (bookId.HasValue && bookId > 0)
+        //    {
+        //        query = query.Where(b => b.ID == bookId);
+        //    }
+        //    else if (!String.IsNullOrEmpty(bookTitle))
+        //    {
+        //        query = query.Where(b => String.Compare(b.Title, bookTitle) == 0);
+        //    }
+        //    else
+        //    {
+        //        query = null;
+        //    }
+        //    return query;
+        //}
     }
 }
