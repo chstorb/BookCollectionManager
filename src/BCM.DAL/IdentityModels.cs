@@ -9,6 +9,7 @@ namespace BCM.DAL
     using BCM.Common;
     using BCM.DAL;
     using BCM.Model;
+    using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using System.Data.Entity;
 
@@ -27,19 +28,19 @@ namespace BCM.DAL
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<IdentityRole>().ToTable(Constants.TablePrefix + "Roles");
-            modelBuilder.Entity<IdentityUserClaim>().ToTable(Constants.TablePrefix + "UserClaims");
-            modelBuilder.Entity<IdentityUserLogin>().ToTable(Constants.TablePrefix + "UserLogins");
-            modelBuilder.Entity<IdentityUserRole>().ToTable(Constants.TablePrefix + "UserRoles");
-            modelBuilder.Entity<IdentityUser>().ToTable(Constants.TablePrefix + "Users");
-            modelBuilder.Entity<ApplicationUser>().ToTable(Constants.TablePrefix + "Users");
+            modelBuilder.Entity<IdentityRole>().ToTable(BCM.Common.Constants.TablePrefix + "Roles");
+            modelBuilder.Entity<IdentityUserClaim>().ToTable(BCM.Common.Constants.TablePrefix + "UserClaims");
+            modelBuilder.Entity<IdentityUserLogin>().ToTable(BCM.Common.Constants.TablePrefix + "UserLogins");
+            modelBuilder.Entity<IdentityUserRole>().ToTable(BCM.Common.Constants.TablePrefix + "UserRoles");
+            modelBuilder.Entity<IdentityUser>().ToTable(BCM.Common.Constants.TablePrefix + "Users");
+            modelBuilder.Entity<ApplicationUser>().ToTable(BCM.Common.Constants.TablePrefix + "Users");
 
             modelBuilder.Entity<Book>()
                 .HasMany(a => a.Authors)
                 .WithMany(a => a.Books)
                 .Map(m =>
                 {
-                    m.ToTable(Constants.TablePrefix + "BookAuthor");
+                    m.ToTable(BCM.Common.Constants.TablePrefix + "BookAuthor");
                     m.MapLeftKey("BookId");
                     m.MapRightKey("AuthorId");
                 });
@@ -49,7 +50,7 @@ namespace BCM.DAL
                 .WithMany(c => c.Books)
                 .Map(m =>
                 {
-                    m.ToTable(Constants.TablePrefix + "BookCategory");
+                    m.ToTable(BCM.Common.Constants.TablePrefix + "BookCategory");
                     m.MapLeftKey("BookId");
                     m.MapRightKey("CategoryId");
                 });
@@ -61,5 +62,13 @@ namespace BCM.DAL
         public DbSet<CartItem> ShoppingCartItems { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
+    }
+
+    public class ApplicationUserManager : UserManager<ApplicationUser>
+    {
+        public ApplicationUserManager()
+            : base(new UserStore<ApplicationUser>(new ApplicationDbContext()))
+        {
+        }
     }
 }

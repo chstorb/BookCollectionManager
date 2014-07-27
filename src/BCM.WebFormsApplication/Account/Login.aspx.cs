@@ -6,10 +6,13 @@ using System;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using BCM.WebFormsApplication.Models;
 
 namespace BCM.WebFormsApplication.Account
 {
+    using BCM.WebFormsApplication.Models;
+    using BCM.DAL;
+    using BCM.Model;
+
     public partial class Login : Page
     {
         protected void Page_Load(object sender, EventArgs e)
@@ -28,7 +31,7 @@ namespace BCM.WebFormsApplication.Account
             if (IsValid)
             {
                 // Benutzerkennwort überprüfen
-                var manager = new UserManager();
+                var manager = new ApplicationUserManager();
                 ApplicationUser user = manager.Find(UserName.Text, Password.Text);
                 if (user != null)
                 {

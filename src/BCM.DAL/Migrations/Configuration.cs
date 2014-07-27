@@ -39,8 +39,9 @@ namespace BCM.DAL.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-
-            AddUserAndRole(context);
+            
+            //RoleActions.createAdmin(context);
+            //RoleActions.createUserAndRole(context);
 
             // GetAuthors().ForEach(a => context.Authors.Add(a));
 
@@ -57,26 +58,6 @@ namespace BCM.DAL.Migrations
             book.Categories.Add(categories.First());
 
             context.SaveChanges();
-        }
-
-        bool AddUserAndRole(ApplicationDbContext context)
-        {
-            var rm = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
-
-            IdentityResult ir = rm.Create(new IdentityRole("canEdit"));
-            var um = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
-
-            var user = new ApplicationUser()
-            {
-                UserName = "user1",
-            };
-            ir = um.Create(user, "Passw0rd1");
-            if (ir.Succeeded == false)
-                return ir.Succeeded;
-
-            ir = um.AddToRole(user.Id, "canEdit");
-
-            return ir.Succeeded;
         }
 
         private List<Author> GetAuthors()

@@ -3,10 +3,12 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using BCM.WebFormsApplication.Models;
 
 namespace BCM.WebFormsApplication.Account
 {
+    using BCM.DAL;
+    using BCM.WebFormsApplication.Models;
+
     public partial class Manage : System.Web.UI.Page
     {
         protected string SuccessMessage
@@ -21,7 +23,7 @@ namespace BCM.WebFormsApplication.Account
             private set;
         }
 
-        private bool HasPassword(UserManager manager)
+        private bool HasPassword(ApplicationUserManager manager)
         {
             var user = manager.FindById(User.Identity.GetUserId());
             return (user != null && user.PasswordHash != null);
@@ -32,7 +34,7 @@ namespace BCM.WebFormsApplication.Account
             if (!IsPostBack)
             {
                 // Zu rendernde Abschnitte ermitteln
-                UserManager manager = new UserManager();
+                ApplicationUserManager manager = new ApplicationUserManager();
                 if (HasPassword(manager))
                 {
                     changePasswordHolder.Visible = true;
@@ -65,7 +67,7 @@ namespace BCM.WebFormsApplication.Account
         {
             if (IsValid)
             {
-                UserManager manager = new UserManager();
+                ApplicationUserManager manager = new ApplicationUserManager();
                 IdentityResult result = manager.ChangePassword(User.Identity.GetUserId(), CurrentPassword.Text, NewPassword.Text);
                 if (result.Succeeded)
                 {
@@ -83,7 +85,7 @@ namespace BCM.WebFormsApplication.Account
             if (IsValid)
             {
                 // Lokale Anmeldeinformationen erstellen und das lokale Konto mit dem Benutzer verknüpfen
-                UserManager manager = new UserManager();
+                ApplicationUserManager manager = new ApplicationUserManager();
                 IdentityResult result = manager.AddPassword(User.Identity.GetUserId(), password.Text);
                 if (result.Succeeded)
                 {
@@ -98,7 +100,7 @@ namespace BCM.WebFormsApplication.Account
 
         public IEnumerable<UserLoginInfo> GetLogins()
         {
-            UserManager manager = new UserManager();
+            ApplicationUserManager manager = new ApplicationUserManager();
             var accounts = manager.GetLogins(User.Identity.GetUserId());
             CanRemoveExternalLogins = accounts.Count() > 1 || HasPassword(manager);
             return accounts;
@@ -106,7 +108,7 @@ namespace BCM.WebFormsApplication.Account
 
         public void RemoveLogin(string loginProvider, string providerKey)
         {
-            UserManager manager = new UserManager();
+            ApplicationUserManager manager = new ApplicationUserManager();
             var result = manager.RemoveLogin(User.Identity.GetUserId(), new UserLoginInfo(loginProvider, providerKey));
             var msg = result.Succeeded
                 ? "?m=RemoveLoginSuccess"

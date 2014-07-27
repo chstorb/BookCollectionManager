@@ -5,15 +5,18 @@ using System;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using BCM.WebFormsApplication.Models;
 
 namespace BCM.WebFormsApplication.Account
 {
+    using BCM.WebFormsApplication.Models;
+    using BCM.DAL;
+    using BCM.Model;
+
     public partial class Register : Page
     {
         protected void CreateUser_Click(object sender, EventArgs e)
         {
-            var manager = new UserManager();
+            var manager = new ApplicationUserManager();
             var user = new ApplicationUser() { UserName = UserName.Text };
             IdentityResult result = manager.Create(user, Password.Text);
             if (result.Succeeded)
