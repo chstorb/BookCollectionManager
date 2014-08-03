@@ -168,6 +168,9 @@
   <data name="ISBNNumber" xml:space="preserve">
     <value>ISBN Number</value>
   </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
   <data name="LastName" xml:space="preserve">
     <value>Last Name</value>
   </data>
