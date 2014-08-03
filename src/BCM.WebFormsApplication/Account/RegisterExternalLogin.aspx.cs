@@ -25,7 +25,7 @@ namespace BCM.WebFormsApplication.Account
 
         protected void Page_Load()
         {
-            // Ergebnis von einem Authentifizierungsanbieter in der Anforderung verarbeiten
+            // Process the result from an auth provider in the request
             ProviderName = IdentityHelper.GetProviderNameFromRequest(Request);
             if (String.IsNullOrEmpty(ProviderName))
             {
@@ -47,7 +47,7 @@ namespace BCM.WebFormsApplication.Account
                 }
                 else if (User.Identity.IsAuthenticated)
                 {
-                    // XSRF-Überprüfung beim Verknüpfen anwenden
+                    // Apply Xsrf check when linking
                     var verifiedloginInfo = Context.GetOwinContext().Authentication.GetExternalLoginInfo(IdentityHelper.XsrfKey, User.Identity.GetUserId());
                     if (verifiedloginInfo == null)
                     {
