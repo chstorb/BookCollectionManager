@@ -41,6 +41,10 @@ namespace BCM.Model
         [Display(Name = "PlaceOfPublication", ResourceType = typeof(Resources.Resources))]
         public string PlaceOfPublication { get; set; }
 
+        [Column(TypeName="nvarchar(max)")]
+        [Display(Name = "Language", ResourceType = typeof(Resources.Resources))]
+        public string Language { get; set; }
+
         [Display(Name = "VolumeNumber", ResourceType = typeof(Resources.Resources))]
         public int VolumeNumber { get; set; }
 

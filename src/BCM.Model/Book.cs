@@ -62,6 +62,11 @@ namespace BCM.Model
         public string PlaceOfPublication { get; set; }
 
         /// <summary>
+        /// Language
+        /// </summary>
+        public string Language { get; set; }
+
+        /// <summary>
         /// The volume number.
         /// </summary>
         public Nullable<int> VolumeNumber { get; set; }
