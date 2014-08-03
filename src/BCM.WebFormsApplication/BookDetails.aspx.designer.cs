@@ -13,12 +13,12 @@ namespace BCM.WebFormsApplication {
     public partial class BookDetails {
         
         /// <summary>
-        /// bookDetail-Steuerelement
+        /// bookDetailsFormView-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Um dies zu ändern, verschieben Sie die Felddeklaration aus der Designerdatei in eine Code-Behind-Datei.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FormView bookDetail;
+        protected global::System.Web.UI.WebControls.FormView bookDetailsFormView;
     }
 }

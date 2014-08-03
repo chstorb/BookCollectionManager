@@ -16,7 +16,7 @@ namespace BCM.WebFormsApplication
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         public IQueryable<Book> GetBooks([QueryString("id")] int? categoryId)
@@ -50,5 +50,14 @@ namespace BCM.WebFormsApplication
         //    IQueryable<Book> books = (IQueryable<Book>)query.SelectMany(c => c.Books);
         //    return books;
         //}
+
+        public string Truncate(string text, int length)
+        {
+            if (text.Length > length)
+            {
+                return String.Format("{0}...", text.Substring(0, length));
+            }
+            return text;
+        }
     }
 }

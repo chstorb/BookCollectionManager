@@ -3,14 +3,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <section>
         <div>
-            <hgroup>
+            <div class="page-header">
                 <h2><%: Page.Title %></h2>
-            </hgroup>
+            </div>
 
             <asp:ListView ID="bookList"
                 runat="server"
                 DataKeyNames="ID"
-                GroupItemCount="4"
+                GroupItemCount="3"
                 ItemType="BCM.Model.Book"
                 SelectMethod="GetBooks">
                 <EmptyDataTemplate>
@@ -34,8 +34,9 @@
                             <tr>
                                 <td>                                    
                                     <a href="BookDetails.aspx?bookID=<%#:Item.ID%>">
-                                        <img src="/Catalog/Images/Thumbs/<%#:Item.ImageUrl%>"
-                                            width="100" height="75" style="border: solid" /></a> 
+                                        <img src="/Catalog/Images/Thumbs/<%#:Item.ImageUrl %>" 
+                                            width="100" height="75" alt="<%#:Item.Title %>" />
+                                    </a>                                     
                                     <%--
                                     <a href="<%#: GetRouteUrl("BookByTitleRoute", new { bookTitle = Item.Title }) %>">
                                         <image src='/Catalog/Images/Thumbs/<%#:Item.ImageUrl%>'
@@ -47,9 +48,9 @@
                             <tr>
                                 <td>
                                     <a href="BookDetails.aspx?bookID=<%#:Item.ID%>">
-                                        <span>
-                                            <%#:Item.Title%>
-                                        </span>
+                                        <h4>
+                                            <%#: Truncate( Item.Title, 25) %>
+                                        </h4>
                                     </a>
                                     <%--
                                     <a href="<%#: GetRouteUrl("BookByTitleRoute", new { bookTitle = Item.Title}) %>">
