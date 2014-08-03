@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Konto verwalten" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Manage.aspx.cs" Inherits="BCM.WebFormsApplication.Account.Manage" %>
+﻿<%@ Page Title="Manage Account" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Manage.aspx.cs" Inherits="BCM.WebFormsApplication.Account.Manage" %>
 
 <%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
 
@@ -16,19 +16,19 @@
             <section id="passwordForm">
                 <asp:PlaceHolder runat="server" ID="setPassword" Visible="false">
                     <p>
-                        Sie besitzen kein lokales Kennwort für diese Website. Fügen Sie ein lokales
-                        Kennwort hinzu, damit Sie sich ohne eine externe Anmeldung anmelden können.
+                        You do not have a local password for this site. Add a local
+                        password so you can log in without an external login.
                     </p>
                     <div class="form-horizontal">
-                        <h4>Formular zum Festlegen des Kennworts</h4>
+                        <h4>Set Password Form</h4>
                         <asp:ValidationSummary runat="server" ShowModelStateErrors="true" CssClass="text-danger" />
                         <hr />
                         <div class="form-group">
-                            <asp:Label runat="server" AssociatedControlID="password" CssClass="col-md-2 control-label">Kennwort</asp:Label>
+                            <asp:Label runat="server" AssociatedControlID="password" CssClass="col-md-2 control-label">Password</asp:Label>
                             <div class="col-md-10">
                                 <asp:TextBox runat="server" ID="password" TextMode="Password" CssClass="form-control" />
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="password"
-                                    CssClass="text-danger" ErrorMessage="Das Kennwortfeld ist erforderlich."
+                                    CssClass="text-danger" ErrorMessage="The password field is required."
                                     Display="Dynamic" ValidationGroup="SetPassword" />
                                 <asp:ModelErrorMessage runat="server" ModelStateKey="NewPassword" AssociatedControlID="password"
                                     CssClass="text-error" SetFocusOnError="true" />
@@ -36,65 +36,65 @@
                         </div>
 
                         <div class="form-group">
-                            <asp:Label runat="server" AssociatedControlID="confirmPassword" CssClass="col-md-2 control-label">Kennwort bestätigen</asp:Label>
+                            <asp:Label runat="server" AssociatedControlID="confirmPassword" CssClass="col-md-2 control-label">Confirm password</asp:Label>
                             <div class="col-md-10">
                                 <asp:TextBox runat="server" ID="confirmPassword" TextMode="Password" CssClass="form-control" />
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="confirmPassword"
-                                    CssClass="text-danger" Display="Dynamic" ErrorMessage="Das Feld zum Bestätigen des Kennworts ist erforderlich."
+                                    CssClass="text-danger" Display="Dynamic" ErrorMessage="The confirm password field is required."
                                     ValidationGroup="SetPassword" />
                                 <asp:CompareValidator runat="server" ControlToCompare="Password" ControlToValidate="confirmPassword"
-                                    CssClass="text-error" Display="Dynamic" ErrorMessage="Das Kennwort stimmt nicht mit dem Bestätigungskennwort überein."
+                                    CssClass="text-error" Display="Dynamic" ErrorMessage="The password and confirmation password do not match."
                                     ValidationGroup="SetPassword" />
 
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-10">
-                                <asp:Button runat="server" Text="Kennwort festlegen" ValidationGroup="SetPassword" OnClick="SetPassword_Click" CssClass="btn btn-default" />
+                                <asp:Button runat="server" Text="Set Password" ValidationGroup="SetPassword" OnClick="SetPassword_Click" CssClass="btn btn-default" />
                             </div>
                         </div>
                     </div>
                 </asp:PlaceHolder>
 
                 <asp:PlaceHolder runat="server" ID="changePasswordHolder" Visible="false">
-                    <p>Sie sind angemeldet als <strong><%: User.Identity.GetUserName() %></strong>.</p>
+                    <p>You're logged in as <strong><%: User.Identity.GetUserName() %></strong>.</p>
                     <div class="form-horizontal">
-                        <h4>Formular zum Ändern des Kennworts</h4>
+                        <h4>Change Password Form</h4>
                         <hr />
                         <asp:ValidationSummary runat="server" ShowModelStateErrors="true" CssClass="text-danger" />
                         <div class="form-group">
-                            <asp:Label runat="server" ID="CurrentPasswordLabel" AssociatedControlID="CurrentPassword" CssClass="col-md-2 control-label">Aktuelles Kennwort</asp:Label>
+                            <asp:Label runat="server" ID="CurrentPasswordLabel" AssociatedControlID="CurrentPassword" CssClass="col-md-2 control-label">Current password</asp:Label>
                             <div class="col-md-10">
                                 <asp:TextBox runat="server" ID="CurrentPassword" TextMode="Password" CssClass="form-control" />
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="CurrentPassword"
-                                    CssClass="text-danger" ErrorMessage="Das Feld für das aktuelle Kennwort ist erforderlich."
+                                    CssClass="text-danger" ErrorMessage="The current password field is required."
                                     ValidationGroup="ChangePassword" />
                             </div>
                         </div>
                         <div class="form-group">
-                            <asp:Label runat="server" ID="NewPasswordLabel" AssociatedControlID="NewPassword" CssClass="col-md-2 control-label">Neues Kennwort</asp:Label>
+                            <asp:Label runat="server" ID="NewPasswordLabel" AssociatedControlID="NewPassword" CssClass="col-md-2 control-label">New password</asp:Label>
                             <div class="col-md-10">
                                 <asp:TextBox runat="server" ID="NewPassword" TextMode="Password" CssClass="form-control" />
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="NewPassword"
-                                    CssClass="text-danger" ErrorMessage="Das neue Kennwort ist erforderlich."
+                                    CssClass="text-danger" ErrorMessage="The new password is required."
                                     ValidationGroup="ChangePassword" />
                             </div>
                         </div>
                         <div class="form-group">
-                            <asp:Label runat="server" ID="ConfirmNewPasswordLabel" AssociatedControlID="ConfirmNewPassword" CssClass="col-md-2 control-label">Neues Kennwort bestätigen</asp:Label>
+                            <asp:Label runat="server" ID="ConfirmNewPasswordLabel" AssociatedControlID="ConfirmNewPassword" CssClass="col-md-2 control-label">Confirm new password</asp:Label>
                             <div class="col-md-10">
                                 <asp:TextBox runat="server" ID="ConfirmNewPassword" TextMode="Password" CssClass="form-control" />
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="ConfirmNewPassword"
-                                    CssClass="text-danger" Display="Dynamic" ErrorMessage="Das Bestätigen des neuen Kennworts ist erforderlich."
+                                    CssClass="text-danger" Display="Dynamic" ErrorMessage="Confirm new password is required."
                                     ValidationGroup="ChangePassword" />
                                 <asp:CompareValidator runat="server" ControlToCompare="NewPassword" ControlToValidate="ConfirmNewPassword"
-                                    CssClass="text-danger" Display="Dynamic" ErrorMessage="Das neue Kennwort stimmt nicht mit dem Bestätigungskennwort überein."
+                                    CssClass="text-danger" Display="Dynamic" ErrorMessage="The new password and confirmation password do not match."
                                     ValidationGroup="ChangePassword" />
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-10">
-                                <asp:Button runat="server" Text="Kennwort ändern" ValidationGroup="ChangePassword" OnClick="ChangePassword_Click" CssClass="btn btn-default" />
+                                <asp:Button runat="server" Text="Change Password" ValidationGroup="ChangePassword" OnClick="ChangePassword_Click" CssClass="btn btn-default" />
                             </div>
                         </div>
                     </div>
@@ -108,7 +108,7 @@
                     SelectMethod="GetLogins" DeleteMethod="RemoveLogin" DataKeyNames="LoginProvider,ProviderKey">
 
                     <LayoutTemplate>
-                        <h4>Registrierte Anmeldungen</h4>
+                        <h4>Registered Logins</h4>
                         <table class="table">
                             <tbody>
                                 <tr runat="server" id="itemPlaceholder"></tr>
@@ -120,8 +120,8 @@
                         <tr>
                             <td><%#: Item.LoginProvider %></td>
                             <td>
-                                <asp:Button runat="server" Text="Entfernen" CommandName="Delete" CausesValidation="false"
-                                    ToolTip='<%# "Dieses entfernen: " + Item.LoginProvider + " Anmeldung aus Ihrem Konto" %>'
+                                <asp:Button runat="server" Text="Remove" CommandName="Delete" CausesValidation="false"
+                                    ToolTip='<%# "Remove this " + Item.LoginProvider + " login from your account" %>'
                                     Visible="<%# CanRemoveExternalLogins %>" CssClass="btn btn-default" />
                             </td>
                         </tr>

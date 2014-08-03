@@ -8,7 +8,6 @@ using System.Web.UI;
 
 namespace BCM.WebFormsApplication.Account
 {
-    using BCM.WebFormsApplication.Models;
     using BCM.DAL;
     using BCM.Model;
 
@@ -31,7 +30,7 @@ namespace BCM.WebFormsApplication.Account
 
                 IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
             }
-            else 
+            else
             {
                 ErrorMessage.Text = result.Errors.FirstOrDefault();
             }

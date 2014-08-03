@@ -33,7 +33,7 @@ namespace BCM.WebFormsApplication.Account
         {
             if (!IsPostBack)
             {
-                // Zu rendernde Abschnitte ermitteln
+                // Determine the sections to render
                 ApplicationUserManager manager = new ApplicationUserManager();
                 if (HasPassword(manager))
                 {
@@ -46,17 +46,17 @@ namespace BCM.WebFormsApplication.Account
                 }
                 CanRemoveExternalLogins = manager.GetLogins(User.Identity.GetUserId()).Count() > 1;
 
-                // Rendererfolgsmeldung
+                // Render success message
                 var message = Request.QueryString["m"];
                 if (message != null)
                 {
-                    // Abfragezeichenfolge aus der Aktion entfernen
+                    // Strip the query string from action
                     Form.Action = ResolveUrl("~/Account/Manage");
 
                     SuccessMessage =
-                        message == "ChangePwdSuccess" ? "Ihr Kennwort wurde geändert."
-                        : message == "SetPwdSuccess" ? "Ihr Kennwort wurde festgelegt."
-                        : message == "RemoveLoginSuccess" ? "Das Konto wurde entfernt."
+                        message == "ChangePwdSuccess" ? "Your password has been changed."
+                        : message == "SetPwdSuccess" ? "Your password has been set."
+                        : message == "RemoveLoginSuccess" ? "The account was removed."
                         : String.Empty;
                     successMessage.Visible = !String.IsNullOrEmpty(SuccessMessage);
                 }
@@ -84,7 +84,7 @@ namespace BCM.WebFormsApplication.Account
         {
             if (IsValid)
             {
-                // Lokale Anmeldeinformationen erstellen und das lokale Konto mit dem Benutzer verknüpfen
+                // Create the local login info and link the local account to the user
                 ApplicationUserManager manager = new ApplicationUserManager();
                 IdentityResult result = manager.AddPassword(User.Identity.GetUserId(), password.Text);
                 if (result.Succeeded)
