@@ -15,6 +15,7 @@ namespace BCM.WebFormsApplication.Logic
     using System.Text;
     using System.Data;
     using System.Configuration;
+    using System.Globalization;
 
     public class NVPAPICaller
     {
@@ -34,12 +35,13 @@ namespace BCM.WebFormsApplication.Logic
         private const string PWD = "PWD";
         private const string ACCT = "ACCT";
 
-        //Replace <Your API Username> with your API Username
-        //Replace <Your API Password> with your API Password
-        //Replace <Your Signature> with your Signature
+        // Signature API credentials
+        // Replace <Your API Username> with your API Username
+        // Replace <Your API Password> with your API Password
+        // Replace <Your Signature> with your Signature
         public string APIUsername = "<Your API Username>";
-        private string APIPassword = "<Your API Password>";
-        private string APISignature = "<Your Signature>";
+        private string APIPassword = "<Your API Username>";
+        private string APISignature = "<Your API Username>";
         private string Subject = "";
         private string BNCode = "PP-ECWizard";
 
@@ -55,7 +57,8 @@ namespace BCM.WebFormsApplication.Logic
             APISignature = Signature;
         }
 
-        public bool ShortcutExpressCheckout(string amt, ref string token, ref string retMsg)
+        //public bool ShortcutExpressCheckout(string amt, ref string token, ref string retMsg)
+        public bool ShortcutExpressCheckout(decimal amt, ref string token, ref string retMsg)
         {
             if (bSandbox)
             {
@@ -63,28 +66,34 @@ namespace BCM.WebFormsApplication.Logic
                 host = host_SB;
             }
 
-            string returnURL = "http://localhost:62074/Checkout/CheckoutReview.aspx";
-            string cancelURL = "http://localhost:62074/Checkout/CheckoutCancel.aspx";
+            string returnURL = "http://localhost:12345/Checkout/CheckoutReview.aspx";
+            string cancelURL = "http://localhost:12345/Checkout/CheckoutCancel.aspx";
 
             NVPCodec encoder = new NVPCodec();
             encoder["METHOD"] = "SetExpressCheckout";
             encoder["RETURNURL"] = returnURL;
             encoder["CANCELURL"] = cancelURL;
-            encoder["BRANDNAME"] = "Wingtip Toys Sample Application";
-            encoder["PAYMENTREQUEST_0_AMT"] = amt;
-            encoder["PAYMENTREQUEST_0_ITEMAMT"] = amt;
+            encoder["BRANDNAME"] = "Book Collection Manager";
+            //encoder["PAYMENTREQUEST_0_AMT"] = amt;
+            encoder["PAYMENTREQUEST_0_AMT"] = amt.ToString(CultureInfo.InvariantCulture);
+            //encoder["PAYMENTREQUEST_0_ITEMAMT"] = amt;
+            encoder["PAYMENTREQUEST_0_ITEMAMT"] = amt.ToString(CultureInfo.InvariantCulture);
             encoder["PAYMENTREQUEST_0_PAYMENTACTION"] = "Sale";
-            encoder["PAYMENTREQUEST_0_CURRENCYCODE"] = "USD";
+            //encoder["PAYMENTREQUEST_0_CURRENCYCODE"] = "USD";
+            encoder["PAYMENTREQUEST_0_CURRENCYCODE"] = new RegionInfo(CultureInfo.CurrentCulture.Name).ISOCurrencySymbol;
 
             // Get the Shopping Cart Products
+            decimal price;
             using (BCM.WebFormsApplication.Logic.ShoppingCartActions myCartOrders = new BCM.WebFormsApplication.Logic.ShoppingCartActions())
             {
                 List<CartItem> myOrderList = myCartOrders.GetCartItems();
 
                 for (int i = 0; i < myOrderList.Count; i++)
                 {
+                    price = myOrderList[i].Book.ListPrice ?? 0.0m;
+ 
                     encoder["L_PAYMENTREQUEST_0_NAME" + i] = myOrderList[i].Book.Title.ToString();
-                    encoder["L_PAYMENTREQUEST_0_AMT" + i] = myOrderList[i].Book.ListPrice.ToString();
+                    encoder["L_PAYMENTREQUEST_0_AMT" + i] = price.ToString(CultureInfo.InvariantCulture);
                     encoder["L_PAYMENTREQUEST_0_QTY" + i] = myOrderList[i].Quantity.ToString();
                 }
             }
@@ -157,7 +166,8 @@ namespace BCM.WebFormsApplication.Logic
             encoder["TOKEN"] = token;
             encoder["PAYERID"] = PayerID;
             encoder["PAYMENTREQUEST_0_AMT"] = finalPaymentAmount;
-            encoder["PAYMENTREQUEST_0_CURRENCYCODE"] = "USD";
+            //encoder["PAYMENTREQUEST_0_CURRENCYCODE"] = "USD";
+            encoder["PAYMENTREQUEST_0_CURRENCYCODE"] = new RegionInfo(CultureInfo.CurrentCulture.Name).ISOCurrencySymbol;
             encoder["PAYMENTREQUEST_0_PAYMENTACTION"] = "Sale";
 
             string pStrrequestforNvp = encoder.Encode();
