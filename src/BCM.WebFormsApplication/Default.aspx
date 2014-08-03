@@ -2,23 +2,32 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <%--    <div class="jumbotron">
+    <div class="row">
+        <h1>Welcome</h1>
+        <p class="lead">Book Collection Manager can help you to find used books.</p>
+    </div>
+
+    <%--    
+    <div class="jumbotron">
         <h1>ASP.NET</h1>
         <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
         <p><a href="http://www.asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-    </div>
+    </div> 
+    --%>
 
     <div class="row">
         <div class="col-md-4">
-            <h2>Getting started</h2>
+            <h2>Books</h2>
             <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
+                We're all about used books. You can order any of our books today. Each book listing has detailed information to help you choose the right book.
             </p>
             <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
+                <%--<a class="btn btn-default" href="~/BookList">Choose book &raquo;</a>--%>
+                <asp:HyperLink runat="server" ID="hyperLinkBookList" ViewStateMode="Disabled">Choose book &raquo</asp:HyperLink>
+
             </p>
         </div>
+        <%--
         <div class="col-md-4">
             <h2>Get more libraries</h2>
             <p>
@@ -28,6 +37,8 @@
                 <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
             </p>
         </div>
+        --%>
+        <%--
         <div class="col-md-4">
             <h2>Web Hosting</h2>
             <p>
@@ -37,15 +48,7 @@
                 <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
             </p>
         </div>
-    </div>--%>
-
-    <h1>Welcome</h1>
-    <h2>Book Collection Manager can help you to find used books.</h2>
-    <p class="lead">
-        We're all about used books. You can order 
-                any of our books today. Each book listing has detailed 
-                information to help you choose the right book.
-    </p>
-
+        --%>
+    </div>
 
 </asp:Content>
