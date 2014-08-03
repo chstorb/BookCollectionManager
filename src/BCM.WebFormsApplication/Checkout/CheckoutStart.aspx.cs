@@ -19,7 +19,10 @@ namespace BCM.WebFormsApplication.Checkout
 
             if (Session["payment_amt"] != null)
             {
-                string amt = Session["payment_amt"].ToString();
+                //string amt = Session["payment_amt"].ToString();
+                decimal amt;
+                if (!Decimal.TryParse(Session["payment_amt"].ToString(), out amt))
+                    amt = 0.0m;
 
                 bool ret = payPalCaller.ShortcutExpressCheckout(amt, ref token, ref retMsg);
                 if (ret)
