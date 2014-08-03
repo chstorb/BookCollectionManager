@@ -33,6 +33,22 @@ namespace BCM.WebFormsApplication
             return query;
         }
 
+        protected void buttonAddToCart_Command(object sender, CommandEventArgs e)
+        {
+            switch (e.CommandName)
+            {
+                case "AddToCart":
+                    {
+                        int bookID = Convert.ToInt32(e.CommandArgument);
+                        string url = String.Format("AddToCart.aspx?bookID={0}", bookID);
+                        Response.Redirect(url);
+                        break;
+                    }
+                default:
+                    break;
+            }
+        }
+
         //public IQueryable<Book> GetBook(
         //                    [QueryString("bookID")] int? bookId,
         //                    [RouteData] string bookTitle)
