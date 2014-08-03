@@ -11,7 +11,7 @@ namespace BCM.DAL.Migrations
     using System.Linq;
     using System.Reflection;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<BCM.DAL.ApplicationDbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<BCM.DAL.ApplicationDbContext>
     {
         public Configuration()
         {
@@ -22,7 +22,8 @@ namespace BCM.DAL.Migrations
             //string newPath = Path.Combine(pathRoot, @"Visual Studio 2013\codeplex\bcm\src\BCM.DAL\App_Data");
             //AppDomain.CurrentDomain.SetData(Common.Constants.DataDirectory, newPath);
             
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(BCM.DAL.ApplicationDbContext context)
@@ -49,15 +50,15 @@ namespace BCM.DAL.Migrations
 
             // GetBooks().ForEach(b => context.Books.Add(b));
 
-            IList<Author> authors = GetAuthors();
-            IList<Book> books = GetBooks();
-            IList<Category> categories = GetCategories();
+            //IList<Author> authors = GetAuthors();
+            //IList<Book> books = GetBooks();
+            //IList<Category> categories = GetCategories();
 
-            Book book = books.First();
-            book.Authors.Add(authors.First());
-            book.Categories.Add(categories.First());
+            //Book book = books.First();
+            //book.Authors.Add(authors.First());
+            //book.Categories.Add(categories.First());
 
-            context.SaveChanges();
+            //context.SaveChanges();
         }
 
         private List<Author> GetAuthors()
