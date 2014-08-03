@@ -13,6 +13,7 @@ namespace BCM.WebFormsApplication
     using BCM.Model;
     using BCM.DAL;
     using BCM.WebFormsApplication.Logic;
+    using System.Globalization;
 
     public partial class SiteMaster : MasterPage
     {
@@ -66,7 +67,7 @@ namespace BCM.WebFormsApplication
                 if ((string)ViewState[AntiXsrfTokenKey] != _antiXsrfTokenValue
                     || (string)ViewState[AntiXsrfUserNameKey] != (Context.User.Identity.Name ?? String.Empty))
                 {
-                    throw new InvalidOperationException("Fehler bei der Überprüfung des Anti-XSRF-Tokens.");
+                    throw new InvalidOperationException("Validation of Anti-XSRF token failed.");
                 }
             }
         }
@@ -74,10 +75,6 @@ namespace BCM.WebFormsApplication
         protected void Page_Load(object sender, EventArgs e)
         {
             if (HttpContext.Current.User.IsInRole("Administrator"))
-            {
-                adminLink.Visible = true;
-            }
-            if (HttpContext.Current.User.IsInRole("canEdit"))
             {
                 adminLink.Visible = true;
             }
@@ -104,5 +101,4 @@ namespace BCM.WebFormsApplication
             Context.GetOwinContext().Authentication.SignOut();
         }
     }
-
 }

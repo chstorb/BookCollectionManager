@@ -31,13 +31,13 @@ namespace BCM.WebFormsApplication {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor cartCount;
         
         /// <summary>
-        /// Image1-Steuerelement
+        /// imageLogo-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Um dies zu ändern, verschieben Sie die Felddeklaration aus der Designerdatei in eine Code-Behind-Datei.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.Image imageLogo;
         
         /// <summary>
         /// categoryList-Steuerelement

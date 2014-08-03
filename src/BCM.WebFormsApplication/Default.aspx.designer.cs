@@ -11,5 +11,14 @@ namespace BCM.WebFormsApplication {
     
     
     public partial class _Default {
+        
+        /// <summary>
+        /// hyperLinkBookList-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Um dies zu ändern, verschieben Sie die Felddeklaration aus der Designerdatei in eine Code-Behind-Datei.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hyperLinkBookList;
     }
 }
