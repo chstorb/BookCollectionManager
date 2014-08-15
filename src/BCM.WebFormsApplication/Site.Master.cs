@@ -12,7 +12,7 @@ namespace BCM.WebFormsApplication
     using System.Linq;
     using BCM.Model;
     using BCM.DAL;
-    using BCM.WebFormsApplication.Logic;
+    using BCM.WebFormsApplication.BLL;
     using System.Globalization;
 
     public partial class SiteMaster : MasterPage
@@ -20,6 +20,8 @@ namespace BCM.WebFormsApplication
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
         private string _antiXsrfTokenValue;
+
+        private BLL.UnitOfWork unitOfWork = new BLL.UnitOfWork();
 
         protected void Page_Init(object sender, EventArgs e)
         {
@@ -89,11 +91,9 @@ namespace BCM.WebFormsApplication
             }
         }
 
-        public IQueryable<Category> GetCategories()
+        public IEnumerable<Category> GetCategories()
         {
-            var _db = new BCM.DAL.ApplicationDbContext();
-            IQueryable<Category> query = _db.Categories;
-            return query;
+            return unitOfWork.CategoryRepository.Get();
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)

@@ -7,63 +7,45 @@
 // </automatisch generiert>
 //------------------------------------------------------------------------------
 
-namespace BCM.WebFormsApplication {
+namespace BCM.WebFormsApplication.Admin {
     
     
-    public partial class SiteMaster {
+    public partial class BookDelete {
         
         /// <summary>
-        /// formMain-Steuerelement
+        /// LabelRemoveBook-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Um dies zu ändern, verschieben Sie die Felddeklaration aus der Designerdatei in eine Code-Behind-Datei.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm formMain;
+        protected global::System.Web.UI.WebControls.Label LabelRemoveBook;
         
         /// <summary>
-        /// adminLink-Steuerelement
+        /// DropDownRemoveBook-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Um dies zu ändern, verschieben Sie die Felddeklaration aus der Designerdatei in eine Code-Behind-Datei.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor adminLink;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownRemoveBook;
         
         /// <summary>
-        /// cartCount-Steuerelement
+        /// RemoveBookButton-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Um dies zu ändern, verschieben Sie die Felddeklaration aus der Designerdatei in eine Code-Behind-Datei.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor cartCount;
+        protected global::System.Web.UI.WebControls.Button RemoveBookButton;
         
         /// <summary>
-        /// imageLogo-Steuerelement
+        /// LabelRemoveStatus-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Um dies zu ändern, verschieben Sie die Felddeklaration aus der Designerdatei in eine Code-Behind-Datei.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imageLogo;
-        
-        /// <summary>
-        /// categoryList-Steuerelement
-        /// </summary>
-        /// <remarks>
-        /// Automatisch generiertes Feld
-        /// Um dies zu ändern, verschieben Sie die Felddeklaration aus der Designerdatei in eine Code-Behind-Datei.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView categoryList;
-        
-        /// <summary>
-        /// MainContent-Steuerelement
-        /// </summary>
-        /// <remarks>
-        /// Automatisch generiertes Feld
-        /// Um dies zu ändern, verschieben Sie die Felddeklaration aus der Designerdatei in eine Code-Behind-Datei.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::System.Web.UI.WebControls.Label LabelRemoveStatus;
     }
 }

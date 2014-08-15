@@ -12,7 +12,7 @@ namespace BCM.WebFormsApplication
     using BCM.Common;
     using BCM.DAL;
     using BCM.DAL.Migrations;
-    using BCM.WebFormsApplication.Logic;
+    using BCM.WebFormsApplication.BLL;
     using System.Data.Entity;
     using System.IO;
 
@@ -55,7 +55,7 @@ namespace BCM.WebFormsApplication
                 if (exc.InnerException != null)
                 {
                     exc = new Exception(exc.InnerException.Message);
-                    Server.Transfer("ErrorPage.aspx?handler=Application_Error%20-%20Global.asax", true);
+                    Server.Transfer("~/ErrorPage.aspx?handler=Application_Error%20-%20Global.asax", true);
                 }
             }
         }

@@ -14,10 +14,11 @@
     </asp:PlaceHolder>
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
+    <style>
+    </style>
 </head>
 <body>
-    <form runat="server">
+    <form id="formMain" runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
@@ -39,78 +40,88 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" runat="server" href="~/">Book Collection Manager</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/BookList">Books</a></li>
-                        <li><a runat="server" id="adminLink" visible="false"
-                            href="~/Admin/AdminPage">Admin</a></li>
-                        <li><a runat="server" href="~/ShoppingCart" id="cartCount">&nbsp;</a></li>
-                    </ul>
-                    <asp:LoginView runat="server" ViewStateMode="Disabled">
-                        <AnonymousTemplate>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Login">Hello! Log in</a></li>
-                                <li><a runat="server" href="~/Account/Register">Register</a></li>
-                            </ul>
-                        </AnonymousTemplate>
-                        <LoggedInTemplate>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
-                                <li>
-                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log out" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
-                                </li>
-                            </ul>
-                        </LoggedInTemplate>
-                    </asp:LoginView>
+        <header>
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" runat="server" href="~/">Book Collection Manager</a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a runat="server" href="~/BookList">Books</a></li>
+                            <li><a runat="server" id="adminLink" visible="false" href="~/Admin/BookIndex">Admin</a></li>
+                            <li><a runat="server" href="~/ShoppingCart" id="cartCount">&nbsp;</a></li>
+                        </ul>
+                        <asp:LoginView runat="server" ViewStateMode="Disabled">
+                            <AnonymousTemplate>
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a runat="server" href="~/Account/Login">Hello! Log in</a></li>
+                                    <li><a runat="server" href="~/Account/Register">Register</a></li>
+                                </ul>
+                            </AnonymousTemplate>
+                            <LoggedInTemplate>
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                    <li>
+                                        <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log out" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                    </li>
+                                </ul>
+                            </LoggedInTemplate>
+                        </asp:LoginView>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div>&nbsp;</div>
-        <div id="contentTitle" style="text-align: center">
-            <a runat="server" href="~/">
-                <asp:Image ID="imageLogo" runat="server" ImageUrl="~/Images/logo.jpg" BorderStyle="None" Height="116px" Width="200px" />
-            </a>
-            <br />
-        </div>
-        <div id="menuCategory" style="text-align: center">
-            <ol class="breadcrumb">
-                <asp:ListView ID="categoryList"
-                    ItemType="BCM.Model.Category"
-                    runat="server"
-                    SelectMethod="GetCategories">
-                    <ItemTemplate>
-                        <li><a href="/BookList.aspx?id=<%#: Item.ID %>"><%#: Item.Name %></a></li>
-                        <%--
-                        <li><a href="<%#: GetRouteUrl("BooksByCategoryRoute", new { categoryName = Item.Name }) %>">
-                            <%#: Item.Name %>
-                        </a></li>
-                        --%>
-                    </ItemTemplate>
-                    <%--<ItemSeparatorTemplate>|  </ItemSeparatorTemplate>--%>
-                </asp:ListView>
-            </ol>
-        </div>
+            <div>&nbsp;</div>
+            <figure>
+                <div id="contentTitle" style="text-align: center">
+                    <a runat="server" href="~/">
+                        <asp:Image class="" ID="imageLogo" runat="server" ImageUrl="~/Images/logo.jpg" BorderStyle="None" Height="116px" Width="200px" />
+                    </a>
+                    <br />
+                </div>
+            </figure>
+            <nav>
+                <div id="menuCategory">
+                    <ol class="breadcrumb">
+                        <asp:ListView 
+                            ID="categoryList"
+                            DataKeyNames="ID"
+                            ItemType="BCM.Model.Category"
+                            runat="server"
+                            SelectMethod="GetCategories">
+                            <ItemTemplate>
+                                <li><a href="BookList.aspx?categoryID=<%#:Item.ID%>"><%#:Item.Name%></a></li>
+                                <%--
+                                <li>
+                                    <a href="<%#: GetRouteUrl("BooksByCategoryRoute", new { categoryName = Item.Name }) %>">
+                                        <%#: Item.Name %>
+                                    </a>
+                                </li>
+                                --%>
+                            </ItemTemplate>
+                            <%--<ItemSeparatorTemplate>|  </ItemSeparatorTemplate>--%>
+                        </asp:ListView>
+                    </ol>
+                </div>
+            </nav>
+        </header>
         <div class="container body-content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
+            <article>
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            </article>
             <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> The Book Collection Manager Company | <a runat="server" href="~/About">About</a> | <a runat="server" href="~/Contact">Contact</a> | <a href="http://azure.microsoft.com" target="_blank">Hosted on Microsoft Azure</a></p>
+            <footer class="">
+                <p>&copy; <time><%:DateTime.Now.Year%></time> The Book Collection Manager Company | <a runat="server" href="~/About">About</a> | <a runat="server" href="~/Contact">Contact</a> | <a href="http://azure.microsoft.com" target="_blank">Hosted on Microsoft Azure</a></p>
             </footer>
         </div>
     </form>
     <asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/bundles/bootstrap") %>
+        <%: Scripts.Render("~/bundles/bootstrap") %>        
     </asp:PlaceHolder>
 </body>
 </html>

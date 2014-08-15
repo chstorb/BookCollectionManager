@@ -13,24 +13,16 @@ namespace BCM.WebFormsApplication
 
     public partial class BookDetails : System.Web.UI.Page
     {
+        BLL.UnitOfWork unitOfWork = new BLL.UnitOfWork();
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        public IQueryable<Book> GetBook([QueryString("bookID")] int? bookId)
+        public Book GetBookById([QueryString("bookID")] int bookID)
         {
-            var _db = new BCM.DAL.ApplicationDbContext();
-            IQueryable<Book> query = _db.Books;
-            if (bookId.HasValue && bookId > 0)
-            {
-                query = query.Where(b => b.ID == bookId);
-            }
-            else
-            {
-                query = null;
-            }
-            return query;
+            return unitOfWork.BookRepository.GetByID(bookID);
         }
 
         protected void buttonAddToCart_Command(object sender, CommandEventArgs e)
@@ -55,9 +47,9 @@ namespace BCM.WebFormsApplication
         //{
         //    var _db = new BCM.DAL.ApplicationDbContext();
         //    IQueryable<Book> query = _db.Books;
-        //    if (bookId.HasValue && bookId > 0)
+        //    if (bookID.HasValue && bookID > 0)
         //    {
-        //        query = query.Where(b => b.ID == bookId);
+        //        query = query.Where(b => b.ID == bookID);
         //    }
         //    else if (!String.IsNullOrEmpty(bookTitle))
         //    {

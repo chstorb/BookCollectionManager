@@ -22,7 +22,7 @@ namespace BCM.WebFormsApplication.Account
             {
                 IdentityHelper.SignIn(manager, user, isPersistent: false);
 
-                using (BCM.WebFormsApplication.Logic.ShoppingCartActions usersShoppingCart = new BCM.WebFormsApplication.Logic.ShoppingCartActions())
+                using (BCM.WebFormsApplication.BLL.ShoppingCartActions usersShoppingCart = new BCM.WebFormsApplication.BLL.ShoppingCartActions())
                 {
                     String cartId = usersShoppingCart.GetCartId();
                     usersShoppingCart.MigrateCart(cartId, user.Id);
