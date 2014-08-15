@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 namespace BCM.WebFormsApplication.Checkout
 {
     using BCM.Model;
-    using BCM.WebFormsApplication.Logic;
+    using BCM.WebFormsApplication.BLL;
 
     public partial class CheckoutComplete : System.Web.UI.Page
     {
@@ -62,8 +62,8 @@ namespace BCM.WebFormsApplication.Checkout
                     }
 
                     // Clear shopping cart.
-                    using (BCM.WebFormsApplication.Logic.ShoppingCartActions usersShoppingCart =
-                        new BCM.WebFormsApplication.Logic.ShoppingCartActions())
+                    using (BCM.WebFormsApplication.BLL.ShoppingCartActions usersShoppingCart =
+                        new BCM.WebFormsApplication.BLL.ShoppingCartActions())
                     {
                         usersShoppingCart.EmptyCart();
                     }
