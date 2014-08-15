@@ -40,7 +40,7 @@ namespace BCM.DAL.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            
+
             //RoleActions.createAdmin(context);
             //RoleActions.createUserAndRole(context);
 
