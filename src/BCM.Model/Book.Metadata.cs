@@ -18,6 +18,9 @@ namespace BCM.Model
     {
         private BookMetadata() { }
 
+        [ScaffoldColumn(false)]
+        public int ID { get; set; }
+
         [Display(Name = "Title", ResourceType = typeof(Resources.Resources))]
         [Required(ErrorMessageResourceType = typeof(Resources.Resources),
             ErrorMessageResourceName = "FieldRequired")]
