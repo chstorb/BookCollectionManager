@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 namespace BCM.WebFormsApplication
 {
     using BCM.Model;
-    using BCM.WebFormsApplication.Logic;
+    using BCM.WebFormsApplication.BLL;
     using System.Collections.Specialized;
 
     public partial class ShoppingCart : System.Web.UI.Page

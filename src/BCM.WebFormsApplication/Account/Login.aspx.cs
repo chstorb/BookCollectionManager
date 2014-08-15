@@ -37,7 +37,7 @@ namespace BCM.WebFormsApplication.Account
                 {
                     IdentityHelper.SignIn(manager, user, RememberMe.Checked);
 
-                    BCM.WebFormsApplication.Logic.ShoppingCartActions usersShoppingCart = new BCM.WebFormsApplication.Logic.ShoppingCartActions();
+                    BCM.WebFormsApplication.BLL.ShoppingCartActions usersShoppingCart = new BCM.WebFormsApplication.BLL.ShoppingCartActions();
                     String cartId = usersShoppingCart.GetCartId();
                     usersShoppingCart.MigrateCart(cartId, UserName.Text);
 

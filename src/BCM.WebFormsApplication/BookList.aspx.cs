@@ -14,29 +14,26 @@ namespace BCM.WebFormsApplication
 
     public partial class BookList : System.Web.UI.Page
     {
+        BLL.UnitOfWork unitOfWork = new BLL.UnitOfWork();
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             
         }
 
-        public IQueryable<Book> GetBooks([QueryString("id")] int? categoryId)
+        public IEnumerable<Book> GetBooks([QueryString("categoryID")] int? categoryID)
         {
-            var _db = new BCM.DAL.ApplicationDbContext();
-            IQueryable<Category> query = _db.Categories.Include("Books");
-            if (categoryId.HasValue && categoryId > 1)
+            if (categoryID.HasValue && categoryID > 1)
             {
-                query = query.Where(c => c.ID == categoryId);
-            }
-            IQueryable<Book> books = (IQueryable<Book>)query.SelectMany(c => c.Books);
-            return books;
+                return unitOfWork.BookRepository.GetBooksByCategoryId(categoryID ?? 1);
+            }            
+            return unitOfWork.BookRepository.Get();
         }
 
-        //public IQueryable<Book> GetBooks(
-        //                    [QueryString("id")] int? categoryId,
-        //                    [RouteData] string categoryName)
+        //public IQueryable<Book> GetBooks([QueryString("id")] int? categoryId,
+        //                                 [RouteData] string categoryName)
         //{
-        //    var _db = new BCM.DAL.ApplicationDbContext();
-        //    IQueryable<Category> query = _db.Categories.Include("Books");
+        //    IQueryable<Category> query = db.Categories.Include("Books");
         //    if (categoryId.HasValue && categoryId > 1)
         //    {
         //        query = query.Where(c => c.ID == categoryId);

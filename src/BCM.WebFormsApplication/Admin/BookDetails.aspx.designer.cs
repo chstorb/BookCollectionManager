@@ -7,18 +7,18 @@
 // </automatisch generiert>
 //------------------------------------------------------------------------------
 
-namespace BCM.WebFormsApplication {
+namespace BCM.WebFormsApplication.Admin {
     
     
-    public partial class BookList {
+    public partial class BookDetail {
         
         /// <summary>
-        /// listViewBookList-Steuerelement
+        /// formViewBookDetails-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Um dies zu ändern, verschieben Sie die Felddeklaration aus der Designerdatei in eine Code-Behind-Datei.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView listViewBookList;
+        protected global::System.Web.UI.WebControls.FormView formViewBookDetails;
     }
 }
