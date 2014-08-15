@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 namespace BCM.WebFormsApplication.Checkout
 {
     using BCM.Model;
-    using BCM.WebFormsApplication.Logic;
+    using BCM.WebFormsApplication.BLL;
 
     public partial class CheckoutReview : System.Web.UI.Page
     {
@@ -65,7 +65,7 @@ namespace BCM.WebFormsApplication.Checkout
                     _db.SaveChanges();
 
                     // Get the shopping cart items and process them.
-                    using (BCM.WebFormsApplication.Logic.ShoppingCartActions usersShoppingCart = new BCM.WebFormsApplication.Logic.ShoppingCartActions())
+                    using (BCM.WebFormsApplication.BLL.ShoppingCartActions usersShoppingCart = new BCM.WebFormsApplication.BLL.ShoppingCartActions())
                     {
                         List<CartItem> myOrderList = usersShoppingCart.GetCartItems();
 
