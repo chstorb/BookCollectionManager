@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace BCM.WebFormsApplication.Checkout
 {
-    using BCM.WebFormsApplication.Logic;
+    using BCM.WebFormsApplication.BLL;
 
     public partial class CheckoutStart : System.Web.UI.Page
     {
