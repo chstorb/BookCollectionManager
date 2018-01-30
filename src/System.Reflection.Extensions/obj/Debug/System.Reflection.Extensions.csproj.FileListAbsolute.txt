@@ -1,0 +1,6 @@
+D:\github\BookCollectionManager\src\System.Reflection.Extensions\bin\Debug\System.Reflection.Extensions.dll
+D:\github\BookCollectionManager\src\System.Reflection.Extensions\bin\Debug\System.Reflection.Extensions.pdb
+D:\github\BookCollectionManager\src\System.Reflection.Extensions\obj\Debug\System.Reflection.Extensions.csprojResolveAssemblyReference.cache
+D:\github\BookCollectionManager\src\System.Reflection.Extensions\obj\Debug\System.Reflection.Extensions.csproj.CoreCompileInputs.cache
+D:\github\BookCollectionManager\src\System.Reflection.Extensions\obj\Debug\System.Reflection.Extensions.dll
+D:\github\BookCollectionManager\src\System.Reflection.Extensions\obj\Debug\System.Reflection.Extensions.pdb
