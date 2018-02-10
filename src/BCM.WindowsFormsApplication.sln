@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2013 for Windows Desktop
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCM.Common", "BCM.Common\BCM.Common.csproj", "{D90D7A69-8C04-481B-9906-F67915331E89}"
 EndProject
@@ -17,37 +17,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCM.WindowsFormsApplication
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Windows.Forms.Extensions", "Windows.Forms.Extensions\Windows.Forms.Extensions.csproj", "{08237534-F9C9-4CA7-A0BA-EA613BFBC1B5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2A00CF2B-ABBE-4420-9DF2-86885F836F75}"
+	ProjectSection(SolutionItems) = preProject
+		..\License.txt = ..\License.txt
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 5
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs14
-		SccProjectUniqueName0 = BCM.Common\\BCM.Common.csproj
-		SccProjectName0 = BCM.Common
-		SccAuxPath0 = https://tfs.codeplex.com/tfs/tfs14
-		SccLocalPath0 = BCM.Common
-		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName1 = BCM.Diagnostics\\BCM.Diagnostics.csproj
-		SccProjectName1 = BCM.Diagnostics
-		SccAuxPath1 = https://tfs.codeplex.com/tfs/tfs14
-		SccLocalPath1 = BCM.Diagnostics
-		SccProvider1 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName2 = BCM.Resources\\BCM.Resources.csproj
-		SccProjectName2 = BCM.Resources
-		SccAuxPath2 = https://tfs.codeplex.com/tfs/tfs14
-		SccLocalPath2 = BCM.Resources
-		SccProvider2 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName3 = BCM.Model\\BCM.Model.csproj
-		SccProjectName3 = BCM.Model
-		SccAuxPath3 = https://tfs.codeplex.com/tfs/tfs14
-		SccLocalPath3 = BCM.Model
-		SccProvider3 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName4 = BCM.DAL\\BCM.DAL.csproj
-		SccProjectName4 = BCM.DAL
-		SccAuxPath4 = https://tfs.codeplex.com/tfs/tfs14
-		SccLocalPath4 = BCM.DAL
-		SccProvider4 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -84,5 +60,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {86FCD24D-7513-4377-8E68-E958B912D764}
 	EndGlobalSection
 EndGlobal
